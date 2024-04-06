@@ -54,7 +54,7 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ## 使用方法
 1. GitHub に慣れていない方は，GitHub ページの `<>Code▼` から `Download ZIP` して展開してください．  
 慣れている方は，`git clone` したり `use this template` したり，適宜扱ってください．
-2. PowerShell やターミナルで展開したディレクトリに移り，以下のコマンドを入力することで `main.pdf` が生成される．
+2. PowerShell やターミナルで展開したディレクトリに移り，以下のコマンドを入力することで `main.pdf` が生成されます．
    ```
    typst compile main.typ
    ```
@@ -74,7 +74,7 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ## 参考元
 - (unofficial) IFAC Conference Template for Typst : https://github.com/typst/packages/tree/main/packages/preview/abiding-ifacconf/0.1.0
 - charged-ieee : https://github.com/typst/packages/tree/main/packages/preview/charged-ieee/0.1.0
--	IEEE style as per the 2021 guidelines, V 01.29.2021. : https://editor.citationstyles.org/styleInfo/?styleId=http%3A%2F%2Fwww.zotero.org%2Fstyles%2Fieee
+- IEEE style as per the 2021 guidelines, V 01.29.2021. : https://editor.citationstyles.org/styleInfo/?styleId=http%3A%2F%2Fwww.zotero.org%2Fstyles%2Fieee
 - GitHub Pages へのデプロイ : https://github.com/yukukotani/typst-coins-thesis
 
 ## ライセンス
