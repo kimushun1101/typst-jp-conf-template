@@ -63,7 +63,8 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
     - [Typst LSP](https://marketplace.visualstudio.com/items?itemName=nvarner.typst-lsp)
     - [Typst Preview](https://marketplace.visualstudio.com/items?itemName=mgt19937.typst-preview)
     - [Tasks Shell Input](https://marketplace.visualstudio.com/items?itemName=augustocdias.tasks-shell-input)
-1. Explorer (`Ctrl` + `Shift` + `E`) から `main.typ` を開いた状態で，`Ctrl` + `K` のあと `V` でプレビューを表示．
+1. Explorer (`Ctrl` + `Shift` + `E`) から `main.typ` を開いた状態で，画面右上にある Typst Preview の方の ![view-icon](https://github.com/kimushun1101/typst-jp-conf-template/assets/13430937/a44c52cb-d23a-4fdb-ac9f-dc2b47deb40a) アイコンをクリック (
+ `Ctrl` + `K`) のあと `V` でプレビューを表示．
 2. `Ctrl` + `S` で PDF を生成．
 
 ## 参考元
