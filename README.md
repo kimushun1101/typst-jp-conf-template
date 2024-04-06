@@ -16,7 +16,7 @@ Typst で日本語論文を書くときのテンプレートです．
 | libs　　      | 体裁を整えるライブラリファイル |
 
 
-雰囲気を掴みたい場合には [こちらの Typst Web Application](https://typst.app/project/w41EH6HRoEsXp95IW_y1WK) をお試しください．
+雰囲気を掴みたい場合には [こちらの Typst Web Application](https://typst.app/project/w41EH6HRoEsXp95IW_y1WK) をお試しください．  
 コンパイル済みの資料を確認したいだけでしたら [こちらの GitHub Pages](https://kimushun1101.github.io/typst-jp-conf-template/main.pdf) から確認できます．
 
 ## ローカル開発環境構築
