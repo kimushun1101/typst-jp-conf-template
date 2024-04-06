@@ -1,6 +1,9 @@
 # typst-jp-conf-template
 Typst で日本語論文を書くときのテンプレートです．
 
+[vscode-typst.webm](https://github.com/kimushun1101/typst-jp-conf-template/assets/13430937/f227b85b-0266-417b-a24a-54f28f9a71b8)
+
+
 | ファイル  | 意味                    |
 | -------- | ----------------------- |
 | main.typ | 原稿の Typst ソースコード |
