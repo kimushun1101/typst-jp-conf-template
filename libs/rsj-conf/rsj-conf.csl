@@ -4,7 +4,7 @@
   <info>
     <title>rsj conference</title>
     <title-short>rsj conf</title-short>
-    <id>https://github.com/kimushun1101/typst-conf-jp-template/lib/rsj-conf/rsj-conf.csl</id>
+    <id>https://github.com/kimushun1101/typst-jp-conf-template/blob/main/libs/rsj-conf/rsj-conf.csl</id>
     <link rel="self" href="https://github.com/kimushun1101"/>
     <link href="https://www.rsj.or.jp/pub/jrsj/info/toukou.html" rel="documentation"/>
     <author>

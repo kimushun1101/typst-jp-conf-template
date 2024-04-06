@@ -4,7 +4,7 @@
   <info>
     <title>The Society of Instrument and Control Engineers)</title>
     <title-short>SICE</title-short>
-    <id>https://github.com/kimushun1101/typst-conf-jp-template/lib/mscs/sice.csl</id>
+    <id>https://github.com/kimushun1101/typst-jp-conf-template/blob/main/libs/mscs/sice.csl</id>
     <link href="https://www.sice.or.jp/wp-content/uploads/file/trans/tebiki.pdf" rel="documentation"/>
     <author>
       <name>Shunsuke Kimura</name>

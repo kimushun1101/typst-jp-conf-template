@@ -4,7 +4,7 @@
   <info>
     <title>rengo kouenkai</title>
     <title-short>rengo</title-short>
-    <id>https://github.com/kimushun1101/typst-conf-jp-template/lib/rengo/rengo.csl</id>
+    <id>https://github.com/kimushun1101/typst-jp-conf-template/blob/main/libs/rengo/rengo.csl</id>
     <link rel="self" href="https://github.com/kimushun1101"/>
     <link href="https://www.rsj.or.jp/pub/jrsj/info/toukou.html" rel="documentation"/>
     <author>
