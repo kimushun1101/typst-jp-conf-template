@@ -1,0 +1,37 @@
+# Apache-2.0 license
+# Copyright 2024 Yuku Kotani
+# Refer to https://github.com/yukukotani/typst-coins-thesis/blob/main/.github/workflows/gh-pages.yml
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}main.pdf
+    permissions:
+      pages: write
+      id-token: write
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/configure-pages@v3
+      - name: Install fonts
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y fonts-noto fonts-noto-cjk fonts-noto-cjk-extra
+      - uses: typst-community/setup-typst@v3
+      - name: Compile
+        run: |
+          mkdir ./out
+          typst compile ./main.typ ./out/main.pdf
+      - uses: actions/upload-pages-artifact@v2
+        with:
+          path: ./out
+      - uses: actions/deploy-pages@v1
+        id: deployment
