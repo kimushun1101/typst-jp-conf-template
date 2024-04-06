@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}main.pdf
+      url: ${{ steps.deployment.outputs.page_url }}typst-jp-conf.pdf
     permissions:
       pages: write
       id-token: write
@@ -29,7 +29,7 @@ jobs:
       - name: Compile
         run: |
           mkdir ./out
-          typst compile ./main.typ ./out/main.pdf
+          typst compile ./main.typ ./out/typst-jp-conf.pdf
       - uses: actions/upload-pages-artifact@v2
         with:
           path: ./out
