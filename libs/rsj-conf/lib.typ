@@ -12,8 +12,9 @@
   set document(title: title)
 
   // Set the Fonts
-  let gothic = ("MS PGothic", "IPAexGothic", "Noto Sans CJK JP", "Hiragino Kaku Gothic Pro")
-  let mincho = ("MS PMincho", "IPAexMincho", "Noto Serif CJK JP", "Hiragino Mincho Pro")
+  let gothic = ("MS PGothic", "Hiragino Kaku Gothic Pro", "IPAexGothic", "Noto Sans CJK JP")
+  let mincho = ("MS PMincho", "Hiragino Mincho Pro", "IPAexMincho", "Noto Serif CJK JP")
+  let english = ("Times New Roman", "New Computer Modern")
 
   // Configure the page.
   set page(
@@ -22,7 +23,7 @@
   )
 
   set text(size: 10pt, font: mincho)
-  // show regex("[0-9a-zA-Z]"): set text(font: "New Computer Modern Math")
+  // show regex("[0-9a-zA-Z]"): set text(font: english)
   set par(leading: 0.55em, first-line-indent: 1em, justify: true)
   show par: set block(spacing: 0.55em)
 
@@ -104,7 +105,7 @@
       columns: (0.7cm, 1fr, 0.7cm),
       [],
       [
-        #set text(10pt, font: "New Computer Modern")
+        #set text(10pt, font: english)
         #h(1em) #abstract
       ],
       []
@@ -121,7 +122,7 @@
   // Display bibliography.
   if bibliography != none {
     show std-bibliography: set text(9pt)
-    show regex("[0-9a-zA-Z]"): set text(font: "New Computer Modern")
+    show regex("[0-9a-zA-Z]"): set text(font: english)
     set std-bibliography(title:  align(center, text(11pt)[参　考　文　献]), style: "rsj-conf.csl")
     bibliography
   }

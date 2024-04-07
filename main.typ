@@ -98,7 +98,7 @@ VS Code の拡張機能である Typst LSP と Typst Preview をインストー�
 アブストラクトは左右に 0.7 cm 余白を取っています．
 
 フォントの設定は @tab:fonts の通りです．
-ここで，ゴシック体とは "MS PGothic", "IPAexGothic", "Noto Sans CJK JP" のいずれか，明朝体とは "MS PMincho", "IPAexMincho", "Noto Serif CJK JP" のいずれかで見つかるものが採用されます．
+ここで，ゴシック体とは "MS PGothic", "Hiragino Kaku Gothic Pro", "IPAexGothic", "Noto Sans CJK JP" のいずれか，明朝体とは ""MS PMincho", "Hiragino Mincho Pro", "IPAexMincho", "Noto Serif CJK JP" のいずれかで見つかるものが採用されます．
 これらのフォントがお使いのコンピュータになければインストールするか，代わりに使いたいフォントがあればソースコードの方に追加してください．
 以下のコマンドで使用可能なフォント一覧を確認できます．
 #code(
@@ -119,9 +119,9 @@ VS Code の拡張機能である Typst LSP と Typst Preview をインストー�
       [フォント],
     ),
     table.hline(),
-    [#text(18pt, "タイトル", font: ("MS PGothic", "Noto Sans CJK JP", "IPAexGothic"))], [18], [ゴシック体],
-    [#text(12pt, "著者名", font: ("MS PGothic", "Noto Sans CJK JP", "IPAexGothic"))], [12], [ゴシック体],
-    [#text(12pt, "章タイトル", font: ("MS PGothic", "Noto Sans CJK JP", "IPAexGothic"))], [12], [ゴシック体],
+    [#text(18pt, "タイトル", font: ("MS PGothic", "Hiragino Kaku Gothic Pro", "IPAexGothic", "Noto Sans CJK JP"))], [18], [ゴシック体],
+    [#text(12pt, "著者名", font: ("MS PGothic", "Hiragino Kaku Gothic Pro", "IPAexGothic", "Noto Sans CJK JP"))], [12], [ゴシック体],
+    [#text(12pt, "章タイトル", font: ("MS PMincho", "Hiragino Mincho Pro", "IPAexMincho", "Noto Serif CJK JP"))], [12], [ゴシック体],
     [節，小節，本文], [10], [明朝体],
     [#text(9pt, "参考文献")], [9], [明朝体],
   )
