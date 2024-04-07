@@ -1,6 +1,7 @@
-# typst-jp-conf-template
 ![Deploy workflow](https://github.com/kimushun1101/typst-jp-conf-template/actions/workflows/release.yml/badge.svg)
 ![Deploy workflow](https://github.com/kimushun1101/typst-jp-conf-template/actions/workflows/gh-pages.yml/badge.svg)
+
+# typst-jp-conf-template
 
 Typst で日本語論文を書くときのテンプレートです．
 
