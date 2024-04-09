@@ -23,45 +23,9 @@ Typst で日本語論文を書くときのテンプレートです．
 雰囲気を掴みたい場合には [こちらの Typst Web Application](https://typst.app/project/w41EH6HRoEsXp95IW_y1WK) をお試しください．  
 コンパイル済みの資料を確認したいだけでしたら [こちらの GitHub Pages](https://kimushun1101.github.io/typst-jp-conf-template/typst-jp-conf.pdf) からお読みできます．
 
-## ローカル開発環境構築
-[Typst](https://typst.app/) をインストール方法を示します．  
-[Typst の GitHubページ](https://github.com/typst/typst) にある通りですが，Typst のローカル環境へのインストールは以下の 3 つのパターンが簡単かと思われます．
-
-### Windows
-PowerShell を開き以下のコマンドを入力する．
-```powershell
-winget install --id Typst.Typst
-```
-`winget` コマンドが有効でない場合には，Microsoft Store から [アプリインストーラー](https://apps.microsoft.com/detail/9nblggh4nns1) をインストールすると使えるようになります．
-
-### Mac
-[Homebrew](https://brew.sh/ja/) を導入して，以下のコマンドを入力する．
-```sh
-brew install typst
-```
-[このページ](https://brew.sh/ja/) の通りですが，Homebrew のインストールは以下のコマンドで行えます．
-```sh
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-```
-
-### Rust を通してインストール
-Ubuntu の場合などはこの方法をオススメします．
-[Rust](https://www.rust-lang.org/ja/tools/install) をインストールして，以下のコマンドを入力する．
-```sh
-cargo install --git https://github.com/typst/typst --locked typst-cli
-```
-[このページ](https://www.rust-lang.org/ja/tools/install) の通りですが，Rust のインストールは以下のコマンドで行えます．
-```sh
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-```
-
 ## 使用方法
-1. GitHub に慣れていない方は，GitHub ページの `<>Code▼` から `Download ZIP` して展開してください．  
+GitHub に慣れていない方は，GitHub ページの `<>Code▼` から `Download ZIP` して展開してください．  
 慣れている方は，`git clone` したり `use this template` したり，適宜扱ってください．
-2. PowerShell やターミナルで展開したディレクトリに移り，以下のコマンドを入力することで `main.pdf` が生成されます．
-   ```
-   typst compile main.typ
-   ```
 
 ### VS Code を使用する場合
 1. [VS Code](https://code.visualstudio.com/) をインストール．
@@ -73,6 +37,12 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 1. Explorer (`Ctrl` + `Shift` + `E`) から `main.typ` を開いた状態で，画面右上にある Typst Preview の方の ![view-icon](https://github.com/kimushun1101/typst-jp-conf-template/assets/13430937/a44c52cb-d23a-4fdb-ac9f-dc2b47deb40a) アイコンをクリック (
  `Ctrl` + `K` のあと `V`) でプレビューを表示．[トップにある動画](#typst-jp-conf-template) の操作です．
 2. `Ctrl` + `S` で PDF を生成．
+
+### 他のエディターで執筆する場合
+
+筆者は試せていませんが，他のエディターでも同様の拡張機能はありそうです．
+また，Typst のインストールおよびコンパイルは，コマンドラインでも行えます．  
+お使いの OS によってインストール方法が異なるため，詳細は[別ページ](docs/native-install.md)にまとめました．
 
 ## 参考元
 - (unofficial) IFAC Conference Template for Typst : https://github.com/typst/packages/tree/main/packages/preview/abiding-ifacconf/0.1.0
