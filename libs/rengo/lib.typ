@@ -1,6 +1,20 @@
 // Workaround for the lack of an `std` scope.
 #let std-bibliography = bibliography
 
+// Set the Fonts
+#let gothic = ("MS PGothic", "Hiragino Kaku Gothic Pro", "IPAexGothic", "Noto Sans CJK JP")
+#let mincho = ("MS PMincho", "Hiragino Mincho Pro", "IPAexMincho", "Noto Serif CJK JP")
+#let english = ("Times New Roman", "New Computer Modern")
+
+// Theorem environment
+#import "@preview/ctheorems:1.1.2": thmplain, thmproof, thmrules
+#let thmjp = thmplain.with(base: {}, separator: [#h(0.5em)], titlefmt: strong, inset: (top: 0em, left: 0em))
+#let definition = thmjp("definition", text(font: gothic)[定義])
+#let lemma = thmjp("lemma",text(font: gothic)[補題])
+#let theorem = thmjp("theorem", text(font: gothic)[定理])
+#let corollary = thmjp("corollary",text(font: gothic)[系])
+#let proof = thmproof("proof", text(font: gothic)[証明], separator: [#h(0.9em)], titlefmt: strong, inset: (top: 0em, left: 0em))
+
 #let rengo(
   title: [タイトル],
   authors: [著者],
@@ -14,10 +28,8 @@
   // Set document metadata.
   set document(title: title)
 
-  // Set the Fonts
-  let gothic = ("MS PGothic", "Hiragino Kaku Gothic Pro", "IPAexGothic", "Noto Sans CJK JP")
-  let mincho = ("MS PMincho", "Hiragino Mincho Pro", "IPAexMincho", "Noto Serif CJK JP")
-  let english = ("Times New Roman", "New Computer Modern")
+  // Theorem environment
+  show: thmrules.with(qed-symbol: $square$)
 
   // Configure the page.
   set page(
@@ -96,7 +108,7 @@
 
   // Display the paper's title.
   align(center, text(16pt, title, weight: "bold", font: gothic))
-  v(18pt, weak: true)
+  v(16pt, weak: true)
 
   // Display the authors list.
   align(center, text(12pt, authors, font: mincho))
@@ -137,7 +149,7 @@
   if bibliography != none {
     show std-bibliography: set text(9pt)
     show regex("[0-9a-zA-Z]"): set text(font: english)
-    set std-bibliography(title:  align(center, text(11pt)[参　考　文　献]), style: "rengo.csl")
+    set std-bibliography(title: text(12pt)[参考文献], style: "rengo.csl")
     bibliography
   }
 }

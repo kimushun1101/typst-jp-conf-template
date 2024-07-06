@@ -1,7 +1,7 @@
 // MIT No Attribution
 // Copyright 2024 Shunsuke Kimura
 
-#import "libs/rsj-conf/lib.typ": rsj-conf
+#import "libs/rsj-conf/lib.typ": rsj-conf, gothic, definition, lemma, theorem, corollary, proof
 #show: rsj-conf.with(
   title: [Typst を使った国内学会論文の書き方 \ - 国内学会予稿集に似せたフォーマットの作成 - ], 
   authors: [◯ 著者姓1 著者名1，著者姓2 著者名2(○○○大学)，著者姓3 著者名3 (□□□株式会社)],
@@ -9,7 +9,7 @@
   bibliography: bibliography("refs.yml", full: false)
 )
 
-// #import "libs/rengo/lib.typ": rengo
+// #import "libs/rengo/lib.typ": rengo, gothic, definition, lemma, theorem, corollary, proof
 // #show: rengo.with(
 //   title: [Typst を使った国内学会論文の書き方 \ - 国内学会予稿集に似せたフォーマットの作成 - ], 
 //   authors: [◯ 著者姓1 著者名1，著者姓2 著者名2(○○○大学)，著者姓3 著者名3 (□□□株式会社)],
@@ -20,7 +20,7 @@
 //   bibliography: bibliography("refs.yml", full: false)
 // )
 
-// #import "libs/mscs/lib.typ": mscs
+// #import "libs/mscs/lib.typ": mscs, gothic, definition, lemma, theorem, corollary, proof
 // #show: mscs.with(
 //   title: [Typst を使った国内学会論文の書き方 \ - 国内学会予稿集に似せたフォーマットの作成 - ], 
 //   authors: [◯ 著者姓1 著者名1，著者姓2 著者名2(○○○大学)，著者姓3 著者名3 (□□□株式会社)],
@@ -33,8 +33,6 @@
 
 // ソースコードブロックを表示するためのパッケージ
 #import "@preview/sourcerer:0.2.1": code
-// URL リンクにアンダーラインを入れる
-#show link: underline
 
 = はじめに
 #text("これは非公式のサンプルです．", fill: rgb(red), weight: "bold")
@@ -45,7 +43,7 @@
 アップロードした PDF がそのまま公開されます．
 というような説明が書かれるであろうテンプレートを作ってみました．
 本稿では，このテンプレートファイルの使い方および Typst による執筆作業の概要について解説します．
-この原稿のソースコードは #link("https://github.com/kimushun1101/typst-jp-conf-template") で公開しております．
+この原稿のソースコードは https://github.com/kimushun1101/typst-jp-conf-template で公開しております．
 
 = テンプレートファイルの使い方
 テンプレートファイルは以下の手順で使うことができます．
@@ -119,9 +117,9 @@ VS Code の拡張機能である Typst LSP と Typst Preview をインストー�
       [フォント],
     ),
     table.hline(),
-    [#text(18pt, "タイトル", font: ("MS PGothic", "Hiragino Kaku Gothic Pro", "IPAexGothic", "Noto Sans CJK JP"))], [18], [ゴシック体],
-    [#text(12pt, "著者名", font: ("MS PGothic", "Hiragino Kaku Gothic Pro", "IPAexGothic", "Noto Sans CJK JP"))], [12], [ゴシック体],
-    [#text(12pt, "章タイトル", font: ("MS PMincho", "Hiragino Mincho Pro", "IPAexMincho", "Noto Serif CJK JP"))], [12], [ゴシック体],
+    [#text(18pt, "タイトル", font: gothic)], [18], [ゴシック体],
+    [#text(12pt, "著者名", font: gothic)], [12], [ゴシック体],
+    [#text(12pt, "章タイトル")], [12], [ゴシック体],
     [節，小節，本文], [10], [明朝体],
     [#text(9pt, "参考文献")], [9], [明朝体],
   )
@@ -129,11 +127,34 @@ VS Code の拡張機能である Typst LSP と Typst Preview をインストー�
 
 今回使用しているテンプレートは "rsj-conf/lib.typ" に記載されています．
 このテンプレートのソースコードは charge-ieee と abiding-ifacconf というテンプレートを参考にして，第41回日本ロボット学会学術講演会のフォーマットに近づけて作成しました．
-テンプレートの検索は Typst Universe (#link("https://typst.app/universe")) ででき，そこで掲載されているテンプレートのソースコードは #link("https://github.com/typst/packages/tree/main/packages/preview") で見ることができます．
+テンプレートの検索は Typst Universe https://typst.app/universe ででき，そこで掲載されているテンプレートのソースコードは https://github.com/typst/packages/tree/main/packages/preview で見ることができます．
 
 == 数式・図・表
 数式番号は @eq:system のように数式の右側に， 図のタイトルは "@fig:quadratic タイトル名"のように図の下部に，表のタイトルは "@tab:fonts タイトル名" のように図の上部につきます．
 投稿先に応じてキャプションの言語は日本語や英語で指定されるかと思いますので，指示に従ってください．
+
+== 定理環境
+以下は，theorem 環境の使用例です．
+現バージョンでは日本語に太字が使えない変わりに，フォントをゴシックにすることでそれっぽく見せています．
+
+#definition("用語 A")[
+  用語 A の定義を書きます．
+]<def:definition1>
+#lemma[
+  補題を書きます．タイトルは省力することもできます．
+]<lem:lemma1>
+#lemma("補題 C")[
+  補題を書きます．番号は定義や補題ごとに 1 からカウントします．
+]<lem:lemma2>
+#theorem("定理 D")[
+  ここに定理を書きます．
+]<thm:theorem1>
+#corollary[
+  系を書きます．@def:definition1 のように，ラベルで参照することもできます．
+]
+#proof([@thm:theorem1 の証明])[
+  証明を書きます．証明終了として□印をつけています．
+]
 
 == 特殊な章
 謝辞と参考文献は他の章とは異なり，章番号が自動でつかないように設定しています．
@@ -194,7 +215,7 @@ Typst Universe から自動でインストールされたものを使ってお�
 改段落は LaTeX と同じく改行を 2 つ以上挟みます．
 数字つき箇条書きは `+` で，数字なしの箇条書きは `-` を文頭につけて書くことができます．
 テキストの装飾は text 関数で行えます．
-LaTeX に慣れている方は，Typst 公式ページの #link("https://typst.app/docs/guides/guide-for-latex-users/") を読むと雰囲気がつかめると思います．
+LaTeX に慣れている方は，Typst 公式ページの https://typst.app/docs/guides/guide-for-latex-users/ を読むと雰囲気がつかめると思います．
 
 == 数式
 
@@ -271,25 +292,28 @@ $ u = K_P e + K_I integral_0^t e d t $ <eq:PI-controller>
           [フォント],
         ),
         table.hline(),
-        [タイトル], [18], [#text(18pt, "ゴシック体", font: ("MS PMincho", "Noto Sans CJK JP", "IPAexGothic"))],
-        [著者名], [12], [#text(12pt, "ゴシック体", font: ("MS PMincho", "Noto Sans CJK JP", "IPAexGothic"))],
-        [章], [12], [#text(12pt, "ゴシック体", font: ("MS PMincho", "Noto Sans CJK JP", "IPAexGothic"))],
-        [本文], [10], [明朝体],
+        [#text(18pt, "タイトル", font: gothic)], [18], [ゴシック体],
+        [#text(12pt, "著者名", font: gothic)], [12], [ゴシック体],
+        [#text(12pt, "章タイトル")], [12], [ゴシック体],
+        [節，小節，本文], [10], [明朝体],
+        [#text(9pt, "参考文献")], [9], [明朝体],
       )
     ) <tab:fonts>
   ```
 )
 table の columns の数に応じて，文字列の配列が自動的に整列されます．
 `stroke: none` は枠線を消しています．`table.hline()` を挟むとその位置に横線を引けます．
+ここで，`gothic` は `lib.typ` て定義されています．
+他のテンプレートを使用する場合には注意をしてください．
 
 == 参考文献
 参考文献は `refs.yml` に記載してください．
 Hayagriva という YAML 形式のフォーマットに従っています．
 編集するだけであれば特に解説する必要はないと思います．
-詳細が気になる方は #link("https://github.com/typst/hayagriva") をご参照ください．
+詳細が気になる方は https://github.com/typst/hayagriva をご参照ください．
 参考文献の体裁は `libs/rsj-conf/bib.csl` で制御しています．
 これは Citation Style Language という XML 形式で記述されております．
-CSL ファイルは著者が編集する必要はありませんが，詳細が気になる方は #link("https://citationstyles.org/") をご参照ください．
+CSL ファイルは著者が編集する必要はありませんが，詳細が気になる方は https://citationstyles.org/ をご参照ください．
 日本語論文として重要な点は，CSL ファイルでは Hayagriva で記述された `language` の属性を見て，著者表示を"カンマ区切りのみ"にするか"カンマ区切り+最終著者の前にand" にするかを決定している点です．
 したがって，英語文献だけでしたら YAML ファイルの代わりに bib ファイルも使用することができます．
 
