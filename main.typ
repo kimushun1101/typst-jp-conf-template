@@ -46,9 +46,19 @@
 この原稿のソースコードは https://github.com/kimushun1101/typst-jp-conf-template で公開しております．
 
 = テンプレートファイルの使い方
-テンプレートファイルは以下の手順で使うことができます．
+GitHub に慣れていればテンプレートリポジトリを使用して，新しいリポジトリを作成してクローン．不慣れであれば zip ダウンロードして展開してください．
 
-== Typst のインストール
+テンプレートファイルは以下の２つの方法で実行できることを確認しています．
++ VS Code とその拡張機能を使う
++ 好みのエディターで編集した後 CLI (Command Line Interface) でビルドする
+
+== Visual Studio Code による執筆
+コマンドライン入力に忌避感のある方は（またそうでない方も） Visual Studio Code (VS Code) の使用をオススメします．
+VS Code の拡張機能である Tinymist Typst をインストールすれば，編集中においても現在の出力結果を常に確認することができます．
+また，`.vscode/settings.json` にて保存と同時に PDF ファイルが作成される設定にしております．
+
+== Typst CLI によるビルド
+=== インストール
 - Windows の場合\ Windows PowerShell から以下のコマンドでインストールできる．
 #code(
   ```sh
@@ -73,19 +83,12 @@
   cargo install --git https://github.com/typst/typst --locked typst-cli
   ```
 )
-
-== サンプルのビルド
-+ GitHub に慣れていればテンプレートリポジトリを使用して，新しいリポジトリを作成してクローン．不慣れであれば zip ダウンロードして解凍してください．
-+ シェルで対象のディレクトリに移り #code(
+=== ビルド
+シェルで対象のディレクトリに移り #code(
   ```sh
   typst compile main.typ
   ```
 ) とコマンドすれば main.pdf をビルドできます．
-
-== Visual Studio Code による執筆
-
-コマンドライン入力に忌避感のある方は（またそうでない方も） Visual Studio Code (VS Code) の使用をオススメします．
-VS Code の拡張機能である Typst LSP と Typst Preview をインストールすれば，保存と同時に PDF ファイルが作成され，編集中においても現在の出力結果を常に確認することができます．
 
 = 原稿の体裁
 
