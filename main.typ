@@ -211,7 +211,7 @@ Typst Universe から自動でインストールされたものを使ってお�
 このフォーマットですと，`etitle`, `eauthors`, `keywords` が追加されており，それぞれ英語タイトル，英語著者名，キーワードを意味しています．
 `keywords` は`()` のリスト形式で指定されていることに注意してください．
 
-逆にいうと，投稿先によって変更しなければ行けない部分はここだけです．
+`#import` でテンプレートの関数を持ってくるところと，その関数を使用するところ以外の本文部分のコードはテンプレートの変更に応じて変更する必要はありません．
 
 == 基本的な文法
 章は `=`，節は `==`，小節は `===` で始めます．
@@ -346,6 +346,20 @@ table の columns の数に応じて，文字列の配列が自動的に整列�
 #code(
   ```typ
     #import "libs/rsj-conf/lib.typ": rsj-conf, gothic, definition, lemma, theorem, corollary, proof
+  ```
+)
+さらに元をたどると `lib.typ` で ctheorems パッケージ (https://typst.app/universe/package/ctheorems) をインポートして使用しております．
+
+#code(
+  ```typ
+    // Theorem environment
+    #import "@preview/ctheorems:1.1.2": thmplain, thmproof, thmrules
+    #let thmjp = thmplain.with(base: {}, separator: [#h(0.5em)], titlefmt: strong, inset: (top: 0em, left: 0em))
+    #let definition = thmjp("definition", text(font: gothic)[定義])
+    #let lemma = thmjp("lemma",text(font: gothic)[補題])
+    #let theorem = thmjp("theorem", text(font: gothic)[定理])
+    #let corollary = thmjp("corollary",text(font: gothic)[系])
+    #let proof = thmproof("proof", text(font: gothic)[証明], separator: [#h(0.9em)], titlefmt: strong, inset: (top: 0em, left: 0em))
   ```
 )
 
