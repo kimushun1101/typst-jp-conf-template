@@ -306,8 +306,48 @@ $ u = K_P e + K_I integral_0^t e d t $ <eq:PI-controller>
 )
 table の columns の数に応じて，文字列の配列が自動的に整列されます．
 `stroke: none` は枠線を消しています．`table.hline()` を挟むとその位置に横線を引けます．
-ここで，`gothic` は `lib.typ` て定義されています．
+ここで，`gothic` は `lib.typ` で定義されています．
 他のテンプレートを使用する場合には注意をしてください．
+#code(
+  ```typ
+    #import "libs/rsj-conf/lib.typ": rsj-conf, gothic, definition, lemma, theorem, corollary, proof
+  ```
+)
+
+
+== 定理環境
+@def:definition1 や @lem:lemma1 などは以下で記述されております．
+
+#code(
+  ```typ
+    #definition("用語 A")[
+      用語 A の定義を書きます．
+    ]<def:definition1>
+    #lemma[
+      補題を書きます．タイトルは省力することもできます．
+    ]<lem:lemma1>
+    #lemma("補題 C")[
+      補題を書きます．番号は定義や補題ごとに 1 からカウントします．
+    ]<lem:lemma2>
+    #theorem("定理 D")[
+      ここに定理を書きます．
+    ]<thm:theorem1>
+    #corollary[
+      系を書きます．@def:definition1 のように，ラベルで参照することもできます．
+    ]
+    #proof([@thm:theorem1 の証明])[
+      証明を書きます．証明終了として□印をつけています．
+    ]
+  ```
+)
+
+ここで，`definition`, `lemma`, `theorem`, `corollary`, `proof` は `gothic` と同様に `lib.typ` で定義されています．
+他のテンプレートを使用する場合には注意をしてください．
+#code(
+  ```typ
+    #import "libs/rsj-conf/lib.typ": rsj-conf, gothic, definition, lemma, theorem, corollary, proof
+  ```
+)
 
 == 参考文献
 参考文献は `refs.yml` に記載してください．
