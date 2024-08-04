@@ -4,6 +4,8 @@
 # typst-jp-conf-template
 
 Typst で日本語論文を書くときのテンプレートです．
+Typst の概要について知りたい方は，https://github.com/kimushun1101/How-to-use-typst-for-paper-jp をご覧ください．
+
 
 [vscode-typst.webm](https://github.com/kimushun1101/typst-jp-conf-template/assets/13430937/f227b85b-0266-417b-a24a-54f28f9a71b8)
 
