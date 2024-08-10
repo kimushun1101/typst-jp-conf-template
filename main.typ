@@ -1,7 +1,7 @@
 // MIT No Attribution
 // Copyright 2024 Shunsuke Kimura
 
-#import "libs/rsj-conf/lib.typ": rsj-conf, gothic, definition, lemma, theorem, corollary, proof
+#import "libs/rsj-conf/lib.typ": rsj-conf, gothic
 #show: rsj-conf.with(
   title: [Typst を使った国内学会論文の書き方 \ - 国内学会予稿集に似せたフォーマットの作成 - ], 
   authors: [◯ 著者姓1 著者名1，著者姓2 著者名2(○○○大学)，著者姓3 著者名3 (□□□株式会社)],
@@ -9,7 +9,7 @@
   bibliography: bibliography("refs.yml", full: false)
 )
 
-// #import "libs/rengo/lib.typ": rengo, gothic, definition, lemma, theorem, corollary, proof
+// #import "libs/rengo/lib.typ": rengo, gothic
 // #show: rengo.with(
 //   title: [Typst を使った国内学会論文の書き方 \ - 国内学会予稿集に似せたフォーマットの作成 - ], 
 //   authors: [◯ 著者姓1 著者名1，著者姓2 著者名2(○○○大学)，著者姓3 著者名3 (□□□株式会社)],
@@ -20,7 +20,7 @@
 //   bibliography: bibliography("refs.yml", full: false)
 // )
 
-// #import "libs/mscs/lib.typ": mscs, gothic, definition, lemma, theorem, corollary, proof
+// #import "libs/mscs/lib.typ": mscs, gothic
 // #show: mscs.with(
 //   title: [Typst を使った国内学会論文の書き方 \ - 国内学会予稿集に似せたフォーマットの作成 - ], 
 //   authors: [◯ 著者姓1 著者名1，著者姓2 著者名2(○○○大学)，著者姓3 著者名3 (□□□株式会社)],
@@ -33,6 +33,17 @@
 
 // ソースコードブロックを表示するためのパッケージ
 #import "@preview/sourcerer:0.2.1": code
+
+// 定理環境
+#import "@preview/ctheorems:1.1.2": thmplain, thmproof, thmrules
+#let thmjp = thmplain.with(base: {}, separator: [#h(0.5em)], titlefmt: strong, inset: (top: 0em, left: 0em))
+#let definition = thmjp("definition", text(font: gothic)[定義])
+#let lemma = thmjp("lemma",text(font: gothic)[補題])
+#let theorem = thmjp("theorem", text(font: gothic)[定理])
+#let corollary = thmjp("corollary",text(font: gothic)[系])
+#let proof = thmproof("proof", text(font: gothic)[証明], separator: [#h(0.9em)], titlefmt: strong, inset: (top: 0em, left: 0em))
+// Theorem environment
+#show: thmrules.with(qed-symbol: $square$)
 
 = はじめに
 #text("これは非公式のサンプルです．", fill: rgb(red), weight: "bold")
@@ -59,6 +70,7 @@ VS Code の拡張機能である Tinymist Typst をインストールすれば�
 また，`.vscode/settings.json` にて保存と同時に PDF ファイルが作成される設定にしております．
 
 == Typst CLI によるビルド
+
 === インストール
 - Windows の場合\ Windows PowerShell から以下のコマンドでインストールできる．
 #code(
@@ -311,10 +323,9 @@ table の columns の数に応じて，文字列の配列が自動的に整列�
 他のテンプレートを使用する場合には注意をしてください．
 #code(
   ```typ
-    #import "libs/rsj-conf/lib.typ": rsj-conf, gothic, definition, lemma, theorem, corollary, proof
+    #import "libs/rsj-conf/lib.typ": rsj-conf, gothic
   ```
 )
-
 
 == 定理環境
 @def:definition1 や @lem:lemma1 などは以下で記述されております．
@@ -346,7 +357,7 @@ table の columns の数に応じて，文字列の配列が自動的に整列�
 他のテンプレートを使用する場合には注意をしてください．
 #code(
   ```typ
-    #import "libs/rsj-conf/lib.typ": rsj-conf, gothic, definition, lemma, theorem, corollary, proof
+    #import "libs/rsj-conf/lib.typ": rsj-conf, gothic
   ```
 )
 さらに元をたどると `lib.typ` で ctheorems パッケージ (https://typst.app/universe/package/ctheorems) をインポートして使用しております．
@@ -383,7 +394,6 @@ CSL ファイルは著者が編集する必要はありませんが，詳細が�
 引用は "\@label" と記述することで，数式であれば @eq:system，図であれば @fig:quadratic，表であれば @tab:fonts，参考文献であれば @kimura2015asymptotic のように表示されます．
 参考文献は連続して引用すると @kimura2017state @kimura2021control @kimura2020facility @khalil2002control @sugie1999feedback @shimz2022visually と繋げられて表示されます．
 文法上では特に規則はありませんが，個人的にはラベルの命名規則として，図の場合には "fig:" から，表の場合には"tab:" から始めるようにラベル名を設定しており，参考文献のラベルは "著者名発行年タイトルの最初の単語"で名付けております．
-
 
 = おわりに
 筆者の理解や表現が誤っている箇所もあるかと思います．

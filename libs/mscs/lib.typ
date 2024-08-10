@@ -6,15 +6,6 @@
 #let mincho = ("MS PMincho", "Hiragino Mincho Pro", "IPAexMincho", "Noto Serif CJK JP")
 #let english = ("Times New Roman", "New Computer Modern")
 
-// Theorem environment
-#import "@preview/ctheorems:1.1.2": thmplain, thmproof, thmrules
-#let thmjp = thmplain.with(base: {}, separator: [#h(0.5em)], titlefmt: strong, inset: (top: 0em, left: 0em))
-#let definition = thmjp("definition", text(font: gothic)[定義])
-#let lemma = thmjp("lemma",text(font: gothic)[補題])
-#let theorem = thmjp("theorem", text(font: gothic)[定理])
-#let corollary = thmjp("corollary",text(font: gothic)[系])
-#let proof = thmproof("proof", text(font: gothic)[証明], separator: [#h(0.9em)], titlefmt: strong, inset: (top: 0em, left: 0em))
-
 #let mscs(
   title: [タイトル],
   authors: [著者],
@@ -27,9 +18,6 @@
 ) = {
   // Set document metadata.
   set document(title: title)
-
-  // Theorem environment
-  show: thmrules.with(qed-symbol: $square$)
 
   // Configure the page.
   set page(
