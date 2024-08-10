@@ -33,9 +33,11 @@
 
 // ソースコードブロックを表示するためのパッケージ
 #import "@preview/sourcerer:0.2.1": code
+// #import "libs/sourcerer-0.2.1/src/lib.typ": code // 2.3.1 を参照
 
 // 定理環境
 #import "@preview/ctheorems:1.1.2": thmplain, thmproof, thmrules
+// #import "libs/ctheorems-1.1.2/lib.typ": thmplain, thmproof, thmrules  // 2.3.1 を参照
 #let thmjp = thmplain.with(base: {}, separator: [#h(0.5em)], titlefmt: strong, inset: (top: 0em, left: 0em))
 #let definition = thmjp("definition", text(font: gothic)[定義])
 #let lemma = thmjp("lemma",text(font: gothic)[補題])
@@ -96,12 +98,38 @@ VS Code の拡張機能である Tinymist Typst をインストールすれば�
   cargo install --git https://github.com/typst/typst --locked typst-cli
   ```
 )
+
 === ビルド
-シェルで対象のディレクトリに移り #code(
+シェルで対象のディレクトリに移り
+#code(
   ```sh
   typst compile main.typ
   ```
-) とコマンドすれば main.pdf をビルドできます．
+)
+とコマンドすれば main.pdf をビルドできます．
+
+== このパッケージが使えない場合
+ビルドができない場合などのトラブルがございましたら，https://github.com/kimushun1101/typst-jp-conf-template/issues でご相談ください．
+以下に対応方法を記載します．
+
+=== パッケージの自動インストールができない場合
+大学や会社などのプロキシ環境によっては，パッケージの自動インストールがブロックされてしまう可能性がある．
+その場合には Tyspt Universe から圧縮ファイルを手動でダウンロードする．
+本サンプルで使用しているパッケージを入手できるリンクは以下のとおりである．
+- https://typst.app/universe/package/sourcerer
+- https://typst.app/universe/package/ctheorems
+これらの圧縮ファイルを main.typ と同じフォルダーにある libs フォルダーの中に展開した後，以下のようにコメントアウトを付け替えて，それぞれの lib.typ ファイルへのパスを指定する．
+#code(
+  ```typst
+    // ソースコードブロックを表示するためのパッケージ
+    // #import "@preview/sourcerer:0.2.1": code
+    #import "libs/sourcerer-0.2.1/src/lib.typ": code // 2.3.1 を参照
+
+    // 定理環境
+    // #import "@preview/ctheorems:1.1.2": thmplain, thmproof, thmrules
+    #import "libs/ctheorems-1.1.2/lib.typ": thmplain, thmproof, thmrules  // 2.3.1 を参照
+  ```
+)
 
 = 原稿の体裁
 
@@ -122,7 +150,7 @@ VS Code の拡張機能である Tinymist Typst をインストールすれば�
 )
 
 #figure(
-  placement: top,
+  placement: bottom,
   caption: [フォントの設定],
   table(
     columns: 3,
@@ -234,7 +262,6 @@ Typst Universe から自動でインストールされたものを使ってお�
 LaTeX に慣れている方は，Typst 公式ページの https://typst.app/docs/guides/guide-for-latex-users/ を読むと雰囲気がつかめると思います．
 
 == 数式
-
 数式番号をつけるような中央揃えの数式は，最初の`$` の後ろと閉じの`$` の前にスペースを挟み
 #code(
   ```typ
@@ -261,7 +288,6 @@ $ u = K_P e + K_I integral_0^t e d t $ <eq:PI-controller>
 ただし，$K_P$ と $K_I$ はそれぞれ比例ゲイン，積分ゲインとする．
 
 == 図と表
-
 本稿を執筆時のバージョン Typst 0.11.0 では，PNG, JPEG, GIF, SVG の形式のイメージデータを挿入することができます．
 例としては以下の通りです．
 #code(
