@@ -33,6 +33,6 @@ jobs:
           typst compile ./main.typ ./out/typst-jp-conf.pdf
       - uses: actions/upload-artifact@v4
         with:
-          path: ./out
+          path: ./out/typst-jp-conf.pdf
       - uses: actions/deploy-pages@v1
         id: deployment
