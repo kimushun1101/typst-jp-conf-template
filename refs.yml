@@ -14,7 +14,7 @@ kimura2015asymptotic:
 
 # 和文学術論文誌
 kimura2017state:
-    language: jp
+    language: japanese
     type: Article
     title: 状態制約を有する非線形システムに対する状態方程式を保持する変換—システム蘇生変換—
     author: ["木村, 駿介", "中村, 文一", "伊吹, 竜也", "三平, 満司"]
@@ -40,7 +40,7 @@ kimura2021control:
 
 # 国内学会
 kimura2020facility:
-    language: jp
+    language: japanese
     type: Article
     author:  ["木村, 駿介"]
     title: 施設管理システムと自律移動ロボットとの連携実証試験
@@ -61,7 +61,7 @@ khalil2002control:
 
 # 和文書籍
 sugie1999feedback:
-    language: jp
+    language: japanese
     type: Book
     title: フィードバック制御入門
     author: ["杉江, 俊治", "藤田, 政之"]
