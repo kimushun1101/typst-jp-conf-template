@@ -22,10 +22,10 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: actions/configure-pages@v3
-      - name: Install fonts
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y fonts-noto fonts-noto-cjk fonts-noto-cjk-extra
+      # - name: Install fonts
+      #   run: |
+      #     sudo apt-get update
+      #     sudo apt-get install -y fonts-noto fonts-noto-cjk fonts-noto-cjk-extra
       - uses: typst-community/setup-typst@v3
       - name: Compile
         run: |
