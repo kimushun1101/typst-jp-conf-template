@@ -1,3 +1,6 @@
+# Apache-2.0 license
+# Copyright 2024 Yuku Kotani
+# Refer to https://github.com/yukukotani/typst-coins-thesis/blob/main/.github/workflows/gh-pages.yml
 name: Deploy to GitHub Pages
 
 on:
@@ -5,6 +8,7 @@ on:
     branches:
       - main
       - test/gh-actions
+  workflow_dispatch:
 
 jobs:
   deploy:
@@ -16,8 +20,8 @@ jobs:
       pages: write
       id-token: write
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/configure-pages@v5
+      - uses: actions/checkout@v3
+      - uses: actions/configure-pages@v3
       - name: Install fonts
         run: |
           sudo apt-get update
@@ -27,7 +31,7 @@ jobs:
         run: |
           mkdir ./out
           typst compile ./main.typ ./out/typst-jp-conf.pdf
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v2
         with:
           path: ./out
       - uses: actions/deploy-pages@v1
