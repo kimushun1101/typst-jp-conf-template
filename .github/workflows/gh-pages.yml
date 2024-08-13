@@ -34,5 +34,5 @@ jobs:
       - uses: actions/upload-pages-artifact@v2
         with:
           path: ./out
-      - uses: actions/deploy-pages@v1
+      - uses: actions/deploy-pages@v4
         id: deployment
