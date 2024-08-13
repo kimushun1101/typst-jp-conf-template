@@ -31,7 +31,7 @@ jobs:
         run: |
           mkdir ./out
           typst compile ./main.typ ./out/typst-jp-conf.pdf
-      - uses: actions/upload-pages-artifact@v2
+      - uses: actions/upload-artifact@v4
         with:
           path: ./out
       - uses: actions/deploy-pages@v1
