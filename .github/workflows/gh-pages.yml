@@ -17,7 +17,7 @@ jobs:
       id-token: write
     steps:
       - uses: actions/checkout@v4
-      # - uses: actions/configure-pages@v5
+      - uses: actions/configure-pages@v5
       - name: Install fonts
         run: |
           sudo apt-get update
