@@ -1,13 +1,13 @@
 // MIT No Attribution
 // Copyright 2024 Shunsuke Kimura
 
-#import "libs/rsj-conf/lib.typ": rsj-conf, gothic
-#show: rsj-conf.with(
-  title: [Typst を使った国内学会論文の書き方 \ - 国内学会予稿集に似せたフォーマットの作成 - ], 
-  authors: [◯ 著者姓1 著者名1，著者姓2 著者名2(○○○大学)，著者姓3 著者名3 (□□□株式会社)],
-  abstract: [#lorem(80)],
-  bibliography: bibliography("refs.yml", full: false)
-)
+// #import "libs/rsj-conf/lib.typ": rsj-conf, gothic
+// #show: rsj-conf.with(
+//   title: [Typst を使った国内学会論文の書き方 \ - 国内学会予稿集に似せたフォーマットの作成 - ], 
+//   authors: [◯ 著者姓1 著者名1，著者姓2 著者名2(○○○大学)，著者姓3 著者名3 (□□□株式会社)],
+//   abstract: [#lorem(80)],
+//   bibliography: bibliography("refs.yml", full: false)
+// )
 
 // #import "libs/rengo/lib.typ": rengo, gothic
 // #show: rengo.with(
@@ -20,16 +20,16 @@
 //   bibliography: bibliography("refs.yml", full: false)
 // )
 
-// #import "libs/mscs/lib.typ": mscs, gothic
-// #show: mscs.with(
-//   title: [Typst を使った国内学会論文の書き方 \ - 国内学会予稿集に似せたフォーマットの作成 - ], 
-//   authors: [◯ 著者姓1 著者名1，著者姓2 著者名2(○○○大学)，著者姓3 著者名3 (□□□株式会社)],
-//   etitle: [How to Write a Conference Paper in Japanese],
-//   eauthors: [\*A. First, B. Second (○○○ University), and C. Third (□□□ Corporation)],
-//   abstract: [#lorem(80)],
-//   keywords: ([Typst], [conference paper writing], [manuscript format]),
-//   bibliography: bibliography("refs.yml", full: false)
-// )
+#import "libs/mscs/lib.typ": mscs, gothic
+#show: mscs.with(
+  title: [Typst を使った国内学会論文の書き方 \ - 国内学会予稿集に似せたフォーマットの作成 - ], 
+  authors: [◯ 著者姓1 著者名1，著者姓2 著者名2(○○○大学)，著者姓3 著者名3 (□□□株式会社)],
+  etitle: [How to Write a Conference Paper in Japanese],
+  eauthors: [\*A. First, B. Second (○○○ University), and C. Third (□□□ Corporation)],
+  abstract: [#lorem(80)],
+  keywords: ([Typst], [conference paper writing], [manuscript format]),
+  bibliography: bibliography("refs.yml", full: false)
+)
 
 // ソースコードブロックを表示するためのパッケージ
 #import "@preview/sourcerer:0.2.1": code
@@ -140,7 +140,7 @@ VS Code の拡張機能である Tinymist Typst をインストールすれば�
 アブストラクトは左右に 0.7 cm 余白を取っています．
 
 フォントの設定は @tab:fonts の通りです．
-ここで，ゴシック体とは "MS PGothic", "Hiragino Kaku Gothic Pro", "IPAexGothic", "Noto Sans CJK JP" のいずれか，明朝体とは ""MS PMincho", "Hiragino Mincho Pro", "IPAexMincho", "Noto Serif CJK JP" のいずれかで見つかるものが採用されます．
+ここで，ゴシック体とは "BIZ UDPGothic", "MS PGothic", "Hiragino Kaku Gothic Pro", "IPAexGothic", "Noto Sans CJK JP" のいずれか，明朝体とは "BIZ UDPMincho", "MS PMincho", "Hiragino Mincho Pro", "IPAexMincho", "Noto Serif CJK JP" のいずれかで見つかるものが採用されます．
 これらのフォントがお使いのコンピュータになければインストールするか，代わりに使いたいフォントがあればソースコードの方に追加してください．
 以下のコマンドで使用可能なフォント一覧を確認できます．
 #code(
