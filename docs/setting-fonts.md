@@ -11,6 +11,28 @@ sudo apt-get update
 sudo apt-get install -y fonts-noto fonts-noto-cjk fonts-noto-cjk-extra
 ```
 で Noto フォントがインストールできます．
+BIZ UD フォントのインストールは
+```
+# Install BIZUDGothic
+curl -L https://github.com/googlefonts/morisawa-biz-ud-gothic/releases/latest/download/morisawa-biz-ud-gothic-fonts.zip -o morisawa-biz-ud-gothic-fonts.zip
+unzip morisawa-biz-ud-gothic-fonts.zip
+sudo mkdir /usr/local/share/fonts/BIZUDGothic
+sudo mv morisawa-biz-ud-gothic-fonts/fonts/ttf/*.ttf /usr/local/share/fonts/BIZUDGothic/
+rm -rf morisawa-biz-ud-gothic-fonts*
+
+# Install BIZUDMincho
+curl -L https://github.com/googlefonts/morisawa-biz-ud-mincho/releases/latest/download/morisawa-biz-ud-mincho-fonts.zip -o morisawa-biz-ud-mincho-fonts.zip
+unzip morisawa-biz-ud-mincho-fonts.zip
+sudo mkdir /usr/local/share/fonts/BIZUDMincho
+sudo mv morisawa-biz-ud-mincho-fonts/fonts/ttf/*.ttf /usr/local/share/fonts/BIZUDMincho/
+rm -rf morisawa-biz-ud-mincho-fonts*
+
+# Update fonts cache
+fc-cache -vf
+```
+
+
+
 ちなみに GitHub Actions で自動生成される PDF は上記の設定を [.github/workflows/gh-pages.yml](../.github/workflows/gh-pages.yml#L22-L23) で行っております．
 
 以下，本文より引用．
@@ -21,3 +43,10 @@ sudo apt-get install -y fonts-noto fonts-noto-cjk fonts-noto-cjk-extra
 >   ```sh
 >   typst fonts
 >   ```
+
+## フォント選定の理由
+
+1. できるだけデフォルトで入っている
+2. 入っていない場合にはインストールが簡単
+3. プロポーショナルフォントが望ましい
+4. どの OS でも外観を似せたい
