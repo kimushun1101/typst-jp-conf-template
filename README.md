@@ -3,6 +3,7 @@
 
 # typst-jp-conf-template
 
+**このソースコードはTypst version 0.11に対応しています．**
 Typst で日本語論文を書くときのテンプレートです．
 Typst の概要について知りたい方は，https://github.com/kimushun1101/How-to-use-typst-for-paper-jp をご覧ください．
 
