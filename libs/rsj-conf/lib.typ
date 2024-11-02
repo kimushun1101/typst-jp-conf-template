@@ -24,8 +24,7 @@
 
   set text(size: 10pt, font: mincho)
   // show regex("[0-9a-zA-Z]"): set text(font: english)
-  set par(leading: 0.55em, first-line-indent: 1em, justify: true)
-  show par: set block(spacing: 0.55em)
+  set par(leading: 0.55em, first-line-indent: 1em, justify: true, spacing: 0.55em)
 
   // Configure equation numbering and spacing.
   set math.equation(numbering: "(1)")
@@ -51,9 +50,9 @@
 
   // Configure headings.
   set heading(numbering: "1.")
-  show heading: it => locate(loc => {
+  show heading: it => {
     // Find out the final number of the heading counter.
-    let levels = counter(heading).at(loc)
+    let levels = counter(heading).get()
     let deepest = if levels != () {
       levels.last()
     } else {
@@ -71,7 +70,7 @@
         h(8pt, weak: true)
       }
       #it.body
-      #v(13.75pt, weak: true)
+      #v(10pt, weak: true)
     ] else [
       // The other level headings are run-ins.
       #set par(first-line-indent: 0pt)
@@ -84,7 +83,7 @@
       #it.body
       #v(10pt, weak: true)
     ]
-  })
+  }
 
   show figure.where(kind: table): set figure(placement: top, supplement: [表])
   show figure.where(kind: table): set figure.caption(position: top, separator: [ ])

@@ -36,8 +36,8 @@
 // #import "libs/sourcerer-0.2.1/src/lib.typ": code // 2.3.1 を参照
 
 // 定理環境
-#import "@preview/ctheorems:1.1.2": thmplain, thmproof, thmrules
-// #import "libs/ctheorems-1.1.2/lib.typ": thmplain, thmproof, thmrules  // 2.3.1 を参照
+#import "@preview/ctheorems:1.1.3": thmplain, thmproof, thmrules
+// #import "libs/ctheorems-1.1.3/lib.typ": thmplain, thmproof, thmrules  // 2.3.1 を参照
 #let thmjp = thmplain.with(base: {}, separator: [#h(0.5em)], titlefmt: strong, inset: (top: 0em, left: 0em))
 #let definition = thmjp("definition", text(font: gothic)[定義])
 #let lemma = thmjp("lemma",text(font: gothic)[補題])
@@ -126,8 +126,8 @@ VS Code の拡張機能である Tinymist Typst をインストールすれば�
     #import "libs/sourcerer-0.2.1/src/lib.typ": code // 2.3.1 を参照
 
     // 定理環境
-    // #import "@preview/ctheorems:1.1.2": thmplain, thmproof, thmrules
-    #import "libs/ctheorems-1.1.2/lib.typ": thmplain, thmproof, thmrules  // 2.3.1 を参照
+    // #import "@preview/ctheorems:1.1.3": thmplain, thmproof, thmrules
+    #import "libs/ctheorems-1.1.3/lib.typ": thmplain, thmproof, thmrules  // 2.3.1 を参照
   ```
 )
 
@@ -391,7 +391,7 @@ table の columns の数に応じて，文字列の配列が自動的に整列�
 #code(
   ```typ
     // Theorem environment
-    #import "@preview/ctheorems:1.1.2": thmplain, thmproof, thmrules
+    #import "@preview/ctheorems:1.1.3": thmplain, thmproof, thmrules
     #let thmjp = thmplain.with(base: {}, separator: [#h(0.5em)], titlefmt: strong, inset: (top: 0em, left: 0em))
     #let definition = thmjp("definition", text(font: gothic)[定義])
     #let lemma = thmjp("lemma",text(font: gothic)[補題])

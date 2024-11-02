@@ -26,8 +26,7 @@
   )
   set text(size: 10pt, font: mincho)
   // show regex("[0-9a-zA-Z]"): set text(font: "New Computer Modern Math")
-  set par(leading: 0.55em, first-line-indent: 1em, justify: true)
-  show par: set block(spacing: 0.55em)
+  set par(leading: 0.55em, first-line-indent: 1em, justify: true, spacing: 0.55em)
 
   // Configure equation numbering and spacing.
   set math.equation(numbering: "(1)")
@@ -53,9 +52,9 @@
 
   // Configure headings.
   set heading(numbering: "1.")
-  show heading: it => locate(loc => {
+  show heading: it => {
     // Find out the final number of the heading counter.
-    let levels = counter(heading).at(loc)
+    let levels = counter(heading).get()
     let deepest = if levels != () {
       levels.last()
     } else {
@@ -86,7 +85,7 @@
       #it.body
       #v(10pt, weak: true)
     ]
-  })
+  }
 
   // Configure figures.
   show figure.where(kind: table): set figure(placement: top, supplement: [Table])
