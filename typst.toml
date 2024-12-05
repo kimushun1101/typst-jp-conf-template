@@ -1,0 +1,16 @@
+[package]
+name = "typst-jp-conf-template"
+version = "0.0.2"
+compiler = "0.12.0"
+entrypoint = "libs/mscs/lib.typ"
+repository = "https://github.com/kimushun1101/typst-jp-conf-template"
+authors = ["Shunsuke Kimura <https://sites.google.com/view/kimushun>"]
+license = "MIT-0"
+description = "Typst で日本語論文を書くときのテンプレート "
+keywords = ["japanese", "conference"]
+categories = ["thesis"]
+
+[template]
+path = ""
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"
