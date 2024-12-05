@@ -46,6 +46,22 @@ GitHub に慣れていない方は，GitHub ページの `<>Code▼` から `Dow
 また，Typst のインストールおよびコンパイルはコマンドラインでも行えます．  
 お使いの OS によってインストール方法が異なるため，詳細は[別ページ](docs/native-install.md)にまとめました．
 
+## Typst Package について
+
+`typst.toml` には、[Typst Packages](https://github.com/typst/packages) にある様式の通りにプロパティが登録されています。これは、Typst Universe にテンプレートファイルを公開し、コンパイラが `typst init` コマンドを実行するためのメタデータです。ただし、現時点では、Typst Universe に当該テンプレートは登録されていません。
+
+このリポジトリの中身を特定のディレクトリ（フォルダ）に配置することで、ユーザのどのディレクトリからでもテンプレートファイルを作成することができます。特定のディレクトリとは以下の通りです。
+
+- ~/.local/share/typst/packages/{namespace}/typst-jp-conf-template/{version} # Linux
+- ~/Library/Application Support/typst/packages/{namespace}/typst-jp-conf-template/{version} # macOS (Default Installer)
+- %APPDATA%/typst/packages/{namespace}/typst-jp-conf-template/{version} # Windows
+
+上記を適用した状態で、以下のコマンドを入力すると、ディレクトリが初期化されます。
+
+```
+typst init @{namespace}/typst-jp-conf-template
+```
+
 ## 参考元
 - (unofficial) IFAC Conference Template for Typst : https://github.com/typst/packages/tree/main/packages/preview/abiding-ifacconf/0.1.0
 - charged-ieee : https://github.com/typst/packages/tree/main/packages/preview/charged-ieee/0.1.0
