@@ -52,14 +52,14 @@ GitHub に慣れていない方は，GitHub ページの `<>Code▼` から `Dow
 
 このリポジトリの中身を特定のディレクトリ（フォルダ）に配置することで、ユーザのどのディレクトリからでもテンプレートファイルを作成することができます。特定のディレクトリとは以下の通りです。
 
-- ~/.local/share/typst/packages/{namespace}/typst-jp-conf-template/{version} # Linux
-- ~/Library/Application Support/typst/packages/{namespace}/typst-jp-conf-template/{version} # macOS (Default Installer)
-- %APPDATA%/typst/packages/{namespace}/typst-jp-conf-template/{version} # Windows
+- ~/.local/share/typst/packages/local/typst-jp-conf-template/{version} # Linux
+- ~/Library/Application Support/typst/packages/local/typst-jp-conf-template/{version} # macOS (Default Installer)
+- %APPDATA%/typst/packages/local/typst-jp-conf-template/{version} # Windows
 
 上記を適用した状態で、以下のコマンドを入力すると、ディレクトリが初期化されます。
 
 ```
-typst init @{namespace}/typst-jp-conf-template
+typst init @local/typst-jp-conf-template
 ```
 
 ## 参考元
