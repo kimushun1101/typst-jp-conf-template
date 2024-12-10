@@ -8,7 +8,7 @@ authors = ["Shunsuke Kimura <https://github.com/kimushun1101>", "ささくらり
 license = "MIT-0"
 description = "Typst で日本語論文を書くときのテンプレート "
 keywords = ["japanese", "conference"]
-categories = ["thesis"]
+categories = ["paper"]
 
 [template]
 path = ""
