@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<style xmlns="http://purl.org/net/xbiblio/csl" class="in-text" version="1.0" default-locale="en-US">
+<style xmlns="http://purl.org/net/xbiblio/csl" class="in-text" version="1.0" default-locale="ja-JP">
   <!-- This style was edited with the Visual CSL Editor (https://editor.citationstyles.org/visualEditor/) -->
   <info>
-    <title>The Society of Instrument and Control Engineers)</title>
+    <title>The Society of Instrument and Control Engineers</title>
     <title-short>SICE</title-short>
     <id>https://github.com/kimushun1101/typst-jp-conf-template/blob/main/libs/mscs/sice.csl</id>
     <link href="https://www.sice.or.jp/wp-content/uploads/file/trans/tebiki.pdf" rel="documentation"/>
@@ -16,6 +16,11 @@
     <updated>2024-03-30T14:26:30+00:00</updated>
     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
   </info>
+  <locale xml:lang="en"> <!-- なぜかenしか効かない -->
+    <terms>
+      <term name="page-range-delimiter">/</term>
+    </terms>
+  </locale>
   <macro name="edition">
     <choose>
       <if type="bill book chapter graphic legal_case legislation motion_picture paper-conference report song" match="any">
@@ -117,21 +122,17 @@
   <macro name="access">
     <choose>
       <if type="webpage" match="any">
+        <text variable="URL" prefix=" URL: " suffix=" "/>
         <date variable="accessed" prefix="Accessed on ">
-          <date-part name="day" suffix="."/>
+          <date-part name="year" form="long" suffix="."/>
           <date-part name="month" form="numeric-leading-zeros" suffix="."/>
-          <date-part name="year" form="long"/>
+          <date-part name="day" suffix="."/>
         </date>
-        <text variable="URL" prefix=" URL: "/>
       </if>
     </choose>
   </macro>
   <macro name="page">
-    <group>
-      <!-- <label variable="page" form="short"/> -->
-      <text variable="page-first" suffix="/"/>
-      <!-- <text variable="page-last"/> it is not supported! -->
-    </group>
+    <text variable="page"/>
   </macro>
   <citation collapse="citation-number">
     <sort>
