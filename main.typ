@@ -32,8 +32,22 @@
 //   latin-font: latin
 // )
 
-#import "libs/rengo/lib.typ": rengo
-#show: rengo.with(
+// #import "libs/rengo/lib.typ": rengo
+// #show: rengo.with(
+//   title: [Typst を使った国内学会論文の書き方 \ - 国内学会予稿集に似せたフォーマットの作成 - ], 
+//   authors: [◯ 著者姓1 著者名1，著者姓2 著者名2(○○○大学)，著者姓3 著者名3 (□□□株式会社)],
+//   etitle: [How to Write a Conference Paper in Japanese],
+//   eauthors: [\*A. First, B. Second (○○○ Univ.), and C. Third (□□□ Corp.)],
+//   abstract: [#lorem(80)],
+//   keywords: ([Typst], [conference paper writing], [manuscript format]),
+//   bibliography: bibliography("refs.yml", full: false),
+//   gothic-font: gothic,
+//   mincho-font: mincho,
+//   latin-font: latin
+// )
+
+#import "libs/mscs/lib.typ": mscs
+#show: mscs.with(
   title: [Typst を使った国内学会論文の書き方 \ - 国内学会予稿集に似せたフォーマットの作成 - ], 
   authors: [◯ 著者姓1 著者名1，著者姓2 著者名2(○○○大学)，著者姓3 著者名3 (□□□株式会社)],
   etitle: [How to Write a Conference Paper in Japanese],
@@ -45,17 +59,6 @@
   mincho-font: mincho,
   latin-font: latin
 )
-
-// #import "libs/mscs/lib.typ": mscs, gothic
-// #show: mscs.with(
-//   title: [Typst を使った国内学会論文の書き方 \ - 国内学会予稿集に似せたフォーマットの作成 - ], 
-//   authors: [◯ 著者姓1 著者名1，著者姓2 著者名2(○○○大学)，著者姓3 著者名3 (□□□株式会社)],
-//   etitle: [How to Write a Conference Paper in Japanese],
-//   eauthors: [\*A. First, B. Second (○○○ University), and C. Third (□□□ Corporation)],
-//   abstract: [#lorem(80)],
-//   keywords: ([Typst], [conference paper writing], [manuscript format]),
-//   bibliography: bibliography("refs.yml", full: false)
-// )
 
 // 定理環境
 #import "@preview/ctheorems:1.1.3": thmplain, thmproof, thmrules
