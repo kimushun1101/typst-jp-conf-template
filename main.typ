@@ -4,23 +4,26 @@
 // Set the Fonts
 // #let gothic = ("BIZ UDPGothic", "MS PGothic", "Hiragino Kaku Gothic Pro", "IPAexGothic", "Noto Sans CJK JP")
 // #let mincho = ("BIZ UDPMincho", "MS PMincho", "Hiragino Mincho Pro", "IPAexMincho", "Noto Serif CJK JP")
-// #let english = ("Times New Roman", "New Computer Modern")
+// #let latin = ("Times New Roman", "New Computer Modern")
+// This may warn of missing font families.
+// Warnings can be resolved by setting the following for each OS.
 
 // example 1: Windows
 // #let gothic = ("MS PGothic")
 // #let mincho = ("MS PMincho")
-// #let english = ("Times New Roman")
+// #let latin = ("Times New Roman")
 
 // example 2: Mac OS
 // #let gothic = ("Hiragino Kaku Gothic Pro")
 // #let mincho = ("Hiragino Mincho Pro")
-// #let english = ("Times New Roman")
+// #let latin = ("Times New Roman")
 
 // example 3: Linux or Typst app
 #let gothic = ("Noto Sans CJK JP")
 #let mincho = ("Noto Serif CJK JP")
 #let latin = ("New Computer Modern")
 
+// Select the Template
 #import "libs/rsj-conf/lib.typ": rsj-conf as temp
 // #import "libs/rengo/lib.typ": rengo as temp
 // #import "libs/mscs/lib.typ": mscs as temp
