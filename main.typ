@@ -21,27 +21,30 @@
 #let mincho = ("Noto Serif CJK JP")
 #let latin = ("New Computer Modern")
 
-#import "libs/rsj-conf/lib.typ": rsj-conf
-#show: rsj-conf.with(
+// #import "libs/rsj-conf/lib.typ": rsj-conf
+// #show: rsj-conf.with(
+//   title: [Typst を使った国内学会論文の書き方 \ - 国内学会予稿集に似せたフォーマットの作成 - ], 
+//   authors: [◯ 著者姓1 著者名1，著者姓2 著者名2(○○○大学)，著者姓3 著者名3 (□□□株式会社)],
+//   abstract: [#lorem(80)],
+//   bibliography: bibliography("refs.yml", full: false),
+//   gothic-font: gothic,
+//   mincho-font: mincho,
+//   latin-font: latin
+// )
+
+#import "libs/rengo/lib.typ": rengo
+#show: rengo.with(
   title: [Typst を使った国内学会論文の書き方 \ - 国内学会予稿集に似せたフォーマットの作成 - ], 
   authors: [◯ 著者姓1 著者名1，著者姓2 著者名2(○○○大学)，著者姓3 著者名3 (□□□株式会社)],
+  etitle: [How to Write a Conference Paper in Japanese],
+  eauthors: [\*A. First, B. Second (○○○ Univ.), and C. Third (□□□ Corp.)],
   abstract: [#lorem(80)],
+  keywords: ([Typst], [conference paper writing], [manuscript format]),
   bibliography: bibliography("refs.yml", full: false),
   gothic-font: gothic,
   mincho-font: mincho,
   latin-font: latin
 )
-
-// #import "libs/rengo/lib.typ": rengo, gothic
-// #show: rengo.with(
-//   title: [Typst を使った国内学会論文の書き方 \ - 国内学会予稿集に似せたフォーマットの作成 - ], 
-//   authors: [◯ 著者姓1 著者名1，著者姓2 著者名2(○○○大学)，著者姓3 著者名3 (□□□株式会社)],
-//   etitle: [How to Write a Conference Paper in Japanese],
-//   eauthors: [\*A. First, B. Second (○○○ Univ.), and C. Third (□□□ Corp.)],
-//   abstract: [#lorem(80)],
-//   keywords: ([Typst], [conference paper writing], [manuscript format]),
-//   bibliography: bibliography("refs.yml", full: false)
-// )
 
 // #import "libs/mscs/lib.typ": mscs, gothic
 // #show: mscs.with(

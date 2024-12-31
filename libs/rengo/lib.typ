@@ -1,11 +1,6 @@
 // Workaround for the lack of an `std` scope.
 #let std-bibliography = bibliography
 
-// Set the Fonts
-#let gothic = ("BIZ UDPGothic", "MS PGothic", "Hiragino Kaku Gothic Pro", "IPAexGothic", "Noto Sans CJK JP")
-#let mincho = ("BIZ UDPMincho", "MS PMincho", "Hiragino Mincho Pro", "IPAexMincho", "Noto Serif CJK JP")
-#let english = ("Times New Roman", "New Computer Modern")
-
 #let rengo(
   title: [タイトル],
   authors: [著者],
@@ -14,6 +9,9 @@
   abstract: none,
   keywords: (),
   bibliography: none,
+  gothic-font: "BIZ UDPGothic",
+  mincho-font: "BIZ UDPMincho",
+  latin-font: "New Computer Modern",
   body
 ) = {
   // Set document metadata.
@@ -24,7 +22,7 @@
     paper: "a4",
     margin: (top: 20mm, bottom: 27mm, x: 20mm)
   )
-  set text(size: 10pt, font: mincho)
+  set text(size: 10pt, font: mincho-font)
   // show regex("[0-9a-zA-Z]"): set text(font: "New Computer Modern Math")
   set par(leading: 0.55em, first-line-indent: 1em, justify: true, spacing: 0.55em)
 
@@ -65,7 +63,7 @@
       // We don't want to number of the acknowledgment section.
       #set par(first-line-indent: 0pt)
       #let is-ack = it.body in ([謝辞], [Acknowledgment], [Acknowledgement])
-      #set text(if is-ack { 11pt } else { 11pt }, font: gothic)
+      #set text(if is-ack { 11pt } else { 11pt }, font: gothic-font)
       #v(20pt, weak: true)
       #if it.numbering != none and not is-ack {
         numbering("1.", ..levels)
@@ -94,19 +92,19 @@
   show figure.where(kind: image): set figure.caption(position: bottom, separator: [: ])
 
   // Display the paper's title.
-  align(center, text(16pt, title, weight: "bold", font: gothic))
+  align(center, text(16pt, title, weight: "bold", font: gothic-font))
   v(16pt, weak: true)
 
   // Display the authors list.
-  align(center, text(12pt, authors, font: mincho))
+  align(center, text(12pt, authors, font: mincho-font))
   v(1.5em, weak: true)
 
   // Display the paper's title in English.
-  align(center, text(12pt, etitle, weight: "bold", font: english))
+  align(center, text(12pt, etitle, weight: "bold", font: latin-font))
   v(1.5em, weak: true)
 
   // Display the authors list in English.
-  align(center, text(12pt, eauthors, font: english))
+  align(center, text(12pt, eauthors, font: latin-font))
   v(1.5em, weak: true)
 
   // Display abstract and index terms.
@@ -115,7 +113,7 @@
       columns: (0.7cm, 1fr, 0.7cm),
       [],
       [
-        #set text(10pt, font: english)
+        #set text(10pt, font: latin-font)
         #set par(first-line-indent: 0pt)
         *Abstract:* #h(0.5em) #abstract
         #v(1em)
@@ -135,7 +133,7 @@
   // Display bibliography.
   if bibliography != none {
     show std-bibliography: set text(9pt)
-    show regex("[0-9a-zA-Z]"): set text(font: english)
+    show regex("[0-9a-zA-Z]"): set text(font: latin-font)
     set std-bibliography(title: text(12pt)[参考文献], style: "rengo.csl")
     bibliography
   }
