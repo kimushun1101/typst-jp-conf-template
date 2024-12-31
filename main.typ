@@ -1,39 +1,45 @@
 // MIT No Attribution
 // Copyright 2024 Shunsuke Kimura
 
-#import "libs/rsj-conf/lib.typ": rsj-conf, gothic
-#show: rsj-conf.with(
-  title: [Typst を使った国内学会論文の書き方 \ - 国内学会予稿集に似せたフォーマットの作成 - ], 
-  authors: [◯ 著者姓1 著者名1，著者姓2 著者名2(○○○大学)，著者姓3 著者名3 (□□□株式会社)],
+// Set the Fonts
+// #let gothic = ("BIZ UDPGothic", "MS PGothic", "Hiragino Kaku Gothic Pro", "IPAexGothic", "Noto Sans CJK JP")
+// #let mincho = ("BIZ UDPMincho", "MS PMincho", "Hiragino Mincho Pro", "IPAexMincho", "Noto Serif CJK JP")
+// #let latin = ("Times New Roman", "New Computer Modern")
+// This may warn of missing font families.
+// Warnings can be resolved by setting the following for each OS.
+
+// example 1: Windows
+// #let gothic = ("MS PGothic")
+// #let mincho = ("MS PMincho")
+// #let latin = ("Times New Roman")
+
+// example 2: Mac OS
+// #let gothic = ("Hiragino Kaku Gothic Pro")
+// #let mincho = ("Hiragino Mincho Pro")
+// #let latin = ("Times New Roman")
+
+// example 3: Linux or Typst app
+#let gothic = ("Noto Sans CJK JP")
+#let mincho = ("Noto Serif CJK JP")
+#let latin = ("New Computer Modern")
+
+// Select the Template
+#import "libs/rsj-conf/lib.typ": rsj-conf as temp
+// #import "libs/rengo/lib.typ": rengo as temp
+// #import "libs/mscs/lib.typ": mscs as temp
+
+#show: temp.with(
+  title-ja: [Typst を使った国内学会論文の書き方 \ - 国内学会予稿集に似せたフォーマットの作成 - ], 
+  title-en: [How to Write a Conference Paper in Japanese],
+  authors-ja: [◯ 著者姓1 著者名1，著者姓2 著者名2(○○○大学)，著者姓3 著者名3 (□□□株式会社)],
+  authors-en: [\*A. First, B. Second (○○○ Univ.), and C. Third (□□□ Corp.)],
   abstract: [#lorem(80)],
-  bibliography: bibliography("refs.yml", full: false)
+  keywords: ([Typst], [conference paper writing], [manuscript format]),
+  bibliography: bibliography("refs.yml", full: false),
+  font-gothic: gothic,
+  font-mincho: mincho,
+  font-latin: latin
 )
-
-// #import "libs/rengo/lib.typ": rengo, gothic
-// #show: rengo.with(
-//   title: [Typst を使った国内学会論文の書き方 \ - 国内学会予稿集に似せたフォーマットの作成 - ], 
-//   authors: [◯ 著者姓1 著者名1，著者姓2 著者名2(○○○大学)，著者姓3 著者名3 (□□□株式会社)],
-//   etitle: [How to Write a Conference Paper in Japanese],
-//   eauthors: [\*A. First, B. Second (○○○ Univ.), and C. Third (□□□ Corp.)],
-//   abstract: [#lorem(80)],
-//   keywords: ([Typst], [conference paper writing], [manuscript format]),
-//   bibliography: bibliography("refs.yml", full: false)
-// )
-
-// #import "libs/mscs/lib.typ": mscs, gothic
-// #show: mscs.with(
-//   title: [Typst を使った国内学会論文の書き方 \ - 国内学会予稿集に似せたフォーマットの作成 - ], 
-//   authors: [◯ 著者姓1 著者名1，著者姓2 著者名2(○○○大学)，著者姓3 著者名3 (□□□株式会社)],
-//   etitle: [How to Write a Conference Paper in Japanese],
-//   eauthors: [\*A. First, B. Second (○○○ University), and C. Third (□□□ Corporation)],
-//   abstract: [#lorem(80)],
-//   keywords: ([Typst], [conference paper writing], [manuscript format]),
-//   bibliography: bibliography("refs.yml", full: false)
-// )
-
-// ソースコードブロックを表示するためのパッケージ
-#import "@preview/sourcerer:0.2.1": code
-// #import "libs/sourcerer-0.2.1/src/lib.typ": code // 2.3.1 を参照
 
 // 定理環境
 #import "@preview/ctheorems:1.1.3": thmplain, thmproof, thmrules
@@ -44,8 +50,11 @@
 #let theorem = thmjp("theorem", text(font: gothic)[定理])
 #let corollary = thmjp("corollary",text(font: gothic)[系])
 #let proof = thmproof("proof", text(font: gothic)[証明], separator: [#h(0.9em)], titlefmt: strong, inset: (top: 0em, left: 0em))
-// Theorem environment
 #show: thmrules.with(qed-symbol: $square$)
+
+// ソースコードブロックを表示するためのパッケージ
+#import "@preview/codly:1.1.1": codly-init
+#show: codly-init.with()
 
 = はじめに
 #text("これは非公式のサンプルです．", fill: rgb(red), weight: "bold")
@@ -75,37 +84,29 @@ VS Code の拡張機能である Tinymist Typst をインストールすれば�
 
 === インストール
 - Windows の場合\ Windows PowerShell から以下のコマンドでインストールできる．
-#code(
-  ```sh
-  winget install --id Typst.Typst
-  ```
-)
+```sh
+winget install --id Typst.Typst
+```
 - Mac の場合\ Homebrew を使ってインストールできる．
-#code(
-  ```sh
-  # Homebrew のインストール
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-  # Typst のインストール
-  brew install typst
-  ```
-)
+```sh
+# Homebrew のインストール
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+# Typst のインストール
+brew install typst
+```
 - Rust からインストール\ たとえば Ubuntu の場合は，Rust の cargo を使ってインストールする方法が簡単と思われます．
-#code(
-  ```sh
-  # Rust のインストール
-  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-  # Typst のインストール
-  cargo install --git https://github.com/typst/typst --locked typst-cli
-  ```
-)
+```sh
+# Rust のインストール
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+# Typst のインストール
+cargo install --git https://github.com/typst/typst --locked typst-cli
+```
 
 === ビルド
 シェルで対象のディレクトリに移り
-#code(
-  ```sh
-  typst compile main.typ
-  ```
-)
+```sh
+typst compile main.typ
+```
 とコマンドすれば main.pdf をビルドできます．
 
 == このパッケージが使えない場合
@@ -119,17 +120,15 @@ VS Code の拡張機能である Tinymist Typst をインストールすれば�
 - https://typst.app/universe/package/sourcerer
 - https://typst.app/universe/package/ctheorems
 これらの圧縮ファイルを main.typ と同じフォルダーにある libs フォルダーの中に展開した後，以下のようにコメントアウトを付け替えて，それぞれの lib.typ ファイルへのパスを指定する．
-#code(
-  ```typst
-    // ソースコードブロックを表示するためのパッケージ
-    // #import "@preview/sourcerer:0.2.1": code
-    #import "libs/sourcerer-0.2.1/src/lib.typ": code // 2.3.1 を参照
+```typst
+  // ソースコードブロックを表示するためのパッケージ
+  #import "@preview/codly:1.1.1": codly-init
+  #show: codly-init.with()
 
-    // 定理環境
-    // #import "@preview/ctheorems:1.1.3": thmplain, thmproof, thmrules
-    #import "libs/ctheorems-1.1.3/lib.typ": thmplain, thmproof, thmrules  // 2.3.1 を参照
-  ```
-)
+  // 定理環境
+  // #import "@preview/ctheorems:1.1.3": thmplain, thmproof, thmrules
+  #import "libs/ctheorems-1.1.3/lib.typ": thmplain, thmproof, thmrules  // 2.3.1 を参照
+```
 
 = 原稿の体裁
 
@@ -143,11 +142,9 @@ VS Code の拡張機能である Tinymist Typst をインストールすれば�
 ここで，ゴシック体とは "BIZ UDPGothic", "MS PGothic", "Hiragino Kaku Gothic Pro", "IPAexGothic", "Noto Sans CJK JP" のいずれか，明朝体とは "BIZ UDPMincho", "MS PMincho", "Hiragino Mincho Pro", "IPAexMincho", "Noto Serif CJK JP" のいずれかで見つかるものが採用されます．
 これらのフォントがお使いのコンピュータになければインストールするか，代わりに使いたいフォントがあればソースコードの方に追加してください．
 以下のコマンドで使用可能なフォント一覧を確認できます．
-#code(
-  ```sh
-  typst fonts
-  ```
-)
+```sh
+typst fonts
+```
 
 #figure(
   placement: bottom,
@@ -208,17 +205,15 @@ VS Code の拡張機能である Tinymist Typst をインストールすれば�
 
 == 論文情報の編集
 main.typ の文頭にある以下のコードを解説します．
-#code(
-  ```typ
-    #import "libs/rsj-conf/lib.typ": rsj-conf
-    #show: rsj-conf.with(
-      title: [Typst を使った国内学会論文の書き方 \ - 国内学会予稿集に似せたフォーマットの作成 - ], 
-      authors: [◯ 著者姓1 著者名1，著者姓2 著者名2(○○○大学)，著者姓3 著者名3 (□□□株式会社)],
-      abstract: [#lorem(80)],
-      bibliography: bibliography("refs.yml", full: false)
-    )
-  ```
-)
+```typ
+  #import "libs/rsj-conf/lib.typ": rsj-conf
+  #show: rsj-conf.with(
+    title: [Typst を使った国内学会論文の書き方 \ - 国内学会予稿集に似せたフォーマットの作成 - ], 
+    authors: [◯ 著者姓1 著者名1，著者姓2 著者名2(○○○大学)，著者姓3 著者名3 (□□□株式会社)],
+    abstract: [#lorem(80)],
+    bibliography: bibliography("refs.yml", full: false)
+  )
+```
 1 行目はこの原稿の体裁を設定するためのソースコードを import しています．
 これは "libs" ディレクトリ以下にあります．
 2 行目は，ソースコードやコマンドなどを綺麗に表示するための "code" 関数を呼び出すために import しています．
@@ -235,21 +230,19 @@ Typst Universe から自動でインストールされたものを使ってお�
 
 また，異なるテンプレートも用意してみました．
 コメントアウトで切り替えてみてください．
-#code(
-  ```typ
-    #import "libs/rengo/lib.typ": rengo
-    #show: rengo.with(
-      title: [Typst を使った国内学会論文の書き方 \ - 国内学会予稿集に似せたフォーマットの作成 - ], 
-      authors: [◯ 著者姓1 著者名1，著者姓2 著者名2(○○○大学)，著者姓3 著者名3 (□□□株式会社)],
-      etitle: [How to write a conference paper in Japanese],
-      eauthors: [\*A. First, B. Second (○○○ Univ.), and C. Third (□□□ Corp.)],
-      abstract: [#lorem(80)],
-      keywords: ([Typst], [conference paper writing], [manuscript format]),
-      bibliography: bibliography("refs.yml", full: false)
-    )
-  ```
-)
-このフォーマットですと，`etitle`, `eauthors`, `keywords` が追加されており，それぞれ英語タイトル，英語著者名，キーワードを意味しています．
+```typ
+  #import "libs/rengo/lib.typ": rengo
+  #show: rengo.with(
+    title: [Typst を使った国内学会論文の書き方 \ - 国内学会予稿集に似せたフォーマットの作成 - ], 
+    authors: [◯ 著者姓1 著者名1，著者姓2 著者名2(○○○大学)，著者姓3 著者名3 (□□□株式会社)],
+    title-en: [How to write a conference paper in Japanese],
+    authors-en: [\*A. First, B. Second (○○○ Univ.), and C. Third (□□□ Corp.)],
+    abstract: [#lorem(80)],
+    keywords: ([Typst], [conference paper writing], [manuscript format]),
+    bibliography: bibliography("refs.yml", full: false)
+  )
+```
+このフォーマットですと，`title-en`, `authors-en`, `keywords` が追加されており，それぞれ英語タイトル，英語著者名，キーワードを意味しています．
 `keywords` は`()` のリスト形式で指定されていることに注意してください．
 
 `#import` でテンプレートの関数を持ってくるところと，その関数を使用するところ以外の本文部分のコードはテンプレートの変更に応じて変更する必要はありません．
@@ -263,18 +256,14 @@ LaTeX に慣れている方は，Typst 公式ページの https://typst.app/docs
 
 == 数式
 数式番号をつけるような中央揃えの数式は，最初の`$` の後ろと閉じの`$` の前にスペースを挟み
-#code(
-  ```typ
-    $ dot(x) &= A x + B u \
-    y &= C x $ <eq:system>
-  ```
-)
+```typ
+  $ dot(x) &= A x + B u \
+  y &= C x $ <eq:system>
+```
 のように書き，文中に書く数式は，`$` の前後にスペースを挟まず
-#code(
-  ```typ
-    $x in RR^n$
-  ```
-)
+```typ
+  $x in RR^n$
+```
 というように書きます．
 ここで `<eq:system>` は引用するときのラベルになります．
 
@@ -290,21 +279,19 @@ $ u = K_P e + K_I integral_0^t e d t $ <eq:PI-controller>
 == 図と表
 本稿を執筆時のバージョン Typst 0.11.0 では，PNG, JPEG, GIF, SVG の形式のイメージデータを挿入することができます．
 例としては以下の通りです．
-#code(
-  ```typ
-    #figure(
-      placement: bottom,
-      image("figs/quadratic.svg", width: 90%),
-      caption: [$x^2$ のグラフ],
-    ) <fig:quadratic>
+```typ
+  #figure(
+    placement: bottom,
+    image("figs/quadratic.svg", width: 90%),
+    caption: [$x^2$ のグラフ],
+  ) <fig:quadratic>
 
-    #figure(
-      placement: bottom,
-      image("figs/sqrt-and-sin.png", width: 90%),
-      caption: [$sqrt(x)$ と $sin x$ のグラフ],
-    ) <fig:sqrt-sin>
-  ```
-)
+  #figure(
+    placement: bottom,
+    image("figs/sqrt-and-sin.png", width: 90%),
+    caption: [$sqrt(x)$ と $sin x$ のグラフ],
+  ) <fig:sqrt-sin>
+```
 ここで placement は，紙面の上 (top) に寄せるか下 (bottom) に寄せるかを決められます．言及している文章に近い方に調整してください．
 
 #figure(
@@ -320,86 +307,76 @@ $ u = K_P e + K_I integral_0^t e d t $ <eq:PI-controller>
 ) <fig:sqrt-sin>
 
 @tab:fonts は以下で記述されております．
-#code(
-  ```typ
-    #figure(
-      placement: top,
-      caption: [フォントの設定],
-      table(
-        columns: 3,
-        stroke: none,
-        table.header(
-          [項目],
-          [サイズ (pt)],
-          [フォント],
-        ),
-        table.hline(),
-        [#text(18pt, "タイトル", font: gothic)], [18], [ゴシック体],
-        [#text(12pt, "著者名", font: gothic)], [12], [ゴシック体],
-        [#text(12pt, "章タイトル")], [12], [ゴシック体],
-        [節，小節，本文], [10], [明朝体],
-        [#text(9pt, "参考文献")], [9], [明朝体],
-      )
-    ) <tab:fonts>
-  ```
-)
+```typ
+  #figure(
+    placement: top,
+    caption: [フォントの設定],
+    table(
+      columns: 3,
+      stroke: none,
+      table.header(
+        [項目],
+        [サイズ (pt)],
+        [フォント],
+      ),
+      table.hline(),
+      [#text(18pt, "タイトル", font: gothic)], [18], [ゴシック体],
+      [#text(12pt, "著者名", font: gothic)], [12], [ゴシック体],
+      [#text(12pt, "章タイトル")], [12], [ゴシック体],
+      [節，小節，本文], [10], [明朝体],
+      [#text(9pt, "参考文献")], [9], [明朝体],
+    )
+  ) <tab:fonts>
+```
 table の columns の数に応じて，文字列の配列が自動的に整列されます．
 `stroke: none` は枠線を消しています．`table.hline()` を挟むとその位置に横線を引けます．
 ここで，`gothic` は `lib.typ` で定義されています．
 他のテンプレートを使用する場合には注意をしてください．
-#code(
-  ```typ
-    #import "libs/rsj-conf/lib.typ": rsj-conf, gothic
-  ```
-)
+```typ
+  #import "libs/rsj-conf/lib.typ": rsj-conf, gothic
+```
 
 == 定理環境
 @def:definition1 や @lem:lemma1 などは以下で記述されております．
 
-#code(
-  ```typ
-    #definition("用語 A")[
-      用語 A の定義を書きます．
-    ]<def:definition1>
-    #lemma[
-      補題を書きます．タイトルは省略することもできます．
-    ]<lem:lemma1>
-    #lemma("補題 C")[
-      補題を書きます．番号は定義や補題ごとに 1 からカウントします．
-    ]<lem:lemma2>
-    #theorem("定理 D")[
-      ここに定理を書きます．
-    ]<thm:theorem1>
-    #corollary[
-      系を書きます．@def:definition1 のように，ラベルで参照することもできます．
-    ]
-    #proof([@thm:theorem1 の証明])[
-      証明を書きます．証明終了として□印をつけています．
-    ]
-  ```
-)
+```typ
+  #definition("用語 A")[
+    用語 A の定義を書きます．
+  ]<def:definition1>
+  #lemma[
+    補題を書きます．タイトルは省略することもできます．
+  ]<lem:lemma1>
+  #lemma("補題 C")[
+    補題を書きます．番号は定義や補題ごとに 1 からカウントします．
+  ]<lem:lemma2>
+  #theorem("定理 D")[
+    ここに定理を書きます．
+  ]<thm:theorem1>
+  #corollary[
+    系を書きます．@def:definition1 のように，ラベルで参照することもできます．
+  ]
+  #proof([@thm:theorem1 の証明])[
+    証明を書きます．証明終了として□印をつけています．
+  ]
+```
 
 ここで，`definition`, `lemma`, `theorem`, `corollary`, `proof` は `gothic` と同様に `lib.typ` で定義されています．
 他のテンプレートを使用する場合には注意をしてください．
-#code(
-  ```typ
-    #import "libs/rsj-conf/lib.typ": rsj-conf, gothic
-  ```
-)
+```typ
+  #import "libs/rsj-conf/lib.typ": rsj-conf, gothic
+```
 さらに元をたどると `lib.typ` で ctheorems パッケージ (https://typst.app/universe/package/ctheorems) をインポートして使用しております．
 
-#code(
-  ```typ
-    // Theorem environment
-    #import "@preview/ctheorems:1.1.3": thmplain, thmproof, thmrules
-    #let thmjp = thmplain.with(base: {}, separator: [#h(0.5em)], titlefmt: strong, inset: (top: 0em, left: 0em))
-    #let definition = thmjp("definition", text(font: gothic)[定義])
-    #let lemma = thmjp("lemma",text(font: gothic)[補題])
-    #let theorem = thmjp("theorem", text(font: gothic)[定理])
-    #let corollary = thmjp("corollary",text(font: gothic)[系])
-    #let proof = thmproof("proof", text(font: gothic)[証明], separator: [#h(0.9em)], titlefmt: strong, inset: (top: 0em, left: 0em))
-  ```
-)
+```typ
+  // Theorem environment
+  #import "@preview/ctheorems:1.1.3": thmplain, thmproof, thmrules
+  #let thmjp = thmplain.with(base: {}, separator: [#h(0.5em)], titlefmt: strong, inset: (top: 0em, left: 0em))
+  #let definition = thmjp("definition", text(font: gothic)[定義])
+  #let lemma = thmjp("lemma",text(font: gothic)[補題])
+  #let theorem = thmjp("theorem", text(font: gothic)[定理])
+  #let corollary = thmjp("corollary",text(font: gothic)[系])
+  #let proof = thmproof("proof", text(font: gothic)[証明], separator: [#h(0.9em)], titlefmt: strong, inset: (top: 0em, left: 0em))
+```
 
 == 参考文献
 参考文献は `refs.yml` に記載してください．
