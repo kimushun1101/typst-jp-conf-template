@@ -2,9 +2,9 @@
 #let std-bibliography = bibliography
 
 #let rsj-conf(
-  title: [タイトル],
+  title-ja: [タイトル],
   title-en: [],
-  authors: [著者],
+  authors-ja: [著者],
   authors-en: [],
   abstract: none,
   keywords: (),
@@ -15,7 +15,7 @@
   body
 ) = {
   // Set document metadata.
-  set document(title: title)
+  set document(title: title-ja)
 
   // Configure the page.
   set page(
@@ -91,11 +91,11 @@
   show figure.where(kind: image): set figure.caption(position: bottom, separator: [ ])
 
   // Display the paper's title.
-  align(center, text(18pt, title, weight: "bold", font: font-gothic))
+  align(center, text(18pt, title-ja, weight: "bold", font: font-gothic))
   v(2em, weak: true)
 
   // Display the authors list.
-  align(center, text(12pt, authors, font: font-mincho))
+  align(center, text(12pt, authors-ja, font: font-mincho))
   v(2em, weak: true)
 
   // Display abstract and index terms.

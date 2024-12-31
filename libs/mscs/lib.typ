@@ -2,8 +2,8 @@
 #let std-bibliography = bibliography
 
 #let mscs(
-  title: [タイトル],
-  authors: [著者],
+  title-ja: [タイトル],
+  authors-ja: [著者],
   title-en: "", 
   authors-en: "",
   abstract: none,
@@ -15,7 +15,7 @@
   body
 ) = {
   // Set document metadata.
-  set document(title: title)
+  set document(title: title-ja)
 
   // Configure the page.
   set page(
@@ -92,11 +92,11 @@
   show figure.where(kind: image): set figure.caption(position: bottom, separator: [: ])
 
   // Display the paper's title.
-  align(center, text(16pt, title, weight: "bold", font: font-gothic))
+  align(center, text(16pt, title-ja, weight: "bold", font: font-gothic))
   v(18pt, weak: true)
 
   // Display the authors list.
-  align(center, text(12pt, authors, font: font-mincho))
+  align(center, text(12pt, authors-ja, font: font-mincho))
   v(1.5em, weak: true)
 
   // Display the paper's title in English.

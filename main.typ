@@ -26,9 +26,9 @@
 // #import "libs/mscs/lib.typ": mscs as temp
 
 #show: temp.with(
-  title: [Typst を使った国内学会論文の書き方 \ - 国内学会予稿集に似せたフォーマットの作成 - ], 
+  title-ja: [Typst を使った国内学会論文の書き方 \ - 国内学会予稿集に似せたフォーマットの作成 - ], 
   title-en: [How to Write a Conference Paper in Japanese],
-  authors: [◯ 著者姓1 著者名1，著者姓2 著者名2(○○○大学)，著者姓3 著者名3 (□□□株式会社)],
+  authors-ja: [◯ 著者姓1 著者名1，著者姓2 著者名2(○○○大学)，著者姓3 著者名3 (□□□株式会社)],
   authors-en: [\*A. First, B. Second (○○○ Univ.), and C. Third (□□□ Corp.)],
   abstract: [#lorem(80)],
   keywords: ([Typst], [conference paper writing], [manuscript format]),
