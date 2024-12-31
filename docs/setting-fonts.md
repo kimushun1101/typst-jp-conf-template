@@ -14,18 +14,18 @@ sudo apt-get install -y fonts-noto fonts-noto-cjk fonts-noto-cjk-extra
 BIZ UD フォントのインストールは
 ```
 # Install BIZUDGothic
-curl -L https://github.com/googlefonts/morisawa-biz-ud-gothic/releases/latest/download/morisawa-biz-ud-gothic-fonts.zip -o morisawa-biz-ud-gothic-fonts.zip
-unzip morisawa-biz-ud-gothic-fonts.zip
+curl -L https://github.com/googlefonts/morisawa-biz-ud-gothic/releases/latest/download/morisawa-biz-ud-font-gothics.zip -o morisawa-biz-ud-font-gothics.zip
+unzip morisawa-biz-ud-font-gothics.zip
 sudo mkdir /usr/local/share/fonts/BIZUDGothic
-sudo mv morisawa-biz-ud-gothic-fonts/fonts/ttf/*.ttf /usr/local/share/fonts/BIZUDGothic/
-rm -rf morisawa-biz-ud-gothic-fonts*
+sudo mv morisawa-biz-ud-font-gothics/fonts/ttf/*.ttf /usr/local/share/fonts/BIZUDGothic/
+rm -rf morisawa-biz-ud-font-gothics*
 
 # Install BIZUDMincho
-curl -L https://github.com/googlefonts/morisawa-biz-ud-mincho/releases/latest/download/morisawa-biz-ud-mincho-fonts.zip -o morisawa-biz-ud-mincho-fonts.zip
-unzip morisawa-biz-ud-mincho-fonts.zip
+curl -L https://github.com/googlefonts/morisawa-biz-ud-mincho/releases/latest/download/morisawa-biz-ud-font-minchos.zip -o morisawa-biz-ud-font-minchos.zip
+unzip morisawa-biz-ud-font-minchos.zip
 sudo mkdir /usr/local/share/fonts/BIZUDMincho
-sudo mv morisawa-biz-ud-mincho-fonts/fonts/ttf/*.ttf /usr/local/share/fonts/BIZUDMincho/
-rm -rf morisawa-biz-ud-mincho-fonts*
+sudo mv morisawa-biz-ud-font-minchos/fonts/ttf/*.ttf /usr/local/share/fonts/BIZUDMincho/
+rm -rf morisawa-biz-ud-font-minchos*
 
 # Update fonts cache
 fc-cache -vf

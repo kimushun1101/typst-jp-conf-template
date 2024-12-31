@@ -3,12 +3,15 @@
 
 #let rsj-conf(
   title: [タイトル],
+  title-en: [],
   authors: [著者],
+  authors-en: [],
   abstract: none,
+  keywords: (),
   bibliography: none,
-  gothic-font: "BIZ UDPGothic",
-  mincho-font: "BIZ UDPMincho",
-  latin-font: "New Computer Modern",
+  font-gothic: "BIZ UDPGothic",
+  font-mincho: "BIZ UDPMincho",
+  font-latin: "New Computer Modern",
   body
 ) = {
   // Set document metadata.
@@ -20,7 +23,7 @@
     margin: (top: 20mm, bottom: 27mm, x: 20mm)
   )
 
-  set text(size: 10pt, font: mincho-font)
+  set text(size: 10pt, font: font-mincho)
   set par(leading: 0.55em, first-line-indent: 1em, justify: true, spacing: 0.55em)
 
   // Configure equation numbering and spacing.
@@ -60,7 +63,7 @@
       // We don't want to number of the acknowledgment section.
       #set par(first-line-indent: 0pt)
       #let is-ack = it.body in ([謝辞], [Acknowledgment], [Acknowledgement])
-      #set text(if is-ack { 11pt } else { 11pt }, font: gothic-font)
+      #set text(if is-ack { 11pt } else { 11pt }, font: font-gothic)
       #v(20pt, weak: true)
       #if it.numbering != none and not is-ack {
         numbering("1.", ..levels)
@@ -88,11 +91,11 @@
   show figure.where(kind: image): set figure.caption(position: bottom, separator: [ ])
 
   // Display the paper's title.
-  align(center, text(18pt, title, weight: "bold", font: gothic-font))
+  align(center, text(18pt, title, weight: "bold", font: font-gothic))
   v(2em, weak: true)
 
   // Display the authors list.
-  align(center, text(12pt, authors, font: mincho-font))
+  align(center, text(12pt, authors, font: font-mincho))
   v(2em, weak: true)
 
   // Display abstract and index terms.
@@ -101,7 +104,7 @@
       columns: (0.7cm, 1fr, 0.7cm),
       [],
       [
-        #set text(10pt, font: latin-font)
+        #set text(10pt, font: font-latin)
         #h(1em) #abstract
       ],
       []
@@ -118,7 +121,7 @@
   // Display bibliography.
   if bibliography != none {
     show std-bibliography: set text(9pt)
-    show regex("[0-9a-zA-Z]"): set text(font: latin-font)
+    show regex("[0-9a-zA-Z]"): set text(font: font-latin)
     set std-bibliography(title:  align(center, text(11pt)[参　考　文　献]), style: "rsj-conf.csl")
     bibliography
   }

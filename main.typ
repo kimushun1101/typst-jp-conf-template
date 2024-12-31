@@ -17,47 +17,25 @@
 // #let english = ("Times New Roman")
 
 // example 3: Linux or Typst app
-#let gothic = ("Noto Sans CJK JP", "IPAexGothic")
+#let gothic = ("Noto Sans CJK JP")
 #let mincho = ("Noto Serif CJK JP")
 #let latin = ("New Computer Modern")
 
-// #import "libs/rsj-conf/lib.typ": rsj-conf
-// #show: rsj-conf.with(
-//   title: [Typst を使った国内学会論文の書き方 \ - 国内学会予稿集に似せたフォーマットの作成 - ], 
-//   authors: [◯ 著者姓1 著者名1，著者姓2 著者名2(○○○大学)，著者姓3 著者名3 (□□□株式会社)],
-//   abstract: [#lorem(80)],
-//   bibliography: bibliography("refs.yml", full: false),
-//   gothic-font: gothic,
-//   mincho-font: mincho,
-//   latin-font: latin
-// )
+#import "libs/rsj-conf/lib.typ": rsj-conf as temp
+// #import "libs/rengo/lib.typ": rengo as temp
+// #import "libs/mscs/lib.typ": mscs as temp
 
-// #import "libs/rengo/lib.typ": rengo
-// #show: rengo.with(
-//   title: [Typst を使った国内学会論文の書き方 \ - 国内学会予稿集に似せたフォーマットの作成 - ], 
-//   authors: [◯ 著者姓1 著者名1，著者姓2 著者名2(○○○大学)，著者姓3 著者名3 (□□□株式会社)],
-//   etitle: [How to Write a Conference Paper in Japanese],
-//   eauthors: [\*A. First, B. Second (○○○ Univ.), and C. Third (□□□ Corp.)],
-//   abstract: [#lorem(80)],
-//   keywords: ([Typst], [conference paper writing], [manuscript format]),
-//   bibliography: bibliography("refs.yml", full: false),
-//   gothic-font: gothic,
-//   mincho-font: mincho,
-//   latin-font: latin
-// )
-
-#import "libs/mscs/lib.typ": mscs
-#show: mscs.with(
+#show: temp.with(
   title: [Typst を使った国内学会論文の書き方 \ - 国内学会予稿集に似せたフォーマットの作成 - ], 
+  title-en: [How to Write a Conference Paper in Japanese],
   authors: [◯ 著者姓1 著者名1，著者姓2 著者名2(○○○大学)，著者姓3 著者名3 (□□□株式会社)],
-  etitle: [How to Write a Conference Paper in Japanese],
-  eauthors: [\*A. First, B. Second (○○○ Univ.), and C. Third (□□□ Corp.)],
+  authors-en: [\*A. First, B. Second (○○○ Univ.), and C. Third (□□□ Corp.)],
   abstract: [#lorem(80)],
   keywords: ([Typst], [conference paper writing], [manuscript format]),
   bibliography: bibliography("refs.yml", full: false),
-  gothic-font: gothic,
-  mincho-font: mincho,
-  latin-font: latin
+  font-gothic: gothic,
+  font-mincho: mincho,
+  font-latin: latin
 )
 
 // 定理環境
@@ -254,14 +232,14 @@ Typst Universe から自動でインストールされたものを使ってお�
   #show: rengo.with(
     title: [Typst を使った国内学会論文の書き方 \ - 国内学会予稿集に似せたフォーマットの作成 - ], 
     authors: [◯ 著者姓1 著者名1，著者姓2 著者名2(○○○大学)，著者姓3 著者名3 (□□□株式会社)],
-    etitle: [How to write a conference paper in Japanese],
-    eauthors: [\*A. First, B. Second (○○○ Univ.), and C. Third (□□□ Corp.)],
+    title-en: [How to write a conference paper in Japanese],
+    authors-en: [\*A. First, B. Second (○○○ Univ.), and C. Third (□□□ Corp.)],
     abstract: [#lorem(80)],
     keywords: ([Typst], [conference paper writing], [manuscript format]),
     bibliography: bibliography("refs.yml", full: false)
   )
 ```
-このフォーマットですと，`etitle`, `eauthors`, `keywords` が追加されており，それぞれ英語タイトル，英語著者名，キーワードを意味しています．
+このフォーマットですと，`title-en`, `authors-en`, `keywords` が追加されており，それぞれ英語タイトル，英語著者名，キーワードを意味しています．
 `keywords` は`()` のリスト形式で指定されていることに注意してください．
 
 `#import` でテンプレートの関数を持ってくるところと，その関数を使用するところ以外の本文部分のコードはテンプレートの変更に応じて変更する必要はありません．
