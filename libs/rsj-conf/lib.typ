@@ -53,7 +53,7 @@
     if it.level == 1 [
       // We don't want to number of the acknowledgment section.
       #set par(first-line-indent: 0pt)
-      #set text(font: font-gothic)
+      #set text(11pt, font: font-gothic)
       #v(20pt, weak: true)
       #if it.numbering != none and not it.body in ([謝辞], [Acknowledgment], [Acknowledgement]) {
         numbering(it.numbering, ..levels)
