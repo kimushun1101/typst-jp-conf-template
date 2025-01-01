@@ -29,13 +29,13 @@
 // #import "libs/mscs/lib.typ": mscs as temp
 
 #show: temp.with(
-  title-ja: [Typst を使った国内学会論文の書き方 \ - 国内学会予稿集に似せたフォーマットの作成 - ], 
+  title-ja: [Typst を使った国内学会論文の書き方 \ - 国内学会予稿集に似せたフォーマットの作成 - ],
   title-en: [How to Write a Conference Paper in Japanese],
-  authors-ja: [◯ 著者姓1 著者名1，著者姓2 著者名2(○○○大学)，著者姓3 著者名3 (□□□株式会社)],
+  authors-ja: [◯ 著者姓1 著者名1、著者姓2 著者名2(○○○大学)，著者姓3 著者名3 (□□□株式会社)],
   authors-en: [\*A. First, B. Second (○○○ Univ.), and C. Third (□□□ Corp.)],
   abstract: [#lorem(80)],
   keywords: ([Typst], [conference paper writing], [manuscript format]),
-  bibliography: bibliography("refs.yml", full: false),
+  // bibliography: bibliography("refs.yml", full: false),
   font-gothic: gothic,
   font-mincho: mincho,
   font-latin: latin
@@ -57,9 +57,9 @@
 #show: codly-init.with()
 
 = はじめに
-#text("これは非公式のサンプルです．", fill: rgb(red), weight: "bold")
-適宜投稿先の規定をご確認ください．
-発表論文原稿を PDF でご執筆いただき，学会のホームページにアップロードしてください．
+#text("これは非公式のサンプルです。", fill: rgb(red), weight: "bold")
+適宜投稿先の規定をご確認ください。
+発表論文原稿をPDFでご執筆いただき、学会のホームページにアップロードしてください。
 このファイルはこのテンプレートの使い方を示しており，同時に発表論文の見本でもあります．
 執筆の時は以下の説明をよく読み，執筆要項に従ったフォーマットでご提出ください．
 アップロードした PDF がそのまま公開されます．
@@ -120,7 +120,7 @@ typst compile main.typ
 - https://typst.app/universe/package/sourcerer
 - https://typst.app/universe/package/ctheorems
 これらの圧縮ファイルを main.typ と同じフォルダーにある libs フォルダーの中に展開した後，以下のようにコメントアウトを付け替えて，それぞれの lib.typ ファイルへのパスを指定する．
-```typst
+```typ
   // ソースコードブロックを表示するためのパッケージ
   #import "@preview/codly:1.1.1": codly-init
   #show: codly-init.with()
@@ -412,3 +412,5 @@ CSL ファイルは著者が編集する必要はありませんが，詳細が�
 「この研究は☆☆☆の助成を受けて行われました．」や「〇〇〇大学との共同研究です．」
 みたいな文章が書かれることを想定しています．
 最後までお読みいただき誠にありがとうございました．
+
+#bibliography("refs.yml", full: false)

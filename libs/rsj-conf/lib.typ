@@ -1,14 +1,10 @@
-// Workaround for the lack of an `std` scope.
-#let std-bibliography = bibliography
-
 #let rsj-conf(
-  title-ja: [タイトル],
+  title-ja: [日本語タイトル],
   title-en: [],
   authors-ja: [著者],
   authors-en: [],
   abstract: none,
   keywords: (),
-  bibliography: none,
   font-gothic: "BIZ UDPGothic",
   font-mincho: "BIZ UDPMincho",
   font-latin: "New Computer Modern",
@@ -22,24 +18,24 @@
     paper: "a4",
     margin: (top: 20mm, bottom: 27mm, x: 20mm)
   )
-
-  set text(size: 10pt, font: font-mincho)
+  set text(size: 10pt, lang: "ja", font: font-mincho)
   set par(leading: 0.55em, first-line-indent: 1em, justify: true, spacing: 0.55em)
+  show "、": "，"
+  show "。": "．"
 
   // Configure equation numbering and spacing.
   set math.equation(numbering: "(1)")
   show math.equation: set block(spacing: 0.55em)
 
   // Configure appearance of equation references
+  // See https://typst.app/docs/reference/model/ref/
   show ref: it => {
     if it.element != none and it.element.func() == math.equation {
-      // Override equation references.
       link(it.element.location(), numbering(
         it.element.numbering,
         ..counter(math.equation).at(it.element.location())
       ))
     } else {
-      // Other references as usual.
       it
     }
   }
@@ -53,35 +49,26 @@
   show heading: it => {
     // Find out the final number of the heading counter.
     let levels = counter(heading).get()
-    let deepest = if levels != () {
-      levels.last()
-    } else {
-      1
-    }
     if it.level == 1 [
-      // First-level headings are centered smallcaps.
       // We don't want to number of the acknowledgment section.
       #set par(first-line-indent: 0pt)
-      #let is-ack = it.body in ([謝辞], [Acknowledgment], [Acknowledgement])
-      #set text(if is-ack { 11pt } else { 11pt }, font: font-gothic)
+      #set text(11pt, font: font-gothic)
       #v(20pt, weak: true)
-      #if it.numbering != none and not is-ack {
-        numbering("1.", ..levels)
+      #if it.numbering != none and not it.body in ([謝辞], [Acknowledgment], [Acknowledgement]) {
+        numbering(it.numbering, ..levels)
         h(8pt, weak: true)
       }
       #it.body
-      #v(10pt, weak: true)
     ] else [
       // The other level headings are run-ins.
       #set par(first-line-indent: 0pt)
       #set text(10pt, weight: 400)
       #v(10pt, weak: true)
       #if it.numbering != none {
-        numbering("1.", ..levels)
+        numbering(it.numbering, ..levels)
         h(8pt, weak: true)
       }
       #it.body
-      #v(10pt, weak: true)
     ]
   }
 
@@ -115,14 +102,14 @@
   // Start two column mode and configure paragraph properties.
   show: columns.with(2, gutter: 8mm)
 
+  // Configure Bibliography.
+  set bibliography(title: align(center, text(11pt)[参　考　文　献]), style: "rsj-conf.csl")
+  show bibliography: it => [
+    #set text(9pt,lang: "en", font: font-mincho)
+    #show regex("[0-9a-zA-Z]"): set text(font: font-latin)
+    #it
+  ]
+
   // Display the paper's contents.
   body
-
-  // Display bibliography.
-  if bibliography != none {
-    show std-bibliography: set text(9pt)
-    show regex("[0-9a-zA-Z]"): set text(font: font-latin)
-    set std-bibliography(title:  align(center, text(11pt)[参　考　文　献]), style: "rsj-conf.csl")
-    bibliography
-  }
 }
