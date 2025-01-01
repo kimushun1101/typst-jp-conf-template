@@ -25,6 +25,8 @@
   set text(size: 10pt, font: font-mincho)
   // show regex("[0-9a-zA-Z]"): set text(font: "New Computer Modern Math")
   set par(leading: 0.55em, first-line-indent: 1em, justify: true, spacing: 0.55em)
+  show "、": "，"
+  show "。": "．"
 
   // Configure equation numbering and spacing.
   set math.equation(numbering: "(1)")

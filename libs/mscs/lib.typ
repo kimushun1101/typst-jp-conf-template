@@ -23,8 +23,9 @@
     margin: (top: 20mm, bottom: 27mm, x: 20mm)
   )
   set text(size: 10pt, font: font-mincho)
-  // show regex("[0-9a-zA-Z]"): set text(font: "New Computer Modern Math")
   set par(leading: 0.55em, first-line-indent: 1em, justify: true, spacing: 0.55em)
+  show "、": "，"
+  show "。": "．"
 
   // Configure equation numbering and spacing.
   set math.equation(numbering: "(1)")
@@ -66,18 +67,18 @@
       #set text(if is-ack { 11pt } else { 11pt }, font: font-gothic)
       #v(20pt, weak: true)
       #if it.numbering != none and not is-ack {
-        numbering("1.", ..levels)
+        numbering(it.numbering, ..levels)
         h(8pt, weak: true)
       }
       #it.body
-      #v(13.75pt, weak: true)
+      #v(8pt, weak: true)
     ] else [
       // The other level headings are run-ins.
       #set par(first-line-indent: 0pt)
       #set text(10pt, weight: 400)
-      #v(10pt, weak: true)
+      #v(8pt, weak: true)
       #if it.numbering != none {
-        numbering("1.", ..levels)
+        numbering(it.numbering, ..levels)
         h(8pt, weak: true)
       }
       #it.body

@@ -25,6 +25,8 @@
 
   set text(size: 10pt, font: font-mincho)
   set par(leading: 0.55em, first-line-indent: 1em, justify: true, spacing: 0.55em)
+  show "、": "，"
+  show "。": "．"
 
   // Configure equation numbering and spacing.
   set math.equation(numbering: "(1)")
