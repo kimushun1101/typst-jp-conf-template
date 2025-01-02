@@ -21,7 +21,7 @@
     paper: "a4",
     margin: (top: 20mm, bottom: 27mm, x: 20mm)
   )
-  set text(size: font-size-default, lang: "ja", font: font-mincho)
+  set text(size: font-size-default, font: font-mincho)
   set par(leading: 0.55em, first-line-indent: 1em, justify: true, spacing: 0.55em)
   show "、": "，"
   show "。": "．"
@@ -108,7 +108,7 @@
   // Configure Bibliography.
   set bibliography(title: align(center, text(font-size-heading)[参　考　文　献]), style: "rsj-conf.csl")
   show bibliography: it => [
-    #set text(9pt, lang: "en", font: font-mincho)
+    #set text(9pt, font: font-mincho)
     #show regex("[0-9a-zA-Z]"): set text(font: font-latin)
     #it
   ]
