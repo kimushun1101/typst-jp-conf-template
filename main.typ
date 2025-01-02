@@ -24,7 +24,7 @@
 #let latin = ("New Computer Modern")
 
 // Select the Template
-#import "libs/rsj-conf/lib.typ": rsj-conf as temp
+#import "libs/rsj-conf/lib.typ": rsj-conf as temp, appendix
 // #import "libs/rengo/lib.typ": rengo as temp
 // #import "libs/mscs/lib.typ": mscs as temp
 
@@ -414,3 +414,27 @@ CSL ファイルは著者が編集する必要はありませんが，詳細が�
 最後までお読みいただき誠にありがとうございました．
 
 #bibliography("refs.yml", full: false)
+
+#show: appendix
+
+= 付録の書き方
+参考文献の後ろに付録を付けたい場合には、
+```typ
+  #show: appendix
+```
+を追加してください。
+その場所に「付録」という文字が挿入されます。
+それ以降に見出しを書くことで、章番号がアルファベット順の見出しがつきます。
+
+= 付録に複数のセクションがある場合
+2つ目のセクションはBとなります。
+
+== サブセクションの番号
+サブセクションはB.1のようになります。
+図はセクションアルファベットとリセットされた図番号が組み合わさります。
+
+#figure(
+  placement: bottom,
+  image("figs/quadratic.svg", width: 90%),
+  caption: [$x^2$ のグラフ],
+) <fig:appendix>
