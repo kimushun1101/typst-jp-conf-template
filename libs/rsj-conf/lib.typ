@@ -1,3 +1,6 @@
+#let font-size-default = 10pt
+#let font-size-heading = 11pt
+
 #let rsj-conf(
   title-ja: [日本語タイトル],
   title-en: [],
@@ -18,7 +21,7 @@
     paper: "a4",
     margin: (top: 20mm, bottom: 27mm, x: 20mm)
   )
-  set text(size: 10pt, lang: "ja", font: font-mincho)
+  set text(size: font-size-default, lang: "ja", font: font-mincho)
   set par(leading: 0.55em, first-line-indent: 1em, justify: true, spacing: 0.55em)
   show "、": "，"
   show "。": "．"
@@ -41,8 +44,8 @@
   }
 
   // Configure lists.
-  set enum(indent: 10pt, body-indent: 9pt)
-  set list(indent: 10pt, body-indent: 9pt)
+  set enum(indent: font-size-default)
+  set list(indent: font-size-default)
 
   // Configure headings.
   set heading(numbering: "1.")
@@ -52,18 +55,18 @@
     if it.level == 1 [
       // We don't want to number of the acknowledgment section.
       #set par(first-line-indent: 0pt)
-      #set text(11pt, font: font-gothic)
-      #v(20pt, weak: true)
+      #set text(font-size-heading, font: font-gothic)
+      #v(10pt)
       #if it.numbering != none and not it.body in ([謝辞], [Acknowledgment], [Acknowledgement]) {
         numbering(it.numbering, ..levels)
-        h(8pt, weak: true)
+        h(5pt)
       }
       #it.body
     ] else [
       // The other level headings are run-ins.
       #set par(first-line-indent: 0pt)
-      #set text(10pt, weight: 400)
-      #v(10pt, weak: true)
+      #set text(font-size-default, weight: 400)
+      #v(5pt)
       #if it.numbering != none {
         numbering(it.numbering, ..levels)
         h(8pt, weak: true)
@@ -91,7 +94,7 @@
       columns: (0.7cm, 1fr, 0.7cm),
       [],
       [
-        #set text(10pt, font: font-latin)
+        #set text(font-size-default, font: font-latin)
         #h(1em) #abstract
       ],
       []
@@ -103,13 +106,26 @@
   show: columns.with(2, gutter: 8mm)
 
   // Configure Bibliography.
-  set bibliography(title: align(center, text(11pt)[参　考　文　献]), style: "rsj-conf.csl")
+  set bibliography(title: align(center, text(font-size-heading)[参　考　文　献]), style: "rsj-conf.csl")
   show bibliography: it => [
-    #set text(9pt,lang: "en", font: font-mincho)
+    #set text(9pt, lang: "en", font: font-mincho)
     #show regex("[0-9a-zA-Z]"): set text(font: font-latin)
     #it
   ]
 
   // Display the paper's contents.
+  body
+}
+
+#let appendix(font-gothic: "Noto Sans CJK JP", body) = {
+  set heading(numbering: "A.1", supplement: [付録])
+  counter(heading).update(0)
+  counter(figure.where(kind: image)).update(0)
+  counter(figure.where(kind: table)).update(0)
+  set figure(numbering: it => {
+    [#numbering("A", counter(heading).get().at(0)).#it]
+  })
+  v(20pt, weak: true)
+  text(font-size-heading, font: font-gothic, weight: "bold")[付　　録]
   body
 }
