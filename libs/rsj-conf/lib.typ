@@ -30,7 +30,7 @@
   // Set the font for headings.
   state-font-gothic.update(font-gothic)
 
-  // Enable ctheorems.
+  // Enable packages.
   show: thmrules.with(qed-symbol: $square$)
   show: codly-init.with()
 
@@ -42,8 +42,8 @@
     paper: "a4",
     margin: (top: 20mm, bottom: 27mm, x: 20mm)
   )
-  set text(size: font-size-default, font: font-mincho)
-  set par(leading: 0.55em, first-line-indent: 1em, justify: true, spacing: 0.55em)
+  set text(font-size-default, font: font-mincho)
+  set par(leading: 0.5em, first-line-indent: 1em, justify: true, spacing: 0.6em)
   show "、": "，"
   show "。": "．"
 
@@ -65,8 +65,8 @@
   }
 
   // Configure lists.
-  set enum(indent: font-size-default)
-  set list(indent: font-size-default)
+  set enum(indent: 1em)
+  set list(indent: 1em)
 
   // Configure headings.
   set heading(numbering: "1.")
@@ -86,7 +86,7 @@
      } else {
       // The other level headings are run-ins.
       set par(first-line-indent: 0pt)
-      set text(font-size-default, weight: 400)
+      set text(font-size-default, font: font-gothic)
       v(5pt)
       if it.numbering != none {
         numbering(it.numbering, ..levels)
