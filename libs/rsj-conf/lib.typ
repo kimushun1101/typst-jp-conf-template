@@ -2,6 +2,19 @@
 #let font-size-heading = 11pt
 #let state-font-gothic = state("gothic", "BIZ UDPGothic")
 
+// import third-party packages
+#import "@preview/ctheorems:1.1.3": thmplain, thmproof, thmrules
+#import "@preview/codly:1.1.1": codly-init
+
+// Theorem environments
+#let thmjp = thmplain.with(base: {}, separator: [#h(0.5em)], titlefmt: strong, inset: (top: 0em, left: 0em))
+#let definition = thmjp("definition", context{text(font: state-font-gothic.get())[定義]})
+#let lemma = thmjp("lemma", context{text(font: state-font-gothic.get())[補題]})
+#let theorem = thmjp("theorem", context{text(font: state-font-gothic.get())[定理]})
+#let corollary = thmjp("corollary", context{text(font: state-font-gothic.get())[系]})
+#let proof = thmproof("proof", context{text(font: state-font-gothic.get())[証明]}, separator: [#h(0.9em)], titlefmt: strong, inset: (top: 0em, left: 0em))
+
+// Configuration for the RSJ Conference paper.
 #let rsj-conf(
   title-ja: [日本語タイトル],
   title-en: [],
@@ -14,7 +27,13 @@
   font-latin: "New Computer Modern",
   body
 ) = {
+  // Set the font for headings.
   state-font-gothic.update(font-gothic)
+
+  // Enable ctheorems.
+  show: thmrules.with(qed-symbol: $square$)
+  show: codly-init.with()
+
   // Set document metadata.
   set document(title: title-ja)
 
@@ -119,6 +138,7 @@
   body
 }
 
+// Appendix
 #let appendix(body) = {
   set heading(numbering: "A.1", supplement: [付録])
   counter(heading).update(0)

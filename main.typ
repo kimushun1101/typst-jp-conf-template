@@ -24,9 +24,9 @@
 #let latin = ("New Computer Modern")
 
 // Select the Template
-#import "libs/rsj-conf/lib.typ": rsj-conf as temp, appendix
-// #import "libs/rengo/lib.typ": rengo as temp
-// #import "libs/mscs/lib.typ": mscs as temp
+#import "libs/rsj-conf/lib.typ": rsj-conf as temp, definition, lemma, theorem, corollary, proof, appendix
+// #import "libs/rengo/lib.typ": rengo as temp, definition, lemma, theorem, corollary, proof, appendix
+// #import "libs/mscs/lib.typ": mscs as temp, definition, lemma, theorem, corollary, proof, appendix
 
 #show: temp.with(
   title-ja: [Typst を使った国内学会論文の書き方 \ - 国内学会予稿集に似せたフォーマットの作成 - ],
@@ -40,21 +40,6 @@
   font-mincho: mincho,
   font-latin: latin
 )
-
-// 定理環境
-#import "@preview/ctheorems:1.1.3": thmplain, thmproof, thmrules
-// #import "libs/ctheorems-1.1.3/lib.typ": thmplain, thmproof, thmrules  // 2.3.1 を参照
-#let thmjp = thmplain.with(base: {}, separator: [#h(0.5em)], titlefmt: strong, inset: (top: 0em, left: 0em))
-#let definition = thmjp("definition", text(font: gothic)[定義])
-#let lemma = thmjp("lemma",text(font: gothic)[補題])
-#let theorem = thmjp("theorem", text(font: gothic)[定理])
-#let corollary = thmjp("corollary",text(font: gothic)[系])
-#let proof = thmproof("proof", text(font: gothic)[証明], separator: [#h(0.9em)], titlefmt: strong, inset: (top: 0em, left: 0em))
-#show: thmrules.with(qed-symbol: $square$)
-
-// ソースコードブロックを表示するためのパッケージ
-#import "@preview/codly:1.1.1": codly-init
-#show: codly-init.with()
 
 = はじめに
 #text("これは非公式のサンプルです。", fill: rgb(red), weight: "bold")
@@ -158,8 +143,8 @@ typst fonts
       [フォント],
     ),
     table.hline(),
-    [#text(18pt, "タイトル", font: gothic)], [18], [ゴシック体],
-    [#text(12pt, "著者名", font: gothic)], [12], [ゴシック体],
+    [#text(18pt, "タイトル")], [18], [ゴシック体],
+    [#text(12pt, "著者名")], [12], [ゴシック体],
     [#text(12pt, "章タイトル")], [12], [ゴシック体],
     [節，小節，本文], [10], [明朝体],
     [#text(9pt, "参考文献")], [9], [明朝体],
@@ -320,8 +305,8 @@ $ u = K_P e + K_I integral_0^t e d t $ <eq:PI-controller>
         [フォント],
       ),
       table.hline(),
-      [#text(18pt, "タイトル", font: gothic)], [18], [ゴシック体],
-      [#text(12pt, "著者名", font: gothic)], [12], [ゴシック体],
+      [#text(18pt, "タイトル")], [18], [ゴシック体],
+      [#text(12pt, "著者名")], [12], [ゴシック体],
       [#text(12pt, "章タイトル")], [12], [ゴシック体],
       [節，小節，本文], [10], [明朝体],
       [#text(9pt, "参考文献")], [9], [明朝体],
