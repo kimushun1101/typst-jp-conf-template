@@ -1,5 +1,6 @@
 #let font-size-default = 10pt
 #let font-size-heading = 11pt
+#let state-font-gothic = state("gothic", "BIZ UDPGothic")
 
 #let rsj-conf(
   title-ja: [日本語タイトル],
@@ -13,6 +14,7 @@
   font-latin: "New Computer Modern",
   body
 ) = {
+  state-font-gothic.update(font-gothic)
   // Set document metadata.
   set document(title: title-ja)
 
@@ -117,7 +119,7 @@
   body
 }
 
-#let appendix(font-gothic: "Noto Sans CJK JP", body) = {
+#let appendix(body) = {
   set heading(numbering: "A.1", supplement: [付録])
   counter(heading).update(0)
   counter(figure.where(kind: image)).update(0)
@@ -126,6 +128,6 @@
     [#numbering("A", counter(heading).get().at(0)).#it]
   })
   v(20pt, weak: true)
-  text(font-size-heading, font: font-gothic, weight: "bold")[付　　録]
+  context(text(font-size-heading, font: state-font-gothic.get(), weight: "bold")[付　　録])
   body
 }
