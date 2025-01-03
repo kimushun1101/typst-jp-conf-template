@@ -1,6 +1,6 @@
 #let font-size-default = 10pt
 #let font-size-heading = 11pt
-#let state-font-gothic = state("gothic", "BIZ UDPGothic")
+#let state-font-gothic = state("gothic", ("BIZ UDPGothic", "MS PGothic", "Hiragino Kaku Gothic Pro", "IPAexGothic", "Noto Sans CJK JP"))
 
 // import third-party packages
 #import "@preview/ctheorems:1.1.3": thmplain, thmproof, thmrules
@@ -22,8 +22,8 @@
   authors-en: [],
   abstract: none,
   keywords: (),
-  font-gothic: "BIZ UDPGothic",
-  font-mincho: "BIZ UDPMincho",
+  font-gothic: "Noto Sans CJK JP",
+  font-mincho: "Noto Serif CJK JP",
   font-latin: "New Computer Modern",
   body
 ) = {

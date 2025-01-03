@@ -1,28 +1,6 @@
 // MIT No Attribution
 // Copyright 2024 Shunsuke Kimura
 
-// Set the Fonts
-// #let gothic = ("BIZ UDPGothic", "MS PGothic", "Hiragino Kaku Gothic Pro", "IPAexGothic", "Noto Sans CJK JP")
-// #let mincho = ("BIZ UDPMincho", "MS PMincho", "Hiragino Mincho Pro", "IPAexMincho", "Noto Serif CJK JP")
-// #let latin = ("Times New Roman", "New Computer Modern")
-// This may warn of missing font families.
-// Warnings can be resolved by setting the following for each OS.
-
-// example 1: Windows
-// #let gothic = ("MS PGothic")
-// #let mincho = ("MS PMincho")
-// #let latin = ("Times New Roman")
-
-// example 2: Mac OS
-// #let gothic = ("Hiragino Kaku Gothic Pro")
-// #let mincho = ("Hiragino Mincho Pro")
-// #let latin = ("Times New Roman")
-
-// example 3: Linux or Typst app
-#let gothic = ("Noto Sans CJK JP")
-#let mincho = ("Noto Serif CJK JP")
-#let latin = ("New Computer Modern")
-
 // Select the Template
 #import "libs/rsj-conf/lib.typ": rsj-conf as temp, definition, lemma, theorem, corollary, proof, appendix
 // #import "libs/rengo/lib.typ": rengo as temp, definition, lemma, theorem, corollary, proof, appendix
@@ -35,10 +13,14 @@
   authors-en: [\*A. First, B. Second (○○○ Univ.), and C. Third (□□□ Corp.)],
   abstract: [#lorem(80)],
   keywords: ([Typst], [conference paper writing], [manuscript format]),
-  // bibliography: bibliography("refs.yml", full: false),
-  font-gothic: gothic,
-  font-mincho: mincho,
-  font-latin: latin
+  font-gothic: "Noto Sans CJK JP",
+  font-mincho: "Noto Serif CJK JP",
+  font-latin: "New Computer Modern"
+  // The following settings may warn of missing font families. Please set a font that exists in your environment as an alternative.
+  // 以下の設定では存在しないフォントファミリーが含まれていると警告が出ます．環境に存在するフォントを設定してください．
+  // font-gothic: ("BIZ UDPGothic", "MS PGothic", "Hiragino Kaku Gothic Pro", "IPAexGothic", "Noto Sans CJK JP"),
+  // font-mincho: ("BIZ UDPMincho", "MS PMincho", "Hiragino Mincho Pro", "IPAexMincho", "Noto Serif CJK JP"),
+  // font-latin: ("Times New Roman", "New Computer Modern")
 )
 
 = はじめに
