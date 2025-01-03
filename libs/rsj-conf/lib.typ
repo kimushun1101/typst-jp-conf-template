@@ -1,6 +1,20 @@
 #let font-size-default = 10pt
 #let font-size-heading = 11pt
+#let state-font-gothic = state("gothic", "BIZ UDPGothic")
 
+// import third-party packages
+#import "@preview/ctheorems:1.1.3": thmplain, thmproof, thmrules
+#import "@preview/codly:1.1.1": codly-init
+
+// Theorem environments
+#let thmjp = thmplain.with(base: {}, separator: [#h(0.5em)], titlefmt: strong, inset: (top: 0em, left: 0em))
+#let definition = thmjp("definition", context{text(font: state-font-gothic.get())[定義]})
+#let lemma = thmjp("lemma", context{text(font: state-font-gothic.get())[補題]})
+#let theorem = thmjp("theorem", context{text(font: state-font-gothic.get())[定理]})
+#let corollary = thmjp("corollary", context{text(font: state-font-gothic.get())[系]})
+#let proof = thmproof("proof", context{text(font: state-font-gothic.get())[証明]}, separator: [#h(0.9em)], titlefmt: strong, inset: (top: 0em, left: 0em))
+
+// Configuration for the RSJ Conference paper.
 #let rsj-conf(
   title-ja: [日本語タイトル],
   title-en: [],
@@ -13,6 +27,13 @@
   font-latin: "New Computer Modern",
   body
 ) = {
+  // Set the font for headings.
+  state-font-gothic.update(font-gothic)
+
+  // Enable ctheorems.
+  show: thmrules.with(qed-symbol: $square$)
+  show: codly-init.with()
+
   // Set document metadata.
   set document(title: title-ja)
 
@@ -52,27 +73,27 @@
   show heading: it => {
     // Find out the final number of the heading counter.
     let levels = counter(heading).get()
-    if it.level == 1 [
+    if it.level == 1 {
       // We don't want to number of the acknowledgment section.
-      #set par(first-line-indent: 0pt)
-      #set text(font-size-heading, font: font-gothic)
-      #v(10pt)
-      #if it.numbering != none and not it.body in ([謝辞], [Acknowledgment], [Acknowledgement]) {
+      set par(first-line-indent: 0pt)
+      set text(font-size-heading, font: font-gothic)
+      v(10pt)
+      if it.numbering != none and not it.body in ([謝辞], [Acknowledgment], [Acknowledgement]) {
         numbering(it.numbering, ..levels)
         h(5pt)
       }
-      #it.body
-    ] else [
+      it.body
+     } else {
       // The other level headings are run-ins.
-      #set par(first-line-indent: 0pt)
-      #set text(font-size-default, weight: 400)
-      #v(5pt)
-      #if it.numbering != none {
+      set par(first-line-indent: 0pt)
+      set text(font-size-default, weight: 400)
+      v(5pt)
+      if it.numbering != none {
         numbering(it.numbering, ..levels)
         h(8pt, weak: true)
       }
-      #it.body
-    ]
+      it.body
+    }
   }
 
   show figure.where(kind: table): set figure(placement: top, supplement: [表])
@@ -117,7 +138,8 @@
   body
 }
 
-#let appendix(font-gothic: "Noto Sans CJK JP", body) = {
+// Appendix
+#let appendix(body) = {
   set heading(numbering: "A.1", supplement: [付録])
   counter(heading).update(0)
   counter(figure.where(kind: image)).update(0)
@@ -126,6 +148,6 @@
     [#numbering("A", counter(heading).get().at(0)).#it]
   })
   v(20pt, weak: true)
-  text(font-size-heading, font: font-gothic, weight: "bold")[付　　録]
+  context(text(font-size-heading, font: state-font-gothic.get(), weight: "bold")[付　　録])
   body
 }
