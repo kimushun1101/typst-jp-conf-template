@@ -54,27 +54,27 @@
   show heading: it => {
     // Find out the final number of the heading counter.
     let levels = counter(heading).get()
-    if it.level == 1 [
+    if it.level == 1 {
       // We don't want to number of the acknowledgment section.
-      #set par(first-line-indent: 0pt)
-      #set text(font-size-heading, font: font-gothic)
-      #v(10pt)
-      #if it.numbering != none and not it.body in ([謝辞], [Acknowledgment], [Acknowledgement]) {
+      set par(first-line-indent: 0pt)
+      set text(font-size-heading, font: font-gothic)
+      v(10pt)
+      if it.numbering != none and not it.body in ([謝辞], [Acknowledgment], [Acknowledgement]) {
         numbering(it.numbering, ..levels)
         h(5pt)
       }
-      #it.body
-    ] else [
+      it.body
+     } else {
       // The other level headings are run-ins.
-      #set par(first-line-indent: 0pt)
-      #set text(font-size-default, weight: 400)
-      #v(5pt)
-      #if it.numbering != none {
+      set par(first-line-indent: 0pt)
+      set text(font-size-default, weight: 400)
+      v(5pt)
+      if it.numbering != none {
         numbering(it.numbering, ..levels)
         h(8pt, weak: true)
       }
-      #it.body
-    ]
+      it.body
+    }
   }
 
   show figure.where(kind: table): set figure(placement: top, supplement: [表])
