@@ -1,6 +1,7 @@
 #let conference-name = "自動制御連合講演会"
 #let font-size-default = 10pt
 #let font-size-heading = 11pt
+#let spacing-size-heading = 15pt
 #let state-font-gothic = state("gothic", ("BIZ UDPGothic", "MS PGothic", "Hiragino Kaku Gothic Pro", "IPAexGothic", "Noto Sans CJK JP"))
 
 // import third-party packages
@@ -71,29 +72,14 @@
   // Configure headings.
   set heading(numbering: "1.1")
   show heading: it => {
-    // Find out the final number of the heading counter.
-    let levels = counter(heading).get()
-    if it.level == 1 {
-      // We don't want to number of the acknowledgment section.
-      set par(first-line-indent: 0pt)
-      set text(font-size-heading, font: font-gothic)
-      v(10pt)
-      if it.numbering != none and not it.body in ([謝辞], [Acknowledgment], [Acknowledgement]) {
-        numbering(it.numbering, ..levels)
-        h(1em)
-      }
-      it.body
-     } else {
-      // The other level headings are run-ins.
-      set par(first-line-indent: 0pt)
-      set text(font-size-default, font: font-gothic)
-      v(5pt)
-      if it.numbering != none {
-        numbering(it.numbering, ..levels)
-        h(1em)
-      }
-      it.body
+    set par(first-line-indent: 0em, spacing: spacing-size-heading)
+    set text(font-size-heading, font: font-gothic)
+    // Acknowledgment sections are not numbered.
+    if it.numbering != none and not it.body in ([謝辞], [Acknowledgment], [Acknowledgement]) {
+      numbering(it.numbering, ..counter(heading).get())
+      h(1em)
     }
+    it.body
   }
 
   // Configure figures.
@@ -159,7 +145,7 @@
   set figure(numbering: it => {
     [#numbering("A", counter(heading).get().at(0)).#it]
   })
-  v(20pt, weak: true)
+  v(spacing-size-heading)
   context(text(font-size-heading, font: state-font-gothic.get(), weight: "bold")[付録])
   body
 }

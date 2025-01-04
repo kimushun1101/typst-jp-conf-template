@@ -2,8 +2,8 @@
 // Copyright 2024 Shunsuke Kimura
 
 // Select the Template
-// #import "libs/mscs/lib.typ": mscs as temp, definition, lemma, theorem, corollary, proof, appendix, conference-name
-#import "libs/rengo/lib.typ": rengo as temp, definition, lemma, theorem, corollary, proof, appendix, conference-name
+#import "libs/mscs/lib.typ": mscs as temp, definition, lemma, theorem, corollary, proof, appendix, conference-name
+// #import "libs/rengo/lib.typ": rengo as temp, definition, lemma, theorem, corollary, proof, appendix, conference-name
 // #import "libs/rsj-conf/lib.typ": rsj-conf as temp, definition, lemma, theorem, corollary, proof, appendix, conference-name
 
 #show: temp.with(
@@ -25,7 +25,7 @@
 
 = はじめに
 これは#conference-name;のサンプルを参考に作成しています。
-#text([使用の際には適宜投稿先の規定を必ずご確認ください。]
+#text([実用の際には適宜投稿先の規定を必ずご確認ください。]
 , fill: rgb(red), weight: "bold")
 発表論文原稿をPDFでご執筆いただき、学会のホームページにアップロードしてください。
 このファイルはこのテンプレートの使い方を示しており、同時に発表論文の見本でもあります。
@@ -34,6 +34,7 @@
 というような説明が書かれるであろうテンプレートを作ってみました。
 本稿では、このテンプレートファイルの使い方および Typst による執筆作業の概要について解説します。
 この原稿のソースコードは https://github.com/kimushun1101/typst-jp-conf-template で公開しております。
+ご要望や修正の提案があれば、Issue や Pull Request でお知らせください。筆者に届く形であればSNSなど他の手段でも構いません。
 Typst の概要についてお知りになりたい方は、https://github.com/kimushun1101/How-to-use-typst-for-paper-jp にもスライド形式の資料を用意しておりますので、ぜひこちらもご覧ください。
 
 = テンプレートファイルの使い方 <sec:usage>
