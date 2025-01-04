@@ -4,7 +4,7 @@
 // Select the Template
 #import "libs/mscs/lib.typ": mscs as temp, definition, lemma, theorem, corollary, proof, appendix, conference-name
 // #import "libs/rengo/lib.typ": rengo as temp, definition, lemma, theorem, corollary, proof, appendix, conference-name
-// #import "libs/rsj-conf/lib.typ": rsj-conf as temp, definition, lemma, theorem, corollary, proof, appendix, conference-name
+#import "libs/rsj-conf/lib.typ": rsj-conf as temp, definition, lemma, theorem, corollary, proof, appendix, conference-name
 
 #show: temp.with(
   title-ja: [Typst を使った国内学会論文の書き方 \ - 国内学会予稿集に似せたフォーマットの作成 - ],
@@ -96,9 +96,6 @@ typst compile main.typ
 typst watch main.typ
 ```
 というコマンドもあります。
-
-== このパッケージが使えない場合
-コンパイルができない場合などのトラブルがございましたら、https://github.com/kimushun1101/typst-jp-conf-template/issues でご相談ください。
 
 = 原稿の体裁 <sec:format>
 このテンプレートのソースコードはcharge-ieeeとabiding-ifacconfなどのテンプレートを参考にして作成しました。

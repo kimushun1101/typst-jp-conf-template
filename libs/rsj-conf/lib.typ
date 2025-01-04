@@ -71,16 +71,26 @@
   set list(indent: 1em)
 
   // Configure headings.
-  set heading(numbering: "1.1")
+  set heading(numbering: "1.1.")
   show heading: it => {
     set par(first-line-indent: 0em, spacing: spacing-size-heading)
-    set text(font-size-heading, font: font-gothic)
-    // Acknowledgment sections are not numbered.
-    if it.numbering != none and not it.body in ([謝辞], [Acknowledgment], [Acknowledgement]) {
-      numbering(it.numbering, ..counter(heading).get())
-      h(1em)
+    let levels = counter(heading).get()
+    if it.level == 1 {
+      set text(font-size-heading, font: font-gothic)
+      // Acknowledgment sections are not numbered.
+      if it.numbering != none and not it.body in ([謝辞], [Acknowledgment], [Acknowledgement]) {
+        numbering(it.numbering, ..counter(heading).get())
+        h(1em)
+      }
+      it.body
+    } else {
+      set text(font-size-default, font: font-gothic)
+      if it.numbering != none {
+        numbering(it.numbering, ..counter(heading).get())
+        h(1em)
+      }
+      it.body
     }
-    it.body
   }
 
   show figure.where(kind: table): set figure(placement: top, supplement: [表])
@@ -127,7 +137,7 @@
 
 // Appendix
 #let appendix(body) = {
-  set heading(numbering: "A.1", supplement: [付録])
+  set heading(numbering: "A.1.", supplement: [付録])
   counter(heading).update(0)
   counter(figure.where(kind: image)).update(0)
   counter(figure.where(kind: table)).update(0)

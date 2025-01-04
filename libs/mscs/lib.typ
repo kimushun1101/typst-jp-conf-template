@@ -73,13 +73,23 @@
   set heading(numbering: "1.1")
   show heading: it => {
     set par(first-line-indent: 0em, spacing: spacing-size-heading)
-    set text(font-size-heading, font: font-gothic)
-    // Acknowledgment sections are not numbered.
-    if it.numbering != none and not it.body in ([謝辞], [Acknowledgment], [Acknowledgement]) {
-      numbering(it.numbering, ..counter(heading).get())
-      h(1em)
+    let levels = counter(heading).get()
+    if it.level == 1 {
+      set text(font-size-heading, font: font-gothic)
+      // Acknowledgment sections are not numbered.
+      if it.numbering != none and not it.body in ([謝辞], [Acknowledgment], [Acknowledgement]) {
+        numbering(it.numbering, ..counter(heading).get())
+        h(1em)
+      }
+      it.body
+    } else {
+      set text(font-size-default, font: font-gothic)
+      if it.numbering != none {
+        numbering(it.numbering, ..counter(heading).get())
+        h(1em)
+      }
+      it.body
     }
-    it.body
   }
 
   // Configure figures.
