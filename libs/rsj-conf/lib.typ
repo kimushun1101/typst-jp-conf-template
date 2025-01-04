@@ -1,6 +1,7 @@
+#let conference-name = "日本ロボット学会学術講演会"
 #let font-size-default = 10pt
 #let font-size-heading = 11pt
-#let state-font-gothic = state("gothic", "BIZ UDPGothic")
+#let state-font-gothic = state("gothic", ("BIZ UDPGothic", "MS PGothic", "Hiragino Kaku Gothic Pro", "IPAexGothic", "Noto Sans CJK JP"))
 
 // import third-party packages
 #import "@preview/ctheorems:1.1.3": thmplain, thmproof, thmrules
@@ -22,15 +23,15 @@
   authors-en: [],
   abstract: none,
   keywords: (),
-  font-gothic: "BIZ UDPGothic",
-  font-mincho: "BIZ UDPMincho",
+  font-gothic: "Noto Sans CJK JP",
+  font-mincho: "Noto Serif CJK JP",
   font-latin: "New Computer Modern",
   body
 ) = {
   // Set the font for headings.
   state-font-gothic.update(font-gothic)
 
-  // Enable ctheorems.
+  // Enable packages.
   show: thmrules.with(qed-symbol: $square$)
   show: codly-init.with()
 
@@ -42,8 +43,8 @@
     paper: "a4",
     margin: (top: 20mm, bottom: 27mm, x: 20mm)
   )
-  set text(size: font-size-default, font: font-mincho)
-  set par(leading: 0.55em, first-line-indent: 1em, justify: true, spacing: 0.55em)
+  set text(font-size-default, font: font-mincho)
+  set par(leading: 0.5em, first-line-indent: 1em, justify: true, spacing: 0.6em)
   show "、": "，"
   show "。": "．"
 
@@ -65,8 +66,8 @@
   }
 
   // Configure lists.
-  set enum(indent: font-size-default)
-  set list(indent: font-size-default)
+  set enum(indent: 1em)
+  set list(indent: 1em)
 
   // Configure headings.
   set heading(numbering: "1.")
@@ -80,17 +81,17 @@
       v(10pt)
       if it.numbering != none and not it.body in ([謝辞], [Acknowledgment], [Acknowledgement]) {
         numbering(it.numbering, ..levels)
-        h(5pt)
+        h(1em)
       }
       it.body
      } else {
       // The other level headings are run-ins.
       set par(first-line-indent: 0pt)
-      set text(font-size-default, weight: 400)
+      set text(font-size-default, font: font-gothic)
       v(5pt)
       if it.numbering != none {
         numbering(it.numbering, ..levels)
-        h(8pt, weak: true)
+        h(1em)
       }
       it.body
     }

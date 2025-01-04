@@ -1,19 +1,39 @@
-// Workaround for the lack of an `std` scope.
-#let std-bibliography = bibliography
+#let conference-name = "自動制御連合講演会"
+#let font-size-default = 10pt
+#let font-size-heading = 11pt
+#let state-font-gothic = state("gothic", ("BIZ UDPGothic", "MS PGothic", "Hiragino Kaku Gothic Pro", "IPAexGothic", "Noto Sans CJK JP"))
+
+// import third-party packages
+#import "@preview/ctheorems:1.1.3": thmplain, thmproof, thmrules
+#import "@preview/codly:1.1.1": codly-init
+
+// Theorem environments
+#let thmjp = thmplain.with(base: {}, separator: [#h(0.5em)], titlefmt: strong, inset: (top: 0em, left: 0em))
+#let definition = thmjp("definition", context{text(font: state-font-gothic.get())[定義]})
+#let lemma = thmjp("lemma", context{text(font: state-font-gothic.get())[補題]})
+#let theorem = thmjp("theorem", context{text(font: state-font-gothic.get())[定理]})
+#let corollary = thmjp("corollary", context{text(font: state-font-gothic.get())[系]})
+#let proof = thmproof("proof", context{text(font: state-font-gothic.get())[証明]}, separator: [#h(0.9em)], titlefmt: strong, inset: (top: 0em, left: 0em))
 
 #let rengo(
-  title-ja: [タイトル],
+  title-ja: [日本語タイトル],
+  title-en: [],
   authors-ja: [著者],
-  title-en: "", 
-  authors-en: "",
+  authors-en: [],
   abstract: none,
   keywords: (),
-  bibliography: none,
-  font-gothic: "BIZ UDPGothic",
-  font-mincho: "BIZ UDPMincho",
+  font-gothic: "Noto Sans CJK JP",
+  font-mincho: "Noto Serif CJK JP",
   font-latin: "New Computer Modern",
   body
 ) = {
+  // Set the font for headings.
+  state-font-gothic.update(font-gothic)
+
+  // Enable packages.
+  show: thmrules.with(qed-symbol: $square$)
+  show: codly-init.with()
+
   // Set document metadata.
   set document(title: title-ja)
 
@@ -22,9 +42,8 @@
     paper: "a4",
     margin: (top: 20mm, bottom: 27mm, x: 20mm)
   )
-  set text(size: 10pt, font: font-mincho)
-  // show regex("[0-9a-zA-Z]"): set text(font: "New Computer Modern Math")
-  set par(leading: 0.55em, first-line-indent: 1em, justify: true, spacing: 0.55em)
+  set text(font-size-default, font: font-mincho)
+  set par(leading: 0.6em, first-line-indent: 1em, justify: true, spacing: 0.8em)
   show "、": "，"
   show "。": "．"
 
@@ -33,58 +52,48 @@
   show math.equation: set block(spacing: 0.55em)
 
   // Configure appearance of equation references
+  // See https://typst.app/docs/reference/model/ref/
   show ref: it => {
     if it.element != none and it.element.func() == math.equation {
-      // Override equation references.
       link(it.element.location(), numbering(
         it.element.numbering,
         ..counter(math.equation).at(it.element.location())
       ))
     } else {
-      // Other references as usual.
       it
     }
   }
 
   // Configure lists.
-  set enum(indent: 10pt, body-indent: 9pt)
-  set list(indent: 10pt, body-indent: 9pt)
+  set enum(indent: 1em)
+  set list(indent: 1em)
 
   // Configure headings.
-  set heading(numbering: "1.")
+  set heading(numbering: "1.1")
   show heading: it => {
     // Find out the final number of the heading counter.
     let levels = counter(heading).get()
-    let deepest = if levels != () {
-      levels.last()
-    } else {
-      1
-    }
-    if it.level == 1 [
-      // First-level headings are centered smallcaps.
+    if it.level == 1 {
       // We don't want to number of the acknowledgment section.
-      #set par(first-line-indent: 0pt)
-      #let is-ack = it.body in ([謝辞], [Acknowledgment], [Acknowledgement])
-      #set text(if is-ack { 11pt } else { 11pt }, font: font-gothic)
-      #v(20pt, weak: true)
-      #if it.numbering != none and not is-ack {
-        numbering("1.", ..levels)
-        h(8pt, weak: true)
+      set par(first-line-indent: 0pt)
+      set text(font-size-heading, font: font-gothic)
+      v(10pt)
+      if it.numbering != none and not it.body in ([謝辞], [Acknowledgment], [Acknowledgement]) {
+        numbering(it.numbering, ..levels)
+        h(1em)
       }
-      #it.body
-      #v(13.75pt, weak: true)
-    ] else [
+      it.body
+     } else {
       // The other level headings are run-ins.
-      #set par(first-line-indent: 0pt)
-      #set text(10pt, weight: 400)
-      #v(10pt, weak: true)
-      #if it.numbering != none {
-        numbering("1.", ..levels)
-        h(8pt, weak: true)
+      set par(first-line-indent: 0pt)
+      set text(font-size-default, font: font-gothic)
+      v(5pt)
+      if it.numbering != none {
+        numbering(it.numbering, ..levels)
+        h(1em)
       }
-      #it.body
-      #v(10pt, weak: true)
-    ]
+      it.body
+    }
   }
 
   // Configure figures.
@@ -129,14 +138,28 @@
   // Start two column mode and configure paragraph properties.
   show: columns.with(2, gutter: 8mm)
 
+  // Configure Bibliography.
+  set bibliography(title: text(font-size-heading)[参考文献], style: "rengo.csl")
+  show bibliography: it => [
+    #set text(9pt, font: font-mincho)
+    #show regex("[0-9a-zA-Z]"): set text(font: font-latin)
+    #it
+  ]
+
   // Display the paper's contents.
   body
+}
 
-  // Display bibliography.
-  if bibliography != none {
-    show std-bibliography: set text(9pt)
-    show regex("[0-9a-zA-Z]"): set text(font: font-latin)
-    set std-bibliography(title: text(12pt)[参考文献], style: "rengo.csl")
-    bibliography
-  }
+// Appendix
+#let appendix(body) = {
+  set heading(numbering: "A.1", supplement: [付録])
+  counter(heading).update(0)
+  counter(figure.where(kind: image)).update(0)
+  counter(figure.where(kind: table)).update(0)
+  set figure(numbering: it => {
+    [#numbering("A", counter(heading).get().at(0)).#it]
+  })
+  v(20pt, weak: true)
+  context(text(font-size-heading, font: state-font-gothic.get(), weight: "bold")[付録])
+  body
 }
