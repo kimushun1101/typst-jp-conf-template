@@ -1,3 +1,4 @@
+#let conference-name = "日本ロボット学会学術講演会"
 #let font-size-default = 10pt
 #let font-size-heading = 11pt
 #let state-font-gothic = state("gothic", ("BIZ UDPGothic", "MS PGothic", "Hiragino Kaku Gothic Pro", "IPAexGothic", "Noto Sans CJK JP"))
@@ -80,7 +81,7 @@
       v(10pt)
       if it.numbering != none and not it.body in ([謝辞], [Acknowledgment], [Acknowledgement]) {
         numbering(it.numbering, ..levels)
-        h(5pt)
+        h(1em)
       }
       it.body
      } else {
@@ -90,7 +91,7 @@
       v(5pt)
       if it.numbering != none {
         numbering(it.numbering, ..levels)
-        h(8pt, weak: true)
+        h(1em)
       }
       it.body
     }

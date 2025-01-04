@@ -2,9 +2,9 @@
 // Copyright 2024 Shunsuke Kimura
 
 // Select the Template
-// #import "libs/mscs/lib.typ": mscs as temp, definition, lemma, theorem, corollary, proof, appendix
-// #import "libs/rengo/lib.typ": rengo as temp, definition, lemma, theorem, corollary, proof, appendix
-#import "libs/rsj-conf/lib.typ": rsj-conf as temp, definition, lemma, theorem, corollary, proof, appendix
+// #import "libs/mscs/lib.typ": mscs as temp, definition, lemma, theorem, corollary, proof, appendix, conference-name
+#import "libs/rengo/lib.typ": rengo as temp, definition, lemma, theorem, corollary, proof, appendix, conference-name
+// #import "libs/rsj-conf/lib.typ": rsj-conf as temp, definition, lemma, theorem, corollary, proof, appendix, conference-name
 
 #show: temp.with(
   title-ja: [Typst を使った国内学会論文の書き方 \ - 国内学会予稿集に似せたフォーマットの作成 - ],
@@ -24,8 +24,9 @@
 )
 
 = はじめに
-#text("これは非公式のサンプルです。", fill: rgb(red), weight: "bold")
-適宜投稿先の規定をご確認ください。
+これは#conference-name;のサンプルを参考に作成しています。
+#text([使用の際には適宜投稿先の規定を必ずご確認ください。]
+, fill: rgb(red), weight: "bold")
 発表論文原稿をPDFでご執筆いただき、学会のホームページにアップロードしてください。
 このファイルはこのテンプレートの使い方を示しており、同時に発表論文の見本でもあります。
 執筆の時は以下の説明をよく読み、執筆要項に従ったフォーマットでご提出ください。
@@ -346,7 +347,7 @@ CSLファイルは著者が編集する必要はありませんが、詳細が�
 文法上では特に規則はありませんが、個人的にはラベルの命名規則として、数式の場合には "eq:" から、図の場合には "fig:" から、表の場合には"tab:" から、セクションの場合には "sec:" から、付録セクションであれば "appendix:" から始めるようにラベル名を設定しており、参考文献のラベルは "著者名発行年タイトルの最初の単語"で名付けております。
 
 = おわりに <sec:conclusion>
-まだまだTypst自体も発展途上中であり、最新の状態は日々変化しております。
+まだまだTypst自体は発展途上中であり、最新の状態は日々変化しております。
 また筆者の理解や表現が誤っている箇所もあるかと思います。
 対応していただきたい内容や修正していただきたい内容などありましたら、#link("https://github.com/kimushun1101/typst-jp-conf-template")[GitHub] を通して、Issues や Pull Reqests をいただけますと幸いです。
 このテンプレートは日本語論文のために作成しておりますため、日本語での投稿で構いません。もちろん英語での投稿でも問題ありません。

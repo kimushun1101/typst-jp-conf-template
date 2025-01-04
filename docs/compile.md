@@ -8,7 +8,7 @@
 
 1. [Typst app](https://typst.app/)から `Sign up` でアカウントを作成
 2. `Empty document` から新規プロジェクトを作成
-3. zip 展開したファイルおよびフォルダーをアップロード
+3. zip展開したファイルおよびフォルダーをアップロード
 4. main.typの目のアイコンが閉じていれば、これ![image](https://github.com/user-attachments/assets/bf5dc1c8-78c4-4bb9-9d78-b8ea93271236)をクリック
 
 ## コマンドによるインストール
