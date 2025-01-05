@@ -4,7 +4,7 @@
 // Select the Template
 #import "libs/mscs/lib.typ": mscs as temp, definition, lemma, theorem, corollary, proof, appendix, conference-name
 // #import "libs/rengo/lib.typ": rengo as temp, definition, lemma, theorem, corollary, proof, appendix, conference-name
-#import "libs/rsj-conf/lib.typ": rsj-conf as temp, definition, lemma, theorem, corollary, proof, appendix, conference-name
+// #import "libs/rsj-conf/lib.typ": rsj-conf as temp, definition, lemma, theorem, corollary, proof, appendix, conference-name
 
 #show: temp.with(
   title-ja: [Typst を使った国内学会論文の書き方 \ - 国内学会予稿集に似せたフォーマットの作成 - ],
@@ -23,7 +23,7 @@
   // font-latin: ("Times New Roman", "New Computer Modern")
 )
 
-= はじめに
+= はじめに <sec:info>
 これは#conference-name;のサンプルを参考に作成しています。
 #text([実用の際には適宜投稿先の規定を必ずご確認ください。]
 , fill: rgb(red), weight: "bold")
@@ -65,7 +65,7 @@ Typst appのページ https://typst.app/ から`Sign up`でアカウントを作
 ターミナルでのコマンド操作でコンパイルする方法もあります。
 何か不具合があるときには、こちらでのコンパイルが一番確実です。
 
-=== インストール
+=== インストール <sec:typst-install>
 - Windows の場合\ Windows PowerShell から以下のコマンドでインストールできます。
 ```powershell
 winget install --id Typst.Typst
@@ -115,7 +115,7 @@ typst watch main.typ
 アブストラクトは左右に 0.7 cm 余白を取っています。
 
 フォントの設定は @tab:fonts の通りです。
-ここで、ゴシック体や明朝体の具体的なフォントファミリーは @sec:info のコード内で設定しています。
+ここで、ゴシック体や明朝体の具体的なフォントファミリーは @sec:paper-info のコード内で設定しています。
 
 #figure(
   placement: bottom,
@@ -171,7 +171,7 @@ typst watch main.typ
 
 = 編集の仕方 <sec:edit>
 
-== 論文情報の編集 <sec:info>
+== 論文情報の編集 <sec:paper-info>
 main.typ の文頭にある以下のコードを解説します。
 ```typ
 // Select the Template
@@ -208,7 +208,7 @@ typst fonts
 また、使用したいフォントがない場合には、フォントをインストールしてください。
 
 == 基本的な文法
-章は `=`、節は `==`、小節は `===` で始めます。
+章は `=`、節は `==`、項は `===` で始めます。
 改段落は LaTeX と同じく改行を 2 つ以上挟みます。
 数字つき箇条書きは `+` で、数字なしの箇条書きは `-` を文頭につけて書くことができます。
 テキストの装飾は text 関数で行えます。
@@ -340,7 +340,7 @@ CSLファイルは著者が編集する必要はありませんが、詳細が�
 完成原稿では推奨されませんが、引用されていない論文も記載したい場合には full: true にすれば、すべての文献が出力されます。
 
 == 引用
-引用は "\@label" と記述することで、数式であれば@eq:system、図であれば@fig:quadratic、表であれば@tab:fonts、セクションであれば@sec:edit、付録セクションであれば@appendix:edit、参考文献であれば@kimura2015asymptotic のように表示されます。
+引用は "\@label" と記述することで、数式であれば@eq:system、図であれば@fig:quadratic、表であれば@tab:fonts、セクションであれば@sec:edit、節や項があるセクションであれば@sec:typst-install、付録セクションであれば@appendix:edit、参考文献であれば@kimura2015asymptotic のように表示されます。
 参考文献は連続して引用すると@kimura2017state @kimura2021control @kimura2020facility @khalil2002control @sugie1999feedback @shimz2022visually と繋げられて表示されます。
 文法上では特に規則はありませんが、個人的にはラベルの命名規則として、数式の場合には "eq:" から、図の場合には "fig:" から、表の場合には"tab:" から、セクションの場合には "sec:" から、付録セクションであれば "appendix:" から始めるようにラベル名を設定しており、参考文献のラベルは "著者名発行年タイトルの最初の単語"で名付けております。
 

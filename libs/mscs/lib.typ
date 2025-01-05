@@ -2,7 +2,8 @@
 #let font-size-default = 10pt
 #let font-size-heading = 11pt
 #let spacing-size-heading = 12pt
-#let state-font-gothic = state("gothic", ("BIZ UDPGothic", "MS PGothic", "Hiragino Kaku Gothic Pro", "IPAexGothic", "Noto Sans CJK JP"))
+#let appendix-numbering = "A.1"
+#let state-font-gothic = state("gothic", (:))
 
 // import third-party packages
 #import "@preview/ctheorems:1.1.3": thmplain, thmproof, thmrules
@@ -52,14 +53,35 @@
   set math.equation(numbering: "(1)")
   show math.equation: set block(spacing: 0.55em)
 
-  // Configure appearance of equation references
-  // See https://typst.app/docs/reference/model/ref/
+  // Configure appearance of references
   show ref: it => {
-    if it.element != none and it.element.func() == math.equation {
-      link(it.element.location(), numbering(
-        it.element.numbering,
-        ..counter(math.equation).at(it.element.location())
+    // Equation -> (n).
+    // See https://typst.app/docs/reference/model/ref/
+    let eq = math.equation
+    let el = it.element
+    if el != none and el.func() == eq {
+      link(el.location(), numbering(
+        el.numbering,
+        ..counter(eq).at(el.location())
       ))
+    }
+    // Sections -> n章m節l項.
+    // Appendix -> 付録A.
+    else if el != none and el.func() == heading {
+      let sec-cnt = counter(heading).at(el.location())
+      if el.numbering != appendix-numbering{
+        if el.depth == 1 {
+          link(el.location(), [#sec-cnt.at(0)章])
+        } else if el.depth == 2{
+          link(el.location(), [#sec-cnt.at(0)章#sec-cnt.at(1)節])
+        } else if el.depth == 3{
+          link(el.location(), [#sec-cnt.at(0)章#sec-cnt.at(1)節#sec-cnt.at(2)項])
+        }
+      } else {
+        link(el.location(), [
+          付録#numbering(el.numbering, ..sec-cnt)
+        ])
+      }
     } else {
       it
     }
@@ -78,14 +100,14 @@
       set text(font-size-heading, font: font-gothic)
       // Acknowledgment sections are not numbered.
       if it.numbering != none and not it.body in ([謝辞], [Acknowledgment], [Acknowledgement]) {
-        numbering(it.numbering, ..counter(heading).get())
+        numbering(it.numbering, ..levels)
         h(1em)
       }
       it.body
     } else {
       set text(font-size-default, font: font-gothic)
       if it.numbering != none {
-        numbering(it.numbering, ..counter(heading).get())
+        numbering(it.numbering, ..levels)
         h(1em)
       }
       it.body
@@ -148,7 +170,7 @@
 
 // Appendix
 #let appendix(body) = {
-  set heading(numbering: "A.1", supplement: [付録])
+  set heading(numbering: appendix-numbering)
   counter(heading).update(0)
   counter(figure.where(kind: image)).update(0)
   counter(figure.where(kind: table)).update(0)
