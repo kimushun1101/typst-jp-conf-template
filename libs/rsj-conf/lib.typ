@@ -143,7 +143,7 @@
   }
 
   // Start two column mode and configure paragraph properties.
-  show: columns.with(2, gutter: 8mm)
+  show: columns.with(2)
 
   // Configure Bibliography.
   set bibliography(title: align(center, text(font-size-heading)[参　考　文　献]), style: "rsj-conf.csl")

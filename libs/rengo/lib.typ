@@ -155,7 +155,7 @@
   }
 
   // Start two column mode and configure paragraph properties.
-  show: columns.with(2, gutter: 8mm)
+  show: columns.with(2)
 
   // Configure Bibliography.
   set bibliography(title: text(font-size-heading)[参考文献], style: "rengo.csl")
