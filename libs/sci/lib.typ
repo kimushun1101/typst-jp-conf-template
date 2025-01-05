@@ -1,8 +1,8 @@
-#let conference-name = "日本ロボット学会学術講演会"
-#let font-size-default = 10pt
+#let conference-name = "システム制御情報学会 研究発表講演会"
+#let font-size-default = 10.5pt
 #let font-size-heading = 11pt
-#let spacing-size-heading = 5pt
-#let appendix-numbering = "A.1."
+#let spacing-size-heading = 15pt
+#let appendix-numbering = "A.1"
 #let state-font-gothic = state("gothic", (:))
 
 // import third-party packages
@@ -17,8 +17,7 @@
 #let corollary = thmjp("corollary", context{text(font: state-font-gothic.get())[系]})
 #let proof = thmproof("proof", context{text(font: state-font-gothic.get())[証明]}, separator: [#h(0.9em)], titlefmt: strong, inset: (top: 0em, left: 0em))
 
-// Configuration for the RSJ Conference paper.
-#let rsj-conf(
+#let sci(
   title-ja: [日本語タイトル],
   title-en: [],
   authors-ja: [著者],
@@ -43,10 +42,10 @@
   // Configure the page.
   set page(
     paper: "a4",
-    margin: (top: 20mm, bottom: 27mm, x: 20mm)
+    margin: (top: 2.5cm, bottom: 3cm, x: 1.8cm)
   )
   set text(font-size-default, font: font-mincho)
-  set par(leading: 0.5em, first-line-indent: 1em, justify: true, spacing: 0.6em)
+  set par(leading: 0.55em, first-line-indent: 1em, justify: true, spacing: 0.55em)
   show "、": "，"
   show "。": "．"
 
@@ -88,12 +87,13 @@
     }
   }
 
+
   // Configure lists.
   set enum(indent: 1em)
   set list(indent: 1em)
 
   // Configure headings.
-  set heading(numbering: "1.1.")
+  set heading(numbering: "1.1")
   show heading: it => {
     set par(first-line-indent: 0em, spacing: spacing-size-heading)
     let levels = counter(heading).get()
@@ -115,38 +115,47 @@
     }
   }
 
-  show figure.where(kind: table): set figure(placement: top, supplement: [表])
-  show figure.where(kind: table): set figure.caption(position: top, separator: [ ])
-  show figure.where(kind: image): set figure(placement: top, supplement: [図])
-  show figure.where(kind: image): set figure.caption(position: bottom, separator: [ ])
+  // Configure figures.
+  show figure.where(kind: table): set figure(placement: top, supplement: [Table])
+  show figure.where(kind: table): set figure.caption(position: top, separator: [: ])
+  show figure.where(kind: image): set figure(placement: top, supplement: [Fig.])
+  show figure.where(kind: image): set figure.caption(position: bottom, separator: [: ])
 
   // Display the paper's title.
-  align(center, text(18pt, title-ja, weight: "bold", font: font-gothic))
-  v(2em, weak: true)
+  align(center, text(14pt, title-ja, weight: "bold", font: font-gothic))
+  v(16pt, weak: true)
+
+  // Display the paper's title in English.
+  align(center, text(14pt, title-en, weight: "bold", font: font-latin))
+  v(1em, weak: true)
 
   // Display the authors list.
-  align(center, text(12pt, authors-ja, font: font-mincho))
-  v(2em, weak: true)
+  align(center, text(font-size-default, authors-ja, weight: "bold", font: font-gothic))
+  v(1em, weak: true)
+
+  // Display the authors list in English.
+  align(center, text(font-size-default, authors-en, weight: "bold", font: font-latin))
+  v(1em, weak: true)
 
   // Display abstract and index terms.
   if abstract != none {
     grid(
-      columns: (0.7cm, 1fr, 0.7cm),
+      columns: (1cm, 1fr, 1cm),
       [],
       [
         #set text(font-size-default, font: font-latin)
-        #h(1em) #abstract
+        #set par(first-line-indent: 0pt)
+        *Abstract* #h(1em) #abstract
       ],
       []
     )
     v(1em, weak: false)
   }
-
   // Start two column mode and configure paragraph properties.
   show: columns.with(2)
 
   // Configure Bibliography.
-  set bibliography(title: align(center, text(font-size-heading)[参　考　文　献]), style: "rsj-conf.csl")
+  set bibliography(title: text(font-size-heading)[参考文献], style: "sci.csl")
   show bibliography: it => [
     #set text(9pt, font: font-mincho)
     #show regex("[0-9a-zA-Z]"): set text(font: font-latin)
@@ -159,7 +168,7 @@
 
 // Appendix
 #let appendix(body) = {
-  set heading(numbering: appendix-numbering, supplement: [付録])
+  set heading(numbering: appendix-numbering)
   counter(heading).update(0)
   counter(figure.where(kind: image)).update(0)
   counter(figure.where(kind: table)).update(0)
@@ -167,6 +176,6 @@
     [#numbering("A", counter(heading).get().at(0)).#it]
   })
   v(spacing-size-heading)
-  context(text(font-size-heading, font: state-font-gothic.get(), weight: "bold")[付　　録])
+  context(text(font-size-heading, font: state-font-gothic.get(), weight: "bold")[付録])
   body
 }
