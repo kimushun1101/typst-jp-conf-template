@@ -1,5 +1,5 @@
 // MIT No Attribution
-// Copyright 2024 Shunsuke Kimura
+// Copyright 2024, 2025 Shunsuke Kimura
 
 // Select the Template
 #import "libs/mscs/lib.typ": mscs as temp, definition, lemma, theorem, corollary, proof, appendix, conference-name
