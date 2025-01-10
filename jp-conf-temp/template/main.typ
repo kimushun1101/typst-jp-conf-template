@@ -2,7 +2,7 @@
 // Copyright 2024, 2025 Shunsuke Kimura
 
 // Select the Template
-#import "../lib.typ": mscs as temp, definition, lemma, theorem, corollary, proof, appendix, conference-name
+#import "../lib.typ": mscs as temp, definition, lemma, theorem, corollary, proof, appendix
 
 #show: temp.with(
   title-ja: [日本語学会論文のテンプレート \ - サブタイトル - ],
@@ -22,7 +22,6 @@
 )
 
 = はじめに <sec:intro>
-これは#conference-name;のサンプルを参考に作成しています。
 #text([実用の際には適宜投稿先の規定を必ずご確認ください。]
 , fill: rgb(red), weight: "bold")
 発表論文原稿をPDFでご執筆いただき、学会のホームページにアップロードしてください。
@@ -85,6 +84,7 @@ $ u = K_P e + K_I integral_0^t e d t $ <eq:PI-controller>
 === 定理環境 <sec:theorem>
 以下はtheorem環境の使用例です。
 定理などのタイトルフォントをゴシックにしています。
+#text([`definition`, `lemma`, `theorem`, `corollary`, `proof`はこのテンプレートで定義している関数です。他のテンプレートを使用する場合には、適宜置き換えてください。], fill: rgb(red), weight: "bold")
 
 #definition("用語 A")[
   用語 A の定義を書きます。
@@ -131,3 +131,4 @@ $ u = K_P e + K_I integral_0^t e d t $ <eq:PI-controller>
   #show: appendix
 ```
 を追加してください。
+#text([`appendix`はこのテンプレートで定義している関数です。他のテンプレートを使用する場合には、適宜置き換えてください。], fill: rgb(red), weight: "bold")

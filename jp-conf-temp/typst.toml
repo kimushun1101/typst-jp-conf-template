@@ -4,7 +4,10 @@ version = "0.1.0"
 compiler = "0.12.0"
 entrypoint = "lib.typ"
 repository = "https://github.com/kimushun1101/typst-jp-conf-template"
-authors = ["Shunsuke Kimura <https://github.com/kimushun1101>", "ささくらり <https://github.com/m-tsuru>"]
+authors = [
+  "Shunsuke Kimura <https://github.com/kimushun1101>",
+  "ささくらり <https://github.com/m-tsuru>",
+]
 license = "MIT-0"
 description = "Typst で日本語論文を書くときのテンプレート "
 keywords = ["japanese", "conference"]

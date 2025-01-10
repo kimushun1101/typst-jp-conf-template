@@ -1,4 +1,3 @@
-#let conference-name = "制御部門マルチシンポジウム"
 #let font-size-default = 10pt
 #let font-size-heading = 11pt
 #let spacing-size-heading = 12pt
