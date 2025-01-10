@@ -2,9 +2,9 @@
 // Copyright 2024, 2025 Shunsuke Kimura
 
 // Select the Template
-#import "../lib.typ": mscs as temp, definition, lemma, theorem, corollary, proof, appendix
+#import "../lib.typ": jaconf, definition, lemma, theorem, corollary, proof, appendix
 
-#show: temp.with(
+#show: jaconf.with(
   title-ja: [日本語学会論文のテンプレート \ - サブタイトル - ],
   title-en: [How to Write a Conference Paper in Japanese],
   authors-ja: [◯ 著者姓1 著者名1、著者姓2 著者名2(○○○大学)、著者姓3 著者名3 (□□□株式会社)],
