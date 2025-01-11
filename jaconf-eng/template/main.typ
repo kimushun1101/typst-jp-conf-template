@@ -2,7 +2,7 @@
 // Copyright 2024, 2025 Shunsuke Kimura
 
 // Select the Template
-#import "../lib.typ": jaconf, definition, lemma, theorem, corollary, proof, appendix
+#import "@preview/jaconf-eng:0.1.0": jaconf, definition, lemma, theorem, corollary, proof, appendix
 
 #show: jaconf.with(
   title-ja: [日本語学会論文のテンプレート \ - サブタイトル - ],
