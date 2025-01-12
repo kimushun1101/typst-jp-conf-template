@@ -25,7 +25,10 @@
 )
 
 // この文書特有の関数を定義
+// 赤字で警告する
 #let red-warn(it) = text(it, fill: rgb(red), weight: "bold")
+// リンクを青文字にする
+#show link: set text(fill: blue)
 
 = はじめに <sec:info>
 これは#conference-name;のサンプルを参考に作成しています。
@@ -326,8 +329,8 @@ table の columns の数に応じて、文字列の配列が自動的に整列�
 ```typ
 #import "libs/mscs/lib.typ": mscs as temp, definition, lemma, theorem, corollary, proof, appendix
 ```
-さらに元をたどると `lib.typ` で ctheorems パッケージ (https://typst.app/universe/package/ctheorems) をインポートして使用しております。
-#red-warn[他のテンプレートを使用する際には`lib.typ`を参考にご自身で定義してください。]
+さらに元をたどると#link("https://github.com/kimushun1101/typst-jp-conf-template/blob/890505fbc23f9a9287ac3f0bee9ab8563090af50/jaconf-eng/lib.typ#L7-L17")[`lib.typ`]でctheoremsパッケージ (https://typst.app/universe/package/ctheorems) をインポートして使用しております。
+#red-warn[他のテンプレートを使用する際には#link("https://github.com/kimushun1101/typst-jp-conf-template/blob/890505fbc23f9a9287ac3f0bee9ab8563090af50/jaconf-eng/lib.typ#L7-L17")[`lib.typ`のコード]を参考にご自身で定義してください。]
 
 == 参考文献
 参考文献は `refs.yml` に記載してください。
@@ -381,7 +384,7 @@ CSLファイルは著者が編集する必要はありませんが、詳細が�
 @sec:theorem と同様に
 #red-warn[
   `appendix`はこのテンプレートで定義している関数であり、`#import`しなければ使用できません。
-  他のテンプレートを使用する際には`lib.typ`を参考にご自身で定義してください。
+  他のテンプレートを使用する際には#link("https://github.com/kimushun1101/typst-jp-conf-template/blob/890505fbc23f9a9287ac3f0bee9ab8563090af50/jaconf-eng/lib.typ#L170-L182")[`lib.typ`のコード]を参考にご自身で定義してください。
 ]
 = 付録に複数のセクションがある場合
 2つ目のセクションはBとなります。

@@ -5,8 +5,8 @@
 #let state-font-gothic = state("gothic", (:))
 
 // import third-party packages
-#import "@preview/ctheorems:1.1.3": thmplain, thmproof, thmrules
 #import "@preview/codly:1.1.1": codly-init
+#import "@preview/ctheorems:1.1.3": thmplain, thmproof, thmrules
 
 // Theorem environments
 #let thmja = thmplain.with(base: {}, separator: [#h(0.5em)], titlefmt: strong, inset: (top: 0em, left: 0em))

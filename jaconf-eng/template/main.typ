@@ -21,7 +21,10 @@
 )
 
 // この文書特有の関数を定義
+// 赤字で警告する
 #let red-warn(it) = text(it, fill: rgb(red), weight: "bold")
+// リンクを青文字にする
+#show link: set text(fill: blue)
 
 = はじめに <sec:intro>
 #red-warn[実用の際には適宜投稿先の規定を必ずご確認ください。]
@@ -89,7 +92,7 @@ $ u = K_P e + K_I integral_0^t e d t $ <eq:PI-controller>
 ```
 #import "@preview/jaconf-eng:0.1.0": jaconf, definition, lemma, theorem, corollary, proof, appendix
 ```
-#red-warn[他のテンプレートを使用する場合には、`lib.typ`を参考にご自身で定義してください。]
+#red-warn[他のテンプレートを使用する場合には、#link("https://github.com/kimushun1101/typst-jp-conf-template/blob/890505fbc23f9a9287ac3f0bee9ab8563090af50/jaconf-eng/lib.typ#L7-L17")[`lib.typ`のコード]を参考にご自身で定義してください。]
 
 #definition("用語 A")[
   用語 A の定義を書きます。
@@ -138,5 +141,5 @@ $ u = K_P e + K_I integral_0^t e d t $ <eq:PI-controller>
 を追加してください。
 #red-warn[
   `appendix`はこのテンプレートで定義している関数です。
-  他のテンプレートを使用する場合には、`lib.typ`を参考にご自身で定義してください。
+  他のテンプレートを使用する場合には、#link("https://github.com/kimushun1101/typst-jp-conf-template/blob/890505fbc23f9a9287ac3f0bee9ab8563090af50/jaconf-eng/lib.typ#L170-L182")[`lib.typ`のコード]を参考にご自身で定義してください。
 ]
