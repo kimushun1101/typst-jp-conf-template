@@ -5,6 +5,8 @@
 
 **このソースコードはTypst version 0.12で作成しました。**  
 Typstで日本語論文を書くときのテンプレートです。
+コンパイル済みの資料は[GitHub Pages](https://kimushun1101.github.io/typst-jp-conf-template/typst-jp-conf.pdf)からお読みできます。
+
 Typstの概要について知りたい方は、https://github.com/kimushun1101/How-to-use-typst-for-paper-jp をご覧ください。
 
 [vscode-typst.webm](https://github.com/kimushun1101/typst-jp-conf-template/assets/13430937/f227b85b-0266-417b-a24a-54f28f9a71b8)
@@ -20,7 +22,6 @@ Typstの概要について知りたい方は、https://github.com/kimushun1101/H
 | libs　　      | 体裁を整えるライブラリファイル |
 
 雰囲気を掴みたい場合には [こちらの Typst Web Application](https://typst.app/project/wXmeFlJ5bhx1awSRuJRiUf) をお試しください。  
-コンパイル済みの資料を確認したいだけでしたら [こちらの GitHub Pages](https://kimushun1101.github.io/typst-jp-conf-template/typst-jp-conf.pdf) からお読みできます。
 
 ## 使用方法
 
