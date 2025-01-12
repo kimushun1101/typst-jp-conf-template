@@ -26,6 +26,7 @@ Typstの概要について知りたい方は、https://github.com/kimushun1101/H
 
 GitHubに慣れていない方は、GitHubページの `<>Code▼` から `Download ZIP` して展開してください。  
 慣れている方は、`git clone` したり `use this template` したり、適宜扱ってください。
+このテンプレートをローカルパッケージとして登録したい場合には、[こちら](docs/local-package.md)の説明をご覧ください。
 
 ### VS Codeを使用する場合
 
@@ -41,22 +42,6 @@ GitHubに慣れていない方は、GitHubページの `<>Code▼` から `Downl
 ### 他の方法で使用する場合
 
 [別ページ](docs/compile.md)をご参照ください。
-
-## Typst Package について
-
-`typst.toml` には、[Typst Packages](https://github.com/typst/packages) にある様式の通りにプロパティが登録されています。これは、Typst Universeにテンプレートファイルを公開し、コンパイラが `typst init` コマンドを実行するためのメタデータです。ただし、現時点では、Typst Universeに当該テンプレートは登録されていません。
-
-このリポジトリの中身を特定のディレクトリ（フォルダー）に配置することで、ユーザのどのディレクトリからでもテンプレートファイルを作成できます。特定のディレクトリとは以下の通りです。
-
-- ~/.local/share/typst/packages/local/typst-jp-conf-template/{version} # Linux
-- ~/Library/Application Support/typst/packages/local/typst-jp-conf-template/{version} # macOS (Default Installer)
-- %APPDATA%/typst/packages/local/typst-jp-conf-template/{version} # Windows
-
-上記を適用した状態で、以下のコマンドを入力すると、ディレクトリが初期化されます。
-
-```sh
-typst init @local/typst-jp-conf-template
-```
 
 ## 参考元
 

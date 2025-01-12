@@ -10,11 +10,11 @@
 #import "@preview/codly:1.1.1": codly-init
 
 // Theorem environments
-#let thmjp = thmplain.with(base: {}, separator: [#h(0.5em)], titlefmt: strong, inset: (top: 0em, left: 0em))
-#let definition = thmjp("definition", context{text(font: state-font-gothic.get())[定義]})
-#let lemma = thmjp("lemma", context{text(font: state-font-gothic.get())[補題]})
-#let theorem = thmjp("theorem", context{text(font: state-font-gothic.get())[定理]})
-#let corollary = thmjp("corollary", context{text(font: state-font-gothic.get())[系]})
+#let thmja = thmplain.with(base: {}, separator: [#h(0.5em)], titlefmt: strong, inset: (top: 0em, left: 0em))
+#let definition = thmja("definition", context{text(font: state-font-gothic.get())[定義]})
+#let lemma = thmja("lemma", context{text(font: state-font-gothic.get())[補題]})
+#let theorem = thmja("theorem", context{text(font: state-font-gothic.get())[定理]})
+#let corollary = thmja("corollary", context{text(font: state-font-gothic.get())[系]})
 #let proof = thmproof("proof", context{text(font: state-font-gothic.get())[証明]}, separator: [#h(0.9em)], titlefmt: strong, inset: (top: 0em, left: 0em))
 
 #let rengo(

@@ -1,4 +1,3 @@
-#let conference-name = "制御部門マルチシンポジウム"
 #let font-size-default = 10pt
 #let font-size-heading = 11pt
 #let spacing-size-heading = 12pt
@@ -17,7 +16,7 @@
 #let corollary = thmja("corollary", context{text(font: state-font-gothic.get())[系]})
 #let proof = thmproof("proof", context{text(font: state-font-gothic.get())[証明]}, separator: [#h(0.9em)], titlefmt: strong, inset: (top: 0em, left: 0em))
 
-#let mscs(
+#let jaconf(
   title-ja: [日本語タイトル],
   title-en: [],
   authors-ja: [著者],
