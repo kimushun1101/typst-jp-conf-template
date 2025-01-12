@@ -24,10 +24,12 @@
   // font-latin: ("Times New Roman", "New Computer Modern")
 )
 
+// この文書特有の関数を定義
+#let red-warn(it) = text(it, fill: rgb(red), weight: "bold")
+
 = はじめに <sec:info>
 これは#conference-name;のサンプルを参考に作成しています。
-#text([実用の際には適宜投稿先の規定を必ずご確認ください。]
-, fill: rgb(red), weight: "bold")
+#red-warn[実用の際には適宜投稿先の規定を必ずご確認ください。]
 発表論文原稿をPDFでご執筆いただき、学会のホームページにアップロードしてください。
 このファイルはこのテンプレートの使い方を示しており、同時に発表論文の見本でもあります。
 執筆の時は以下の説明をよく読み、執筆要項に従ったフォーマットでご提出ください。
@@ -294,7 +296,7 @@ table の columns の数に応じて、文字列の配列が自動的に整列�
 `stroke: none` は枠線を消しています。
 `table.hline()` を挟むとその位置に横線を引けます。
 
-== 定理環境
+== 定理環境 <sec:theorem>
 @def:definition1 や @lem:lemma1 などは以下で記述されております。
 
 ```typ
@@ -318,12 +320,14 @@ table の columns の数に応じて、文字列の配列が自動的に整列�
   ]
 ```
 
-ここで、`definition`, `lemma`, `theorem`, `corollary`, `proof` は `lib.typ` で定義されており、`#import`しなければ使用できません。
-他のテンプレートを使用する場合には注意をしてください。
+#red-warn[
+  ここで、`definition`, `lemma`, `theorem`, `corollary`, `proof`は `lib.typ` で定義している関数であり、`#import`しなければ使用できません。
+]
 ```typ
 #import "libs/mscs/lib.typ": mscs as temp, definition, lemma, theorem, corollary, proof, appendix
 ```
 さらに元をたどると `lib.typ` で ctheorems パッケージ (https://typst.app/universe/package/ctheorems) をインポートして使用しております。
+#red-warn[他のテンプレートを使用する際には`lib.typ`を参考にご自身で定義してください。]
 
 == 参考文献
 参考文献は `refs.yml` に記載してください。
@@ -374,6 +378,11 @@ CSLファイルは著者が編集する必要はありませんが、詳細が�
 その場所に「付録」という文字が挿入されます。
 それ以降に見出しを書くことで、章番号がアルファベット順の見出しがつきます。
 
+@sec:theorem と同様に
+#red-warn[
+  `appendix`はこのテンプレートで定義している関数であり、`#import`しなければ使用できません。
+  他のテンプレートを使用する際には`lib.typ`を参考にご自身で定義してください。
+]
 = 付録に複数のセクションがある場合
 2つ目のセクションはBとなります。
 

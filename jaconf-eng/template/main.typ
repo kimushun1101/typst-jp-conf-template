@@ -1,7 +1,6 @@
 // MIT No Attribution
 // Copyright 2024, 2025 Shunsuke Kimura
 
-// Select the Template
 #import "@preview/jaconf-eng:0.1.0": jaconf, definition, lemma, theorem, corollary, proof, appendix
 
 #show: jaconf.with(
@@ -21,9 +20,11 @@
   // font-latin: ("Times New Roman", "New Computer Modern")
 )
 
+// この文書特有の関数を定義
+#let red-warn(it) = text(it, fill: rgb(red), weight: "bold")
+
 = はじめに <sec:intro>
-#text([実用の際には適宜投稿先の規定を必ずご確認ください。]
-, fill: rgb(red), weight: "bold")
+#red-warn[実用の際には適宜投稿先の規定を必ずご確認ください。]
 発表論文原稿をPDFでご執筆いただき、学会のホームページにアップロードしてください。
 このファイルはこのテンプレートの使い方を示しており、同時に発表論文の見本でもあります。
 執筆の時は以下の説明をよく読み、執筆要項に従ったフォーマットでご提出ください。
@@ -84,7 +85,11 @@ $ u = K_P e + K_I integral_0^t e d t $ <eq:PI-controller>
 === 定理環境 <sec:theorem>
 以下はtheorem環境の使用例です。
 定理などのタイトルフォントをゴシックにしています。
-#text([`definition`, `lemma`, `theorem`, `corollary`, `proof`はこのテンプレートで定義している関数です。他のテンプレートを使用する場合には、適宜置き換えてください。], fill: rgb(red), weight: "bold")
+#red-warn[`definition`, `lemma`, `theorem`, `corollary`, `proof`はこのテンプレートで定義している関数です。]
+```
+#import "@preview/jaconf-eng:0.1.0": jaconf, definition, lemma, theorem, corollary, proof, appendix
+```
+#red-warn[他のテンプレートを使用する場合には、`lib.typ`を参考にご自身で定義してください。]
 
 #definition("用語 A")[
   用語 A の定義を書きます。
@@ -131,4 +136,7 @@ $ u = K_P e + K_I integral_0^t e d t $ <eq:PI-controller>
   #show: appendix
 ```
 を追加してください。
-#text([`appendix`はこのテンプレートで定義している関数です。他のテンプレートを使用する場合には、適宜置き換えてください。], fill: rgb(red), weight: "bold")
+#red-warn[
+  `appendix`はこのテンプレートで定義している関数です。
+  他のテンプレートを使用する場合には、`lib.typ`を参考にご自身で定義してください。
+]
