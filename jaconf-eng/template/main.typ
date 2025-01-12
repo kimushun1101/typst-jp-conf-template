@@ -92,7 +92,19 @@ $ u = K_P e + K_I integral_0^t e d t $ <eq:PI-controller>
 ```
 #import "@preview/jaconf-eng:0.1.0": jaconf, definition, lemma, theorem, corollary, proof, appendix
 ```
-#red-warn[他のテンプレートを使用する場合には、#link("https://github.com/kimushun1101/typst-jp-conf-template/blob/890505fbc23f9a9287ac3f0bee9ab8563090af50/jaconf-eng/lib.typ#L7-L17")[`lib.typ`のコード]を参考にご自身で定義してください。]
+#red-warn[他のテンプレートを使用する際には#link("https://github.com/kimushun1101/typst-jp-conf-template/blob/5862f4fd21b4f00488a56657e198864625d117b8/jaconf-eng/lib.typ#L9-L35")[`lib.typ`のコード]を参考に、以下のようにご自身のコード内で定義および有効化をしてください。]
+
+```typ
+// Theorem environments
+#let thmja = thmplain.with(base: {}, separator: [#h(0.5em)], titlefmt: strong, inset: (top: 0em, left: 0em))
+#let definition = thmja("definition", context{text(font: state-font-gothic.get())[定義]})
+#let lemma = thmja("lemma", context{text(font: state-font-gothic.get())[補題]})
+#let theorem = thmja("theorem", context{text(font: state-font-gothic.get())[定理]})
+#let corollary = thmja("corollary", context{text(font: state-font-gothic.get())[系]})
+#let proof = thmproof("proof", context{text(font: state-font-gothic.get())[証明]}, separator: [#h(0.9em)], titlefmt: strong, inset: (top: 0em, left: 0em))
+// Enable packages.
+#show: thmrules.with(qed-symbol: $square$)
+```
 
 #definition("用語 A")[
   用語 A の定義を書きます。
@@ -141,5 +153,5 @@ $ u = K_P e + K_I integral_0^t e d t $ <eq:PI-controller>
 を追加してください。
 #red-warn[
   `appendix`はこのテンプレートで定義している関数です。
-  他のテンプレートを使用する場合には、#link("https://github.com/kimushun1101/typst-jp-conf-template/blob/890505fbc23f9a9287ac3f0bee9ab8563090af50/jaconf-eng/lib.typ#L170-L182")[`lib.typ`のコード]を参考にご自身で定義してください。
+  他のテンプレートを使用する場合には、#link("https://github.com/kimushun1101/typst-jp-conf-template/blob/5862f4fd21b4f00488a56657e198864625d117b8/jaconf-eng/lib.typ#L170-L181")[`lib.typ`のコード]を参考にご自身のコード内で定義してください。
 ]
