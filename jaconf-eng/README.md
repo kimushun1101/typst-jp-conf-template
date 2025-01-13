@@ -1,8 +1,8 @@
 # Japananese Conference of Engineering
 
-This is a template for **Japanese academic conference paper**.
+This is a template for **Japanese academic conference paper of engineerig**.
 
-日本語の（工学系）学会論文テンプレート。
+工学系の日本語の学会論文テンプレート。
 
 ## Usage
 
