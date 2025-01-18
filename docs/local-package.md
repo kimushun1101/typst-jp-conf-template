@@ -4,7 +4,7 @@
 
 ## ローカルパッケージの作成
 
-このリポジトリにある`jaconf-eng`ディレクトリ（フォルダー）の中身を特定のディレクトリに配置することで、ユーザーのどのディレクトリからでもテンプレートファイルを作成できます。特定のディレクトリとは以下の通りです。
+このリポジトリにある`jaconf-mscs`ディレクトリ（フォルダー）の中身を特定のディレクトリに配置することで、ユーザーのどのディレクトリからでもテンプレートファイルを作成できます。特定のディレクトリとは以下の通りです。
 
 - ~/.local/share/typst/packages/local/${name}/${version} # Linux
 - ~/Library/Application Support/typst/packages/local/${name}/${version} # macOS (Default Installer)
@@ -16,7 +16,7 @@
 
 ```
 # cd "path to typst-jp-conf-template"
-pkgname=jaconf-eng
+pkgname=jaconf-mscs
 pkgver=$(grep -E 'version *= *".*"' ${pkgname}/typst.toml | grep -Eo '".*"' | tr -d '"')
 pkgdir=~/.local/share/typst/packages/local/${pkgname}/${pkgver}
 mkdir -p ${pkgdir}
@@ -29,5 +29,5 @@ sed -i "s|@preview|@local|" ${pkgdir}/template/main.typ
 上記を適用した状態で、以下のコマンドを入力すると、ディレクトリが初期化されます。
 
 ```sh
-typst init @local/jaconf-eng
+typst init @local/jaconf-mscs
 ```
