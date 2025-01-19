@@ -3,7 +3,9 @@
 
 # typst-jp-conf-template
 
-**このソースコードはTypst version 0.12で作成しました。**  
+Typst Universeに登録されました。
+https://typst.app/universe/package/jaconf-mscs
+
 Typstで日本語論文を書くときのテンプレートです。
 コンパイル済みの資料は[GitHub Pages](https://kimushun1101.github.io/typst-jp-conf-template/typst-jp-conf.pdf)からお読みできます。
 
