@@ -3,12 +3,11 @@
 
 # typst-jp-conf-template
 
-Typst Universeに登録されました。
-https://typst.app/universe/package/jaconf-mscs
+Typst Universeに[jaconf-mscs](https://typst.app/universe/package/jaconf-mscs)というテンプレートで登録されました。  
+テンプレートの使い方についてはZennで[Typstテンプレートを使用する](https://zenn.dev/kimushun1101/articles/typst-template)という記事を書いております。
 
 Typstで日本語論文を書くときのテンプレートです。
-コンパイル済みの資料は[GitHub Pages](https://kimushun1101.github.io/typst-jp-conf-template/typst-jp-conf.pdf)からお読みできます。
-
+コンパイル済みの資料は[GitHub Pages](https://kimushun1101.github.io/typst-jp-conf-template/typst-jp-conf.pdf)からお読みできます。  
 Typstの概要について知りたい方は、https://github.com/kimushun1101/How-to-use-typst-for-paper-jp をご覧ください。
 
 [vscode-typst.webm](https://github.com/kimushun1101/typst-jp-conf-template/assets/13430937/f227b85b-0266-417b-a24a-54f28f9a71b8)
