@@ -5,7 +5,7 @@
 #let state-font-gothic = state("gothic", (:))
 
 // import third-party packages
-#import "@preview/codly:1.1.1": codly-init
+#import "@preview/codly:1.3.0": codly-init
 #import "@preview/ctheorems:1.1.3": thmplain, thmproof, thmrules
 
 // Theorem environments
