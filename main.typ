@@ -2,7 +2,10 @@
 // Copyright 2024, 2025 Shunsuke Kimura
 
 // Select the Template
-#import "libs/mscs/lib.typ": mscs as temp, definition, lemma, theorem, corollary, proof, appendix, conference-name
+#import "jaconf-mscs/lib.typ": jaconf as temp, definition, lemma, theorem, corollary, proof, appendix
+#let conference-name = "制御部門マルチシンポジウム"
+
+// #import "libs/mscs/lib.typ": mscs as temp, definition, lemma, theorem, corollary, proof, appendix, conference-name
 // #import "libs/rengo/lib.typ": rengo as temp, definition, lemma, theorem, corollary, proof, appendix, conference-name
 // #import "libs/rsj-conf/lib.typ": rsj-conf as temp, definition, lemma, theorem, corollary, proof, appendix, conference-name
 // #import "libs/sci/lib.typ": sci as temp, definition, lemma, theorem, corollary, proof, appendix, conference-name
@@ -243,7 +246,7 @@ $ u = K_P e + K_I integral_0^t e d t $ <eq:PI-controller>
 ただし、$K_P$ と $K_I$ はそれぞれ比例ゲイン、積分ゲインとする。
 
 == 図と表
-本稿を執筆時のバージョン Typst 0.12 では、PNG, JPEG, GIF, SVG の形式のイメージデータを挿入することができます。
+本稿を執筆時のバージョン Typst 0.13.1 では、PNG, JPEG, GIF, SVG の形式のイメージデータを挿入することができます。
 PDFの挿入は muchpdfパッケージ(https://typst.app/universe/package/muchpdf)を使用すれば可能ですが、ここでは説明しません。
 SVGとPNGの表示例としては以下の通りです。
 ```typ
