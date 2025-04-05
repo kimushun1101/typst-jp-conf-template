@@ -243,7 +243,7 @@ $ u = K_P e + K_I integral_0^t e d t $ <eq:PI-controller>
 ただし、$K_P$ と $K_I$ はそれぞれ比例ゲイン、積分ゲインとする。
 
 == 図と表
-本稿を執筆時のバージョン Typst 0.12 では、PNG, JPEG, GIF, SVG の形式のイメージデータを挿入することができます。
+本稿を執筆時のバージョン Typst 0.13.1 では、PNG, JPEG, GIF, SVG の形式のイメージデータを挿入することができます。
 PDFの挿入は muchpdfパッケージ(https://typst.app/universe/package/muchpdf)を使用すれば可能ですが、ここでは説明しません。
 SVGとPNGの表示例としては以下の通りです。
 ```typ
