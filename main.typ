@@ -2,7 +2,10 @@
 // Copyright 2024, 2025 Shunsuke Kimura
 
 // Select the Template
-#import "libs/mscs/lib.typ": mscs as temp, definition, lemma, theorem, corollary, proof, appendix, conference-name
+#import "jaconf-mscs/lib.typ": jaconf as temp, definition, lemma, theorem, corollary, proof, appendix
+#let conference-name = "制御部門マルチシンポジウム"
+
+// #import "libs/mscs/lib.typ": mscs as temp, definition, lemma, theorem, corollary, proof, appendix, conference-name
 // #import "libs/rengo/lib.typ": rengo as temp, definition, lemma, theorem, corollary, proof, appendix, conference-name
 // #import "libs/rsj-conf/lib.typ": rsj-conf as temp, definition, lemma, theorem, corollary, proof, appendix, conference-name
 // #import "libs/sci/lib.typ": sci as temp, definition, lemma, theorem, corollary, proof, appendix, conference-name
