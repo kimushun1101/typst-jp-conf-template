@@ -3,9 +3,6 @@
 
 # typst-jp-conf-template
 
-Typst Universeに[jaconf-mscs](https://typst.app/universe/package/jaconf-mscs)というテンプレートで登録されました。  
-テンプレートの使い方についてはZennで[Typstテンプレートを使用する](https://zenn.dev/kimushun1101/articles/typst-template)という記事を書いております。
-
 Typstで日本語論文を書くときのテンプレートです。
 コンパイル済みの資料は[GitHub Pages](https://kimushun1101.github.io/typst-jp-conf-template/typst-jp-conf.pdf)からお読みできます。  
 Typstの概要について知りたい方は、[スライド資料](https://github.com/kimushun1101/How-to-use-typst-for-paper-jp)も作成しましたのでご覧ください。
@@ -18,30 +15,31 @@ Typstの概要について知りたい方は、[スライド資料](https://gith
 | refs.*　 | 参考文献ファイル          |
 
 | ディレクトリ | 含まれるファイルの種類          |
-| ------------- | --------------------------- |
-| figs　　      | 論文に使用する画像ファイル    |
-| libs　　      | 体裁を整えるライブラリファイル |
+| ---------- | --------------------------- |
+| figs       | 論文に使用する画像ファイル    |
+| libs       | 体裁を整えるライブラリファイル |
 
 雰囲気を掴みたい場合には [こちらの Typst Web Application](https://typst.app/project/wXmeFlJ5bhx1awSRuJRiUf) をお試しください。  
 
-## 使用方法
+## 使い方
 
-GitHubに慣れていない方は、GitHubページの `<>Code▼` から `Download ZIP` して展開してください。  
-慣れている方は、`git clone` したり `use this template` したり、適宜扱ってください。
-このテンプレートをローカルパッケージとして登録したい場合には、[こちら](docs/local-package.md)の説明をご覧ください。
+本ソースコードは[jaconf-mscs](https://typst.app/universe/package/jaconf-mscs)という名前でTypst Universeに登録しました。
+Typstをインストール済みであれば以下のCLIでお試しいただけます。
 
-### VS Codeを使用する場合
+```
+typst init @preview/jaconf-mscs:0.1.1
+```
 
-1. [VS Code](https://code.visualstudio.com/) をインストール。
-2. VS Codeで`File`→`Open Folder` でこのフォルダーを開く。  
-3. 推奨拡張機能をインストール。  
-  Extensions (`Ctrl` + `Shift` + `X`) の `Search Extensions in Marketplace` のテキストボックスに `@recommended` と入力すると表示される、以下の拡張機能をinstallをクリック。  
-    - [Tinymist Typst](https://marketplace.visualstudio.com/items?itemName=myriad-dreamin.tinymist)
-4. Explorer (`Ctrl` + `Shift` + `E`) から `main.typ` を開いた状態で、画面右上にあるTypst Previewの方の ![view-icon](https://github.com/kimushun1101/typst-jp-conf-template/assets/13430937/a44c52cb-d23a-4fdb-ac9f-dc2b47deb40a) アイコンをクリック (
- `Ctrl` + `K` のあと `V`) でプレビューを表示。[トップにある動画](#typst-jp-conf-template) の操作です。
-5. `Ctrl` + `S` でPDFを生成。
+VS Codeを用いたGUI操作については、[Typstテンプレートを使用する](https://zenn.dev/kimushun1101/articles/typst-template)という記事で紹介しております。
 
-### 他の方法で使用する場合
+### VS Codeの場合
+
+1. `File`→`Open Folder` で`main.typ`があるフォルダーを開く。
+2. Extensions (`Ctrl` + `Shift` + `X`) から拡張機能[Tinymist Typst](https://marketplace.visualstudio.com/items?itemName=myriad-dreamin.tinymist)をインストール。
+3. Explorer (`Ctrl` + `Shift` + `E`) から `main.typ` を開いた状態で、画面右上にある ![view-icon](https://github.com/kimushun1101/typst-jp-conf-template/assets/13430937/a44c52cb-d23a-4fdb-ac9f-dc2b47deb40a) アイコン（Typst Preview）をクリック。
+4. `Ctrl` + `S` でPDFを生成。
+
+### 他のエディターの場合
 
 [別ページ](docs/compile.md)をご参照ください。
 
