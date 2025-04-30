@@ -68,10 +68,11 @@ ls typst-local
     ```
 
 3. プルリクエストを出す。
-    - [jaconf-mscs:0.1.0](https://github.com/typst/packages/pull/1559)
-    - [jaconf-mscs:0.1.1](https://github.com/typst/packages/pull/2287)
+    - [packages/jaconf-mscs:0.1.0](https://github.com/typst/packages/pull/1559)
+    - [packages/jaconf-mscs:0.1.1](https://github.com/typst/packages/pull/2287)
 4. `typst-jp-conf-template`は`jaconf-mscs:*.*.*`などとコミットしておきドラフトプルリクエストにしておく。
 5. `packages`のプルリクエストがマージされたら、`typst-jp-conf-template`のドラフトプルリクエストもマージする。
+    - [typst-jp-conf-template/Update jaconf-mscs:0.1.1](https://github.com/kimushun1101/typst-jp-conf-template/pull/18)
 
 ## 後片付け
 
