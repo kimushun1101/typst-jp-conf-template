@@ -34,14 +34,14 @@ This template exports the `jaconf-mscs` function with the following named argume
 The function also accepts a single, positional argument for the body of the
 paper.
 
-The template will initialize your package with a sample call to the `ieee`
+The template will initialize your package with a sample call to the `jaconf`
 function in a show rule. If you want to change an existing project to use this
 template, you can add a show rule like this at the top of your file:
 
 ```typ
-#import "@preview/jaconf-mscs:0.1.0": temp, definition, lemma, theorem, corollary, proof, appendix
+#import "@preview/jaconf-mscs:0.1.1": jaconf, definition, lemma, theorem, corollary, proof, appendix
 
-#show: temp.with(
+#show: jaconf.with(
   title-ja: [日本語学会論文のテンプレート \ - サブタイトル - ],
   title-en: [How to Write a Conference Paper in Japanese],
   authors-ja: [◯ 著者姓1 著者名1、著者姓2 著者名2(○○○大学)、著者姓3 著者名3 (□□□株式会社)],
