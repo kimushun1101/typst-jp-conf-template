@@ -60,7 +60,6 @@ template, you can add a show rule like this at the top of your file:
 )
 ```
 
-
 基本
 
 引数名 | 意味（用途） | デフォルト値（例）

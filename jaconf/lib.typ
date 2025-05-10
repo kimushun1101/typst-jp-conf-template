@@ -27,6 +27,7 @@
   font-gothic: "Noto Sans CJK JP",
   font-mincho: "Noto Serif CJK JP",
   font-latin: "New Computer Modern",
+  font-math: "New Computer Modern Math",
   // template settings
   paper-columns: 2,
   body
@@ -52,8 +53,12 @@
   show "、": "，"
   show "。": "．"
 
-  // Configure equation numbering and spacing.
+  // Configure equations.
   set math.equation(numbering: "(1)")
+  show math.equation: it => {
+    set text(font: font-math)
+    it
+  }
 
   // Configure appearance of references
   show ref: it => {
@@ -160,11 +165,11 @@
 
   // Configure Bibliography.
   set bibliography(title: text(font-size-heading)[参考文献], style: "sice.csl")
-  show bibliography: it => [
-    #set text(9pt, font: font-mincho)
-    #show regex("[0-9a-zA-Z]"): set text(font: font-latin)
-    #it
-  ]
+  show bibliography: it => {
+    set text(9pt, font: font-mincho)
+    show regex("[0-9a-zA-Z]"): set text(font: font-latin)
+    it
+  }
 
   // Display the paper's contents.
   body
