@@ -2,7 +2,8 @@
 // Copyright 2024, 2025 Shunsuke Kimura
 
 // Select the Template
-#import "jaconf-mscs/lib.typ": jaconf as temp, definition, lemma, theorem, corollary, proof, appendix
+#import "jaconf/lib.typ": jaconf as temp, definition, lemma, theorem, corollary, proof, appendix
+// #import "jaconf-mscs/lib.typ": jaconf as temp, definition, lemma, theorem, corollary, proof, appendix
 #let conference-name = "制御部門マルチシンポジウム"
 
 // #import "libs/mscs/lib.typ": mscs as temp, definition, lemma, theorem, corollary, proof, appendix, conference-name
@@ -19,12 +20,13 @@
   keywords: ([Typst], [conference paper writing], [manuscript format]),
   font-gothic: "Noto Sans CJK JP",
   font-mincho: "Noto Serif CJK JP",
-  font-latin: "New Computer Modern"
+  font-latin: "New Computer Modern",
   // The following settings may warn of missing font families. Please set a font that exists in your environment as an alternative.
   // 以下の設定では存在しないフォントファミリーが含まれていると警告が出ます。環境に存在するフォントを設定してください。
   // font-gothic: ("BIZ UDPGothic", "MS PGothic", "Hiragino Kaku Gothic Pro", "IPAexGothic", "Noto Sans CJK JP"),
   // font-mincho: ("BIZ UDPMincho", "MS PMincho", "Hiragino Mincho Pro", "IPAexMincho", "Noto Serif CJK JP"),
   // font-latin: ("Times New Roman", "New Computer Modern")
+  // paper-columns: 2
 )
 
 // この文書特有の関数を定義
