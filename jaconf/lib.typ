@@ -56,7 +56,7 @@
   numbering-headings: "1.1",
   numbering-equation: "(1)",
   numbering-appendix: "A.1",
-  // main content
+  // main text
   body
 ) = {
   // Set metadata.
@@ -213,12 +213,11 @@
 // Appendix
 #let appendix(body) = {
   set heading(numbering: appendix-numbering)
-  // set heading(numbering: context{query(<appendix-numbering>).first().value})
   counter(heading).update(0)
   counter(figure.where(kind: image)).update(0)
   counter(figure.where(kind: table)).update(0)
   set figure(numbering: it => {
-    [#numbering("A", counter(heading).get().at(0)).#it]
+    [#numbering(appendix-numbering, counter(heading).get().at(0)).#it]
   })
   context{
     v(query(<heading-spacing>).first().value)
@@ -226,7 +225,8 @@
       size: query(<heading-font-size>).first().value,
       font: query(<gothic-font>).first().value,
       weight: "bold",
-      query(<appendix-heading>).first().value)
+      query(<appendix-heading>).first().value
+    )
   }
   body
 }
