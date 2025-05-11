@@ -69,18 +69,28 @@ title-en | タイトル（英語） | [],
 authors-ja | 著者名（日本語）| [著者]
 authors-en | 著者名（英語）| []
 abstract | アブストラクト | none
-keywords | アブストラクト | ()
+keywords | キーワード | ()
+
+フォントファミリー
+
+引数名 | 意味（用途） | デフォルト値（例）
+-- | -- | --
 font-gothic | ゴシックフォント | "Noto Sans CJK JP"
 font-mincho | 明朝フォント | "Noto Serif CJK JP"
 font-latin | 英文フォント | "New Computer Modern"
+font-math | 数式フォント | "New Computer Modern Math"
 
-オプション
+体裁
 
 引数名 | 意味（用途） | デフォルト値（例）
 -- | -- | --
 paper-columns | 段組み | 2
 page-number | ページ数 | none
-punctuation-comma-period | 句読点をカンマ・ピリオドに | true
+margin-top | 上部余白 | 20mm
+margin-bottom | 下部余白 | 27mm
+margin-side | 左右余白（それぞれ） | 20mm
+column-gutter | 段組みの間隔 | 4%+0pt
+bibliography-style | 参考文献のスタイル | "ieee"（"sice.csl"など通常はその学会に合わせたファイルを指定）
 
 見出し
 
@@ -102,12 +112,13 @@ font-size-abstract | アブストラクトのフォントサイズ | 10pt
 font-size-section | セクションのフォントサイズ | 11pt
 font-size-bibliography | 参考文献のフォントサイズ | 9pt
 
-補足語
+図表の補足語
 
 引数名 | 意味（用途） | デフォルト値（例）
 -- | -- | --
-supplement-image | 図の補足語 | "図 : "
-supplement-table | 表の補足語 | "表 : "
+supplement-image | 図の補足語 | "図"
+supplement-table | 表の補足語 | "表"
+supplement-separater | 補足語の区切り | ""
 
 番号付け
 
@@ -116,7 +127,3 @@ supplement-table | 表の補足語 | "表 : "
 numbering-headings | 見出しの番号付け | "1.1"
 numbering-appendix | 付録の接頭番号 | "A"
 numbering-equation | 数式の接頭番号 | "(1)"
-
-引数名 | 意味（用途） | デフォルト値（例）
--- | -- | --
-bibliography-style | 参考文献のスタイル | "ieee"（"sice.csl"など通常はその学会に合わせたファイルを指定）
