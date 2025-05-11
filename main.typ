@@ -35,6 +35,10 @@
 // リンクを青文字にする
 #show link: set text(fill: blue)
 
+// 句読点をカンマとピリオドに変換する
+#show "、": "，"
+#show "。": "．"
+
 = はじめに <sec:info>
 これは#conference-name;のサンプルを参考に作成しています。
 #red-warn[実用の際には適宜投稿先の規定を必ずご確認ください。]
