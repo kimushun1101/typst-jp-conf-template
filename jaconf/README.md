@@ -90,6 +90,7 @@ margin-top | 上部余白 | 20mm
 margin-bottom | 下部余白 | 27mm
 margin-side | 左右余白（それぞれ） | 20mm
 column-gutter | 段組みの間隔 | 4%+0pt
+spacing-heading | 段組みの間隔 | 1.2em
 bibliography-style | 参考文献のスタイル | "ieee"（"sice.csl"など通常はその学会に合わせたファイルを指定）
 
 見出し

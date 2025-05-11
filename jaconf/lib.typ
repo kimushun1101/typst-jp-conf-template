@@ -1,4 +1,3 @@
-#let spacing-size-heading = 12pt
 #let appendix-numbering = "A.1"
 
 // import third-party packages
@@ -33,6 +32,7 @@
   margin-bottom: 27mm,
   margin-side: 20mm,
   column-gutter: 4%+0pt,
+  spacing-heading: 1.2em,
   bibliography-style: "sice.csl",
   // headings
   heading-abstract: [*Abstract--*],
@@ -55,13 +55,16 @@
   // numbering
   numbering-headings: "1.1",
   numbering-equation: "(1)",
+  numbering-appendix: "A.1",
   // main content
   body
 ) = {
   // Set metadata.
   [#metadata(font-gothic) <gothic-font>]
   [#metadata(font-size-heading) <heading-font-size>]
+  [#metadata(spacing-heading) <heading-spacing>]
   [#metadata(heading-appendix) <appendix-heading>]
+  [#metadata(numbering-appendix) <appendix-numbering>]
 
   // Enable packages.
   show: thmrules.with(qed-symbol: $square$)
@@ -127,7 +130,7 @@
   // Configure headings.
   set heading(numbering: numbering-headings)
   show heading: it => {
-    set par(first-line-indent: 0em, spacing: spacing-size-heading)
+    set par(first-line-indent: 0em, spacing: spacing-heading)
     let levels = counter(heading).get()
     if it.level == 1 {
       set text(font-size-heading, font: font-gothic)
@@ -210,14 +213,15 @@
 // Appendix
 #let appendix(body) = {
   set heading(numbering: appendix-numbering)
+  // set heading(numbering: context{query(<appendix-numbering>).first().value})
   counter(heading).update(0)
   counter(figure.where(kind: image)).update(0)
   counter(figure.where(kind: table)).update(0)
   set figure(numbering: it => {
     [#numbering("A", counter(heading).get().at(0)).#it]
   })
-  v(spacing-size-heading)
   context{
+    v(query(<heading-spacing>).first().value)
     text(
       size: query(<heading-font-size>).first().value,
       font: query(<gothic-font>).first().value,
