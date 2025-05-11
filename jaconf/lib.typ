@@ -1,5 +1,3 @@
-#let font-size-default = 10pt
-#let font-size-heading = 11pt
 #let spacing-size-heading = 12pt
 #let appendix-numbering = "A.1"
 
@@ -41,10 +39,28 @@
   heading-keywords: [*Key Words*: ],
   heading-bibliography: [参考文献],
   heading-appendix: [付録],
+  // font size
+  font-size-title-ja: 16pt,
+  font-size-title-en: 12pt,
+  font-size-authors-ja: 12pt,
+  font-size-authors-en: 12pt,
+  font-size-abstract: 10pt,
+  font-size-heading: 11pt,
+  font-size-main: 10pt,
+  font-size-bibliography: 9pt,
+  // supplement
+  supplement-image: [図],
+  supplement-table: [表],
+  supplement-separater: [: ],
+  // numbering
+  numbering-headings: "1.1",
+  numbering-equation: "(1)",
+  // main content
   body
 ) = {
   // Set metadata.
   [#metadata(font-gothic) <gothic-font>]
+  [#metadata(font-size-heading) <heading-font-size>]
   [#metadata(heading-appendix) <appendix-heading>]
 
   // Enable packages.
@@ -60,11 +76,11 @@
     margin: (top: margin-top, bottom: margin-bottom, x: margin-side),
     numbering: page-number
   )
-  set text(font-size-default, font: font-mincho)
+  set text(font-size-main, font: font-mincho)
   set par(leading: 0.5em, first-line-indent: 1em, justify: true, spacing: 0.6em)
 
   // Configure equations.
-  set math.equation(numbering: "(1)")
+  set math.equation(numbering: numbering-equation)
   show math.equation: it => {
     set text(font: font-math)
     it
@@ -109,7 +125,7 @@
   set list(indent: 1em)
 
   // Configure headings.
-  set heading(numbering: "1.1")
+  set heading(numbering: numbering-headings)
   show heading: it => {
     set par(first-line-indent: 0em, spacing: spacing-size-heading)
     let levels = counter(heading).get()
@@ -122,7 +138,7 @@
       }
       it.body
     } else {
-      set text(font-size-default, font: font-gothic)
+      set text(font-size-main, font: font-gothic)
       if it.numbering != none {
         numbering(it.numbering, ..levels)
         h(1em)
@@ -132,25 +148,25 @@
   }
 
   // Configure figures.
-  show figure.where(kind: table): set figure(placement: top, supplement: [Table])
-  show figure.where(kind: table): set figure.caption(position: top, separator: [: ])
-  show figure.where(kind: image): set figure(placement: top, supplement: [Fig.])
-  show figure.where(kind: image): set figure.caption(position: bottom, separator: [: ])
+  show figure.where(kind: table): set figure(placement: top, supplement: supplement-table)
+  show figure.where(kind: table): set figure.caption(position: top, separator: supplement-separater)
+  show figure.where(kind: image): set figure(placement: top, supplement: supplement-image)
+  show figure.where(kind: image): set figure.caption(position: bottom, separator: supplement-separater)
 
   // Display the paper's title.
-  align(center, text(16pt, title-ja, weight: "bold", font: font-gothic))
+  align(center, text(font-size-title-ja, title-ja, weight: "bold", font: font-gothic))
   v(18pt, weak: true)
 
   // Display the authors list.
-  align(center, text(12pt, authors-ja, font: font-mincho))
+  align(center, text(font-size-authors-ja, authors-ja, font: font-mincho))
   v(1.5em, weak: true)
 
   // Display the paper's title in English.
-  align(center, text(12pt, title-en, weight: "bold", font: font-latin))
+  align(center, text(font-size-title-en, title-en, weight: "bold", font: font-latin))
   v(1.5em, weak: true)
 
   // Display the authors list in English.
-  align(center, text(12pt, authors-en, font: font-latin))
+  align(center, text(font-size-authors-en, authors-en, font: font-latin))
   v(1.5em, weak: true)
 
   // Display abstract and index terms.
@@ -159,7 +175,7 @@
       columns: (0.7cm, 1fr, 0.7cm),
       [],
       {
-        set text(10pt, font: font-latin)
+        set text(font-size-abstract, font: font-latin)
         set par(first-line-indent: 0em)
         heading-abstract
         h(0.5em)
@@ -203,9 +219,10 @@
   v(spacing-size-heading)
   context{
     text(
-      size: font-size-heading,
+      size: query(<heading-font-size>).first().value,
       font: query(<gothic-font>).first().value,
-      weight: "bold", query(<appendix-heading>).first().value)
+      weight: "bold",
+      query(<appendix-heading>).first().value)
   }
   body
 }

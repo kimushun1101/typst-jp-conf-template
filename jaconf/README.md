@@ -109,7 +109,8 @@ font-size-title | タイトルのフォントサイズ | 16pt
 font-size-authors-ja | 著者名のフォントサイズ | 12pt
 font-size-authors-en | 著者名（英語）のフォントサイズ | 12pt
 font-size-abstract | アブストラクトのフォントサイズ | 10pt
-font-size-section | セクションのフォントサイズ | 11pt
+font-size-heading | 見出しのフォントサイズ | 11pt
+font-size-main | 本文のフォントサイズ | 10pt
 font-size-bibliography | 参考文献のフォントサイズ | 9pt
 
 図表の補足語
@@ -125,5 +126,5 @@ supplement-separater | 補足語の区切り | ""
 引数名 | 意味（用途） | デフォルト値（例）
 -- | -- | --
 numbering-headings | 見出しの番号付け | "1.1"
-numbering-appendix | 付録の接頭番号 | "A"
+numbering-appendix | 付録の接頭番号 | "A.1"
 numbering-equation | 数式の接頭番号 | "(1)"
