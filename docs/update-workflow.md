@@ -4,25 +4,25 @@
 
 ## 現状の確認
 
-[Typst Universe](https://typst.app/universe/package/jaconf-mscs)から作成してエラーやワーニングを確認する。
+[Typst Universe](https://typst.app/universe/package/jaconf)から作成してエラーやワーニングを確認する。
 
 ```
 cd
-typst init @preview/jaconf-mscs:0.1.1 typst-universe
+typst init @preview/jaconf:0.1.0 typst-universe
 typst c typst-universe/main.typ
 ls typst-universe
 ```
 
 ## 修正
 
-- `jaconf-mscs/lib.typ`のエラーやワーニングを修正
+- `jaconf/lib.typ`のエラーやワーニングを修正
 - バージョンを上げる
-  - `jaconf-mscs/typst.toml`の`version`と`compiler`を更新
-  - `@preview/jaconf-mscs:0.1.1`で検索して現在のバージョンに置換
+  - `jaconf/typst.toml`の`version`と`compiler`を更新
+  - `@preview/jaconf:0.1.0`で検索して現在のバージョンに置換
 
 ## ローカルパッケージで確認
 
-このリポジトリにある`jaconf-mscs`ディレクトリ（フォルダー）の中身を特定のディレクトリに配置することで、ユーザーのどのディレクトリからでもテンプレートファイルを作成できます。特定のディレクトリとは以下の通りです。
+このリポジトリにある`jaconf`ディレクトリ（フォルダー）の中身を特定のディレクトリに配置することで、ユーザーのどのディレクトリからでもテンプレートファイルを作成できます。特定のディレクトリとは以下の通りです。
 
 - ~/.local/share/typst/packages/local/${name}/${version} # Linux
 - ~/Library/Application Support/typst/packages/local/${name}/${version} # macOS (Default Installer)
@@ -34,7 +34,7 @@ ls typst-universe
 
 ```sh
 # cd "path to typst-jp-conf-template"
-pkgname=jaconf-mscs
+pkgname=jaconf
 pkgver=$(grep -E 'version *= *".*"' ${pkgname}/typst.toml | grep -Eo '".*"' | tr -d '"')
 pkgdir=~/.local/share/typst/packages/local/${pkgname}/${pkgver}
 mkdir -p ${pkgdir}
@@ -47,7 +47,7 @@ sed -i "s|@preview|@local|" ${pkgdir}/template/main.typ
 
 ```sh
 cd
-typst init @local/jaconf-mscs typst-local
+typst init @local/jaconf typst-local
 typst c typst-local/main.typ
 ls typst-local
 ```
@@ -60,7 +60,7 @@ ls typst-local
     ```sh
     # cd "path to typst-jp-conf-template"
     typstpkgs=~/typst_ws/typst-packages
-    pkgname=jaconf-mscs
+    pkgname=jaconf
     pkgver=$(grep -E 'version *= *".*"' ${pkgname}/typst.toml | grep -Eo '".*"' | tr -d '"')
     pkgdir=${typstpkgs}/packages/preview/${pkgname}/${pkgver}
     mkdir -p ${pkgdir}
@@ -70,12 +70,21 @@ ls typst-local
 3. プルリクエストを出す。
     - [packages/jaconf-mscs:0.1.0](https://github.com/typst/packages/pull/1559)
     - [packages/jaconf-mscs:0.1.1](https://github.com/typst/packages/pull/2287)
-4. `typst-jp-conf-template`は`jaconf-mscs:*.*.*`などとコミットしておきドラフトプルリクエストにしておく。
+4. `typst-jp-conf-template`は`jaconf:*.*.*`などとコミットしておきドラフトプルリクエストにしておく。
 5. `packages`のプルリクエストがマージされたら、`typst-jp-conf-template`のドラフトプルリクエストもマージする。
     - [typst-jp-conf-template/Update jaconf-mscs:0.1.1](https://github.com/kimushun1101/typst-jp-conf-template/pull/18)
+
+## サムネイル画像の作成
+
+```sh
+cd ~/typst-local
+typst compile --pages 1 --ppi 100 --root . main.typ thumbnail.png
+# cp thumbnail.png
+```
 
 ## 後片付け
 
 ```sh
+cd
 rm -rf typst-universe typst-local
 ```

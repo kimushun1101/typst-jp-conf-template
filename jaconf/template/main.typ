@@ -5,7 +5,7 @@
 
 #show: jaconf.with(
   // 基本 Basic
-  title-ja: [Typst を使った国内学会論文の書き方 \ - 国内学会予稿集に似せたフォーマットの作成 - ],
+  title-ja: [国内学会論文の日本語Typstテンプレート \ jaconf ],
   title-en: [How to Write a Conference Paper in Japanese],
   authors-ja: [◯ 著者姓1 著者名1、著者姓2 著者名2(○○○大学)、著者姓3 著者名3 (□□□株式会社)],
   authors-en: [\*A. First, B. Second (○○○ Univ.), and C. Third (□□□ Corp.)],
@@ -101,7 +101,7 @@ $ u = K_P e + K_I integral_0^t e d t $ <eq:PI-controller>
       [フォント],
     ),
     table.hline(),
-    [タイトル], [18], [ゴシック体],
+    [タイトル], [16], [ゴシック体],
     [著者名], [12], [ゴシック体],
     [章タイトル], [12], [ゴシック体],
     [節、小節、本文], [10], [明朝体],
@@ -120,21 +120,21 @@ $ u = K_P e + K_I integral_0^t e d t $ <eq:PI-controller>
 
 === 定理環境 <sec:theorem>
 以下はtheorem環境の使用例です。
-定理などのタイトルフォントをゴシックにしています。
+定理などのタイトルフォントを`font-heading`（見出しのフォント）にしています。
 #red-warn[`definition`, `lemma`, `theorem`, `corollary`, `proof`はこのテンプレートで定義している関数です。]
 ```
-#import "@preview/jaconf-mscs:0.1.1": jaconf, definition, lemma, theorem, corollary, proof, appendix
+#import "@local:0.1.0": jaconf, definition, lemma, theorem, corollary, proof, appendix
 ```
 #red-warn[他のテンプレートを使用する際には#link("https://github.com/kimushun1101/typst-jp-conf-template/blob/5862f4fd21b4f00488a56657e198864625d117b8/jaconf-eng/lib.typ#L9-L35")[`lib.typ`のコード]を参考に、以下のようにご自身のコード内で定義および有効化をしてください。]
 
 ```typ
 // Theorem environments
 #let thmja = thmplain.with(base: {}, separator: [#h(0.5em)], titlefmt: strong, inset: (top: 0em, left: 0em))
-#let definition = thmja("definition", context{text(font: state-font-heading.get())[定義]})
-#let lemma = thmja("lemma", context{text(font: state-font-heading.get())[補題]})
-#let theorem = thmja("theorem", context{text(font: state-font-heading.get())[定理]})
-#let corollary = thmja("corollary", context{text(font: state-font-heading.get())[系]})
-#let proof = thmproof("proof", context{text(font: state-font-heading.get())[証明]}, separator: [#h(0.9em)], titlefmt: strong, inset: (top: 0em, left: 0em))
+#let definition = thmja("definition", context{text(font: query(<gothic-font>).first().value)[定義]})
+#let lemma = thmja("lemma", context{text(font: query(<gothic-font>).first().value)[補題]})
+#let theorem = thmja("theorem", context{text(font: query(<gothic-font>).first().value)[定理]})
+#let corollary = thmja("corollary", context{text(font: query(<gothic-font>).first().value)[系]})
+#let proof = thmproof("proof", context{text(font: query(<gothic-font>).first().value)[証明]}, separator: [#h(0.9em)], titlefmt: strong, inset: (top: 0em, left: 0em))
 // Enable packages.
 #show: thmrules.with(qed-symbol: $square$)
 ```

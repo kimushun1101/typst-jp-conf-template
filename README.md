@@ -20,6 +20,7 @@ Typstの概要について知りたい方は、[スライド資料](https://gith
 | libs        | 体裁を整えるライブラリファイル |
 | jaconf      | `jaconf`パッケージのファイル |
 | jaconf-mscs | `jaconf-mscs`パッケージのファイル |
+| docs        | README.mdに書くには長過ぎるドキュメントの置き場 |
 
 雰囲気を掴みたい場合には [こちらの Typst Web Application](https://typst.app/project/wXmeFlJ5bhx1awSRuJRiUf) をお試しください。  
 
