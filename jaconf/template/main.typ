@@ -4,20 +4,50 @@
 #import "@preview/jaconf:0.1.0": jaconf, definition, lemma, theorem, corollary, proof, appendix
 
 #show: jaconf.with(
-  title-ja: [日本語学会論文のテンプレート \ - サブタイトル - ],
+  // 基本 Basic
+  title-ja: [Typst を使った国内学会論文の書き方 \ - 国内学会予稿集に似せたフォーマットの作成 - ],
   title-en: [How to Write a Conference Paper in Japanese],
   authors-ja: [◯ 著者姓1 著者名1、著者姓2 著者名2(○○○大学)、著者姓3 著者名3 (□□□株式会社)],
   authors-en: [\*A. First, B. Second (○○○ Univ.), and C. Third (□□□ Corp.)],
   abstract: [#lorem(80)],
   keywords: ([Typst], [conference paper writing], [manuscript format]),
+  // フォント名 Font family
   font-gothic: "Noto Sans CJK JP",
   font-mincho: "Noto Serif CJK JP",
-  font-latin: "New Computer Modern"
-  // The following settings may warn of missing font families. Please set a font that exists in your environment as an alternative.
-  // 以下の設定では存在しないフォントファミリーが含まれていると警告が出ます。環境に存在するフォントを設定してください。
-  // font-gothic: ("BIZ UDPGothic", "MS PGothic", "Hiragino Kaku Gothic Pro", "IPAexGothic", "Noto Sans CJK JP"),
-  // font-mincho: ("BIZ UDPMincho", "MS PMincho", "Hiragino Mincho Pro", "IPAexMincho", "Noto Serif CJK JP"),
-  // font-latin: ("Times New Roman", "New Computer Modern")
+  font-latin: "New Computer Modern",
+  font-math: "New Computer Modern Math",
+  // 外観 Appearance
+  paper-columns: 2,  // 1: single column, 2: double column
+  page-number: none,  // e.g. "1/1"
+  margin-top: 20mm,
+  margin-bottom: 27mm,
+  margin-side: 20mm,
+  column-gutter: 4%+0pt,
+  spacing-heading: 1.2em,
+  bibliography-style: "sice.csl",  // "rsj-conf.csl", "rengo.csl", "sci.csl", "ieee"
+  abstract-language: "en",  // "ja" or "en"
+  // 見出し Headings
+  heading-abstract: [*Abstract--*],
+  heading-keywords: [*Key Words*: ],
+  heading-bibliography: [参　考　文　献],
+  heading-appendix: [付　録],
+  // フォントサイズ Font size
+  font-size-title-ja: 16pt,
+  font-size-title-en: 12pt,
+  font-size-authors-ja: 12pt,
+  font-size-authors-en: 12pt,
+  font-size-abstract: 10pt,
+  font-size-heading: 11pt,
+  font-size-main: 10pt,
+  font-size-bibliography: 9pt,
+  // 補足語 Supplement
+  supplement-image: [図],
+  supplement-table: [表],
+  supplement-separater: [: ],
+  // 番号付け Numbering
+  numbering-headings: "1.1",
+  numbering-equation: "(1)",
+  numbering-appendix: "A.1",  // #show: appendix.with(numbering-appendix: "A.1") の呼び出しにも同じ引数を与えてください。
 )
 
 // この文書特有の関数を定義
@@ -25,6 +55,9 @@
 #let red-warn(it) = text(it, fill: rgb(red), weight: "bold")
 // リンクを青文字にする
 #show link: set text(fill: blue)
+// 句読点をカンマとピリオドに変換
+#show "、": "，"
+#show "。": "．"
 
 = はじめに <sec:intro>
 #red-warn[実用の際には適宜投稿先の規定を必ずご確認ください。]
@@ -148,9 +181,16 @@ $ u = K_P e + K_I integral_0^t e d t $ <eq:PI-controller>
 = 付録の書き方 <appendix:edit>
 参考文献の後ろに付録を付けたい場合には、
 ```typ
-  #show: appendix
+  #show: appendix.with(numbering-appendix: "A.1")
 ```
 を追加してください。
+その場所に`heading-appendix`で設定した文字（デフォルトでは「付　録」）が挿入されます。
+それ以降に見出しを書くことで、章番号が`numbering-appendix`で設定した体裁で見出しがつきます。
+デフォルトである`"A.1"`ではアルファベット順につきます。
+`#show: appendix.with(numbering-appendix`の値を変更する場合には、
+`#show: temp.with(`の引数である`numbering-appendix`の値も合わせて変更してください。
+これを怠ると、@appendix:edit のようなラベルがうまく機能しません。
+
 #red-warn[
   `appendix`はこのテンプレートで定義している関数です。
   他のテンプレートを使用する場合には、#link("https://github.com/kimushun1101/typst-jp-conf-template/blob/5862f4fd21b4f00488a56657e198864625d117b8/jaconf-eng/lib.typ#L170-L181")[`lib.typ`のコード]を参考にご自身のコード内で定義してください。

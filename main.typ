@@ -428,8 +428,12 @@ CSLファイルは著者が編集する必要はありませんが、詳細が�
   #show: appendix.with(numbering-appendix: "A.1")
 ```
 を追加してください。
-その場所に「付録」という文字が挿入されます。
-それ以降に見出しを書くことで、章番号がアルファベット順の見出しがつきます。
+その場所に`heading-appendix`で設定した文字（デフォルトでは「付　録」）が挿入されます。
+それ以降に見出しを書くことで、章番号が`numbering-appendix`で設定した体裁で見出しがつきます。
+デフォルトである`"A.1"`ではアルファベット順につきます。
+`#show: appendix.with(numbering-appendix`の値を変更する場合には、
+`#show: temp.with(`の引数である`numbering-appendix`の値も合わせて変更してください。
+これを怠ると、@appendix:edit のようなラベルがうまく機能しません。
 
 @sec:theorem と同様に
 #red-warn[
