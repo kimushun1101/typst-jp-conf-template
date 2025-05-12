@@ -20,6 +20,8 @@
   abstract: [#lorem(80)],
   keywords: ([Typst], [conference paper writing], [manuscript format]),
   // フォント名 Font family
+  // font-gothic: "Noto Sans CJK JP",  // outdated
+  // font-mincho: "Noto Serif CJK JP",  // outdated
   font-heading: "Noto Sans CJK JP",
   font-main-body: "Noto Serif CJK JP",
   font-latin: "New Computer Modern",

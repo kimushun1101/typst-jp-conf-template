@@ -19,8 +19,6 @@
   abstract: none,
   keywords: (),
   // フォント名 Font family
-  // font-gothic: "Noto Sans CJK JP",  // outdated
-  // font-mincho: "Noto Serif CJK JP",  // outdated
   font-heading: "Noto Sans CJK JP",  // サンセリフ体、ゴシック体などの指定を推奨
   font-main-body: "Noto Serif CJK JP",  // セリフ体、明朝体などの指定を推奨
   font-latin: "New Computer Modern",
