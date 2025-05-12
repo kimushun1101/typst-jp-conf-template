@@ -12,18 +12,19 @@
 // #import "libs/sci/lib.typ": sci as temp, definition, lemma, theorem, corollary, proof, appendix, conference-name
 
 #show: temp.with(
+  // 基本 Basic
   title-ja: [Typst を使った国内学会論文の書き方 \ - 国内学会予稿集に似せたフォーマットの作成 - ],
   title-en: [How to Write a Conference Paper in Japanese],
   authors-ja: [◯ 著者姓1 著者名1、著者姓2 著者名2(○○○大学)、著者姓3 著者名3 (□□□株式会社)],
   authors-en: [\*A. First, B. Second (○○○ Univ.), and C. Third (□□□ Corp.)],
   abstract: [#lorem(80)],
   keywords: ([Typst], [conference paper writing], [manuscript format]),
-  // font family
+  // フォント名 Font family
   font-gothic: "Noto Sans CJK JP",
   font-mincho: "Noto Serif CJK JP",
   font-latin: "New Computer Modern",
   font-math: "New Computer Modern Math",
-  // appearance
+  // 外観 Appearance
   paper-columns: 2,  // 1: single column, 2: double column
   page-number: none,  // e.g. "1/1"
   margin-top: 20mm,
@@ -31,14 +32,14 @@
   margin-side: 20mm,
   column-gutter: 4%+0pt,
   spacing-heading: 1.2em,
-  bibliography-style: "sice.csl",
+  bibliography-style: "sice.csl",  // "rsj-conf.csl", "rengo.csl", "sci.csl", "ieee"
   abstract-language: "en",  // "ja" or "en"
-  // headings
+  // 見出し Headings
   heading-abstract: [*Abstract--*],
   heading-keywords: [*Key Words*: ],
   heading-bibliography: [参　考　文　献],
   heading-appendix: [付　録],
-  // font size
+  // フォントサイズ Font size
   font-size-title-ja: 16pt,
   font-size-title-en: 12pt,
   font-size-authors-ja: 12pt,
@@ -47,11 +48,11 @@
   font-size-heading: 11pt,
   font-size-main: 10pt,
   font-size-bibliography: 9pt,
-  // supplement
+  // 補足語 Supplement
   supplement-image: [図],
   supplement-table: [表],
   supplement-separater: [: ],
-  // numbering
+  // 番号付け Numbering
   numbering-headings: "1.1",
   numbering-equation: "(1)",
   numbering-appendix: "A.1",  // #show: appendix.with(numbering-appendix: "A.1") の呼び出しにも同じ引数を与えてください。

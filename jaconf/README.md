@@ -21,16 +21,50 @@ Typst will create a new directory with all the files needed to get you started.
 
 This template exports the `jaconf` function with the following named arguments:
 
-- `title-ja`: The paper's title in Japanese.
-- `title-en`: The paper's title in English.
-- `authors-ja`: The Authors' name and affiliations in Japanese.
-- `authors-ja`: The Authors' name and affiliations in English.
-- `abstract`: The content of a brief summary or `none`.
-- `keywords`: Array of index terms to display after the abstract.
-- `font-gothic`: The Gothic font used for headings.
-- `font-mincho`: The Mincho font used for the body.
-- `font-latin`: The Latin font used for description in English.
-- `paper-columns`: The Latin font used for description in English.
+- 基本　Basic
+  - `title-ja`: 日本語タイトル。The paper's title in Japanese.
+  - `title-en`: 英語タイトル。The paper's title in English.
+  - `authors-ja`: 日本語著者名。The Authors' name and affiliations in Japanese.
+  - `authors-ja`: 英語著者名。The Authors' name and affiliations in English.
+  - `abstract`: 概要。The content of a brief summary or `none`.
+  - `keywords`: キーワード。Array of index terms to display after the abstract.
+- フォント名　Font family
+  - `font-gothic`: 見出しに使うゴシックフォント。The Gothic font used for headings.
+  - `font-mincho`: 本文に使う明朝フォント。The Mincho font used for the main body.
+  - `font-latin`: 英文に使うフォント。The Latin font used for description in English.
+  - `font-math`: 数式に使うフォント。The math font used for equations.
+- 外観　Appearance
+  - `paper-columns`: 段組みの数。Number of columns.
+  - `page-number`: ページ番号の体裁。Page numbering style.
+  - `margin-top`: 上部余白
+  - `margin-bottom`: 下部余白
+  - `margin-side`: 両端余白
+  - `column-gutter`: 左右余白（それぞれ）
+  - `spacing-heading`: 見出しと本文の空き。Spacing between headings and main texts.
+  - `bibliography-style`: 参考文献リストの体裁。
+  - `abstract-language`: アブストラクトの言語。これによってアブストラクトのフォントが決まります。The language of the abstract determines the fonts used for Japanese and English.
+- 見出し　Headings
+  - `heading-abstract`: アブストラクトの見出し
+  - `heading-keywords`: キーワードの見出し
+  - `heading-bibliography`: 参考文献の見出し
+  - `heading-appendix`: 付録の見出し
+- フォントサイズ　Font size
+  - `font-size-title-ja`: 日本語タイトルのフォントサイズ
+  - `font-size-title-en`: 英語タイトルのフォントサイズ
+  - `font-size-authors-ja`: 日本語著者名のフォントサイズ
+  - `font-size-authors-en`: 英語著者名のフォントサイズ
+  - `font-size-abstract`: 概要のフォントサイズ
+  - `font-size-heading`: 見出しのフォントサイズ
+  - `font-size-main`: 本文のフォントサイズ
+  - `font-size-bibliography`: 参考文献リストのフォントサイズ
+- 補足語　Supplement
+  - `supplement-image`: 図タイトルの接頭辞
+  - `supplement-table`: 表タイトルの接頭辞
+  - `supplement-separater`: 接頭辞とタイトルの区切り文字
+- 番号付け　Numbering
+  - `numbering-headings`: 本文の見出し番号の体裁
+  - `numbering-equation`: 式番号の体裁
+  - `numbering-appendix`: 付録の見出し番号の体裁。`#show: appendix.with(numbering-appendix:` の呼び出しにも同じ引数を与えてください。
 
 The function also accepts a single, positional argument for the body of the
 paper.
@@ -43,90 +77,52 @@ template, you can add a show rule like this at the top of your file:
 #import "@preview/jaconf:0.1.0": jaconf, definition, lemma, theorem, corollary, proof, appendix
 
 #show: jaconf.with(
-  title-ja: [日本語学会論文のテンプレート \ - サブタイトル - ],
+  // 基本 Basic
+  title-ja: [Typst を使った国内学会論文の書き方 \ - 国内学会予稿集に似せたフォーマットの作成 - ],
   title-en: [How to Write a Conference Paper in Japanese],
   authors-ja: [◯ 著者姓1 著者名1、著者姓2 著者名2(○○○大学)、著者姓3 著者名3 (□□□株式会社)],
   authors-en: [\*A. First, B. Second (○○○ Univ.), and C. Third (□□□ Corp.)],
   abstract: [#lorem(80)],
   keywords: ([Typst], [conference paper writing], [manuscript format]),
+  // フォント名 Font family
   font-gothic: "Noto Sans CJK JP",
   font-mincho: "Noto Serif CJK JP",
-  font-latin: "New Computer Modern"
-  // The following settings may warn of missing font families. Please set a font that exists in your environment as an alternative.
-  // 以下の設定では存在しないフォントファミリーが含まれていると警告が出ます。環境に存在するフォントを設定してください。
-  // font-gothic: ("BIZ UDPGothic", "MS PGothic", "Hiragino Kaku Gothic Pro", "IPAexGothic", "Noto Sans CJK JP"),
-  // font-mincho: ("BIZ UDPMincho", "MS PMincho", "Hiragino Mincho Pro", "IPAexMincho", "Noto Serif CJK JP"),
-  // font-latin: ("Times New Roman", "New Computer Modern")
+  font-latin: "New Computer Modern",
+  font-math: "New Computer Modern Math",
+  // 外観 Appearance
+  paper-columns: 2,  // 1: single column, 2: double column
+  page-number: none,  // e.g. "1/1"
+  margin-top: 20mm,
+  margin-bottom: 27mm,
+  margin-side: 20mm,
+  column-gutter: 4%+0pt,
+  spacing-heading: 1.2em,
+  bibliography-style: "sice.csl",  // "rsj-conf.csl", "rengo.csl", "sci.csl", "ieee"
+  abstract-language: "en",  // "ja" or "en"
+  // 見出し Headings
+  heading-abstract: [*Abstract--*],
+  heading-keywords: [*Key Words*: ],
+  heading-bibliography: [参　考　文　献],
+  heading-appendix: [付　録],
+  // フォントサイズ Font size
+  font-size-title-ja: 16pt,
+  font-size-title-en: 12pt,
+  font-size-authors-ja: 12pt,
+  font-size-authors-en: 12pt,
+  font-size-abstract: 10pt,
+  font-size-heading: 11pt,
+  font-size-main: 10pt,
+  font-size-bibliography: 9pt,
+  // 補足語 Supplement
+  supplement-image: [図],
+  supplement-table: [表],
+  supplement-separater: [: ],
+  // 番号付け Numbering
+  numbering-headings: "1.1",
+  numbering-equation: "(1)",
+  numbering-appendix: "A.1",  // #show: appendix.with(numbering-appendix: "A.1") の呼び出しにも同じ引数を与えてください。
 )
 ```
 
-基本
-
-引数名 | 意味（用途） | デフォルト値（例）
--- | -- | --
-title-ja | タイトル（日本語） | [日本語タイトル],
-title-en | タイトル（英語） | [],
-authors-ja | 著者名（日本語）| [著者]
-authors-en | 著者名（英語）| []
-abstract | アブストラクト | none
-keywords | キーワード | ()
-
-フォントファミリー
-
-引数名 | 意味（用途） | デフォルト値（例）
--- | -- | --
-font-gothic | ゴシックフォント | "Noto Sans CJK JP"
-font-mincho | 明朝フォント | "Noto Serif CJK JP"
-font-latin | 英文フォント | "New Computer Modern"
-font-math | 数式フォント | "New Computer Modern Math"
-
-体裁
-
-引数名 | 意味（用途） | デフォルト値（例）
--- | -- | --
-paper-columns | 段組み | 2
-page-number | ページ数 | none（"1/1"などと指定可能）
-margin-top | 上部余白 | 20mm
-margin-bottom | 下部余白 | 27mm
-margin-side | 左右余白（それぞれ） | 20mm
-column-gutter | 段組みの間隔 | 4%+0pt
-spacing-heading | 段組みの間隔 | 1.2em
-bibliography-style | 参考文献のスタイル | "ieee"（"sice.csl"など通常はその学会に合わせたファイルを指定）
-abstract-language | アブストラクトの言語 | "en" （日本語で書く場合には"ja"とする）
-
-見出し
-
-引数名 | 意味（用途） | デフォルト値（例）
--- | -- | --
-heading-abstract | アブストラクトの見出し | [*Abstract--*]
-heading-keywords | キーワードの見出し | [*Key Words*: ]
-heading-bibliography | 参考文献の見出し | "参　考　文　献"
-heading-appendix | 付録の見出し | "付　録"
-
-フォントサイズ
-
-引数名 | 意味（用途） | デフォルト値（例）
--- | -- | --
-font-size-title | タイトルのフォントサイズ | 16pt
-font-size-authors-ja | 著者名のフォントサイズ | 12pt
-font-size-authors-en | 著者名（英語）のフォントサイズ | 12pt
-font-size-abstract | アブストラクトのフォントサイズ | 10pt
-font-size-heading | 見出しのフォントサイズ | 11pt
-font-size-main | 本文のフォントサイズ | 10pt
-font-size-bibliography | 参考文献のフォントサイズ | 9pt
-
-図表の補足語
-
-引数名 | 意味（用途） | デフォルト値（例）
--- | -- | --
-supplement-image | 図の補足語 | [図]（[Fig.]）
-supplement-table | 表の補足語 | [表]（[Table]）
-supplement-separater | 補足語の区切り | "[: ]"
-
-番号付け
-
-引数名 | 意味（用途） | デフォルト値（例）
--- | -- | --
-numbering-headings | 見出しの番号付け | "1.1"
-numbering-appendix | 付録の接頭番号 | "A.1"
-numbering-equation | 数式の接頭番号 | "(1)"
+You may remove the lines if the default values are acceptable.
+デフォルト値で良い場合には、その行を削除していただいてもかまいません。
