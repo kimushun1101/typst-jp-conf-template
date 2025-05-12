@@ -29,8 +29,8 @@ This template exports the `jaconf` function with the following named arguments:
   - `abstract`: 概要。The content of a brief summary or `none`.
   - `keywords`: キーワード。Array of index terms to display after the abstract.
 - フォント名　Font family
-  - `font-gothic`: 見出しに使うゴシックフォント。The Gothic font used for headings.
-  - `font-mincho`: 本文に使う明朝フォント。The Mincho font used for the main body.
+  - `font-heading`: 見出しに使うフォント。サンセリフ体、ゴシック体などの指定を推奨。Heading font. A sans-serif style (e.g., Gothic) is recommended.
+  - `font-main-body`: 本文に使うフォント。セリフ体、明朝体などの指定を推奨。Main body font. A serif style (e.g., Mincho) is recommended.
   - `font-latin`: 英文に使うフォント。The Latin font used for description in English.
   - `font-math`: 数式に使うフォント。The math font used for equations.
 - 外観　Appearance
@@ -85,8 +85,8 @@ template, you can add a show rule like this at the top of your file:
   abstract: [#lorem(80)],
   keywords: ([Typst], [conference paper writing], [manuscript format]),
   // フォント名 Font family
-  font-gothic: "Noto Sans CJK JP",
-  font-mincho: "Noto Serif CJK JP",
+  font-heading: "Noto Sans CJK JP",
+  font-main-body: "Noto Serif CJK JP",
   font-latin: "New Computer Modern",
   font-math: "New Computer Modern Math",
   // 外観 Appearance

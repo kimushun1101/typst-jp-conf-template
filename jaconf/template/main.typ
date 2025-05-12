@@ -12,8 +12,8 @@
   abstract: [#lorem(80)],
   keywords: ([Typst], [conference paper writing], [manuscript format]),
   // フォント名 Font family
-  font-gothic: "Noto Sans CJK JP",
-  font-mincho: "Noto Serif CJK JP",
+  font-heading: "Noto Sans CJK JP",  // サンセリフ体、ゴシック体などの指定を推奨
+  font-main-body: "Noto Serif CJK JP",  // セリフ体、明朝体などの指定を推奨
   font-latin: "New Computer Modern",
   font-math: "New Computer Modern Math",
   // 外観 Appearance
@@ -130,11 +130,11 @@ $ u = K_P e + K_I integral_0^t e d t $ <eq:PI-controller>
 ```typ
 // Theorem environments
 #let thmja = thmplain.with(base: {}, separator: [#h(0.5em)], titlefmt: strong, inset: (top: 0em, left: 0em))
-#let definition = thmja("definition", context{text(font: state-font-gothic.get())[定義]})
-#let lemma = thmja("lemma", context{text(font: state-font-gothic.get())[補題]})
-#let theorem = thmja("theorem", context{text(font: state-font-gothic.get())[定理]})
-#let corollary = thmja("corollary", context{text(font: state-font-gothic.get())[系]})
-#let proof = thmproof("proof", context{text(font: state-font-gothic.get())[証明]}, separator: [#h(0.9em)], titlefmt: strong, inset: (top: 0em, left: 0em))
+#let definition = thmja("definition", context{text(font: state-font-heading.get())[定義]})
+#let lemma = thmja("lemma", context{text(font: state-font-heading.get())[補題]})
+#let theorem = thmja("theorem", context{text(font: state-font-heading.get())[定理]})
+#let corollary = thmja("corollary", context{text(font: state-font-heading.get())[系]})
+#let proof = thmproof("proof", context{text(font: state-font-heading.get())[証明]}, separator: [#h(0.9em)], titlefmt: strong, inset: (top: 0em, left: 0em))
 // Enable packages.
 #show: thmrules.with(qed-symbol: $square$)
 ```

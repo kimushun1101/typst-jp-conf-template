@@ -19,8 +19,10 @@
   abstract: none,
   keywords: (),
   // フォント名 Font family
-  font-gothic: "Noto Sans CJK JP",
-  font-mincho: "Noto Serif CJK JP",
+  // font-gothic: "Noto Sans CJK JP",  // outdated
+  // font-mincho: "Noto Serif CJK JP",  // outdated
+  font-heading: "Noto Sans CJK JP",  // サンセリフ体、ゴシック体などの指定を推奨
+  font-main-body: "Noto Serif CJK JP",  // セリフ体、明朝体などの指定を推奨
   font-latin: "New Computer Modern",
   font-math: "New Computer Modern Math",
   // 外観 Appearance
@@ -59,7 +61,7 @@
   body
 ) = {
   // Set metadata.
-  [#metadata(font-gothic) <gothic-font>]
+  [#metadata(font-heading) <gothic-font>]
   [#metadata(font-size-heading) <heading-font-size>]
   [#metadata(spacing-heading) <heading-spacing>]
   [#metadata(heading-appendix) <appendix-heading>]
@@ -77,7 +79,7 @@
     margin: (top: margin-top, bottom: margin-bottom, x: margin-side),
     numbering: page-number
   )
-  set text(font-size-main, font: font-mincho, lang: "ja")
+  set text(font-size-main, font: font-main-body, lang: "ja")
   set par(leading: 0.5em, first-line-indent: 1em, justify: true, spacing: 0.6em)
 
   // Configure equations.
@@ -131,7 +133,7 @@
     set par(first-line-indent: 0em, spacing: spacing-heading)
     let levels = counter(heading).get()
     if it.level == 1 {
-      set text(font-size-heading, font: font-gothic, weight: "bold")
+      set text(font-size-heading, font: font-heading, weight: "bold")
       // Acknowledgment sections are not numbered.
       if it.numbering != none and not it.body in ([謝辞], [Acknowledgment], [Acknowledgement]) {
         numbering(it.numbering, ..levels)
@@ -139,7 +141,7 @@
       }
       it.body
     } else {
-      set text(font-size-main, font: font-gothic, weight: "bold")
+      set text(font-size-main, font: font-heading, weight: "bold")
       if it.numbering != none {
         numbering(it.numbering, ..levels)
         h(1em)
@@ -155,11 +157,11 @@
   show figure.where(kind: image): set figure.caption(position: bottom, separator: supplement-separater)
 
   // Display the paper's title.
-  align(center, text(font-size-title-ja, title-ja, weight: "bold", font: font-gothic))
+  align(center, text(font-size-title-ja, title-ja, weight: "bold", font: font-heading))
   v(18pt, weak: true)
 
   // Display the authors list.
-  align(center, text(font-size-authors-ja, authors-ja, font: font-mincho))
+  align(center, text(font-size-authors-ja, authors-ja, font: font-main-body))
   v(1.5em, weak: true)
 
   // Display the paper's title in English.
@@ -178,7 +180,7 @@
       {
         set text(
           font-size-abstract,
-          font: if abstract-language == "ja" { font-mincho }
+          font: if abstract-language == "ja" { font-main-body }
             else { font-latin }
         )
         [#heading-abstract #h(0.5em) #abstract]
@@ -197,7 +199,7 @@
 
   // Configure Bibliography.
   set bibliography(title: text(size: font-size-heading, heading-bibliography), style: bibliography-style)
-  show bibliography: set text(9pt, font: font-mincho, lang: "en")
+  show bibliography: set text(9pt, font: font-main-body, lang: "en")
   show bibliography: it => {
     show regex("[0-9a-zA-Z]"): set text(font: font-latin)
     it
