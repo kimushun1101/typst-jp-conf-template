@@ -1,5 +1,3 @@
-#let appendix-numbering = "A.1"
-
 // import third-party packages
 #import "@preview/codly:1.3.0": codly-init
 #import "@preview/ctheorems:1.1.3": thmplain, thmproof, thmrules
@@ -26,19 +24,20 @@
   font-latin: "New Computer Modern",
   font-math: "New Computer Modern Math",
   // appearance
-  paper-columns: 2,
-  page-number: none, // "- 1/1 -"
+  paper-columns: 2,  // 1: single column, 2: double column
+  page-number: none,  // e.g. "1/1"
   margin-top: 20mm,
   margin-bottom: 27mm,
   margin-side: 20mm,
   column-gutter: 4%+0pt,
   spacing-heading: 1.2em,
   bibliography-style: "sice.csl",
+  abstract-language: "en",  // "ja" or "en"
   // headings
   heading-abstract: [*Abstract--*],
   heading-keywords: [*Key Words*: ],
-  heading-bibliography: [参考文献],
-  heading-appendix: [付録],
+  heading-bibliography: [参　考　文　献],
+  heading-appendix: [付　録],
   // font size
   font-size-title-ja: 16pt,
   font-size-title-en: 12pt,
@@ -55,7 +54,7 @@
   // numbering
   numbering-headings: "1.1",
   numbering-equation: "(1)",
-  numbering-appendix: "A.1",
+  numbering-appendix: "A.1",  // #show: appendix.with(numbering-appendix: "A.1") の呼び出しにも同じ引数を与えてください。
   // main text
   body
 ) = {
@@ -64,7 +63,6 @@
   [#metadata(font-size-heading) <heading-font-size>]
   [#metadata(spacing-heading) <heading-spacing>]
   [#metadata(heading-appendix) <appendix-heading>]
-  [#metadata(numbering-appendix) <appendix-numbering>]
 
   // Enable packages.
   show: thmrules.with(qed-symbol: $square$)
@@ -79,7 +77,7 @@
     margin: (top: margin-top, bottom: margin-bottom, x: margin-side),
     numbering: page-number
   )
-  set text(font-size-main, font: font-mincho)
+  set text(font-size-main, font: font-mincho, lang: "ja")
   set par(leading: 0.5em, first-line-indent: 1em, justify: true, spacing: 0.6em)
 
   // Configure equations.
@@ -105,7 +103,7 @@
     // Appendix -> 付録A.
     else if el != none and el.func() == heading {
       let sec-cnt = counter(heading).at(el.location())
-      if el.numbering != appendix-numbering {
+      if el.numbering != numbering-appendix {
         if el.depth == 1 {
           link(el.location(), [#sec-cnt.at(0)章])
         } else if el.depth == 2{
@@ -133,7 +131,7 @@
     set par(first-line-indent: 0em, spacing: spacing-heading)
     let levels = counter(heading).get()
     if it.level == 1 {
-      set text(font-size-heading, font: font-gothic)
+      set text(font-size-heading, font: font-gothic, weight: "bold")
       // Acknowledgment sections are not numbered.
       if it.numbering != none and not it.body in ([謝辞], [Acknowledgment], [Acknowledgement]) {
         numbering(it.numbering, ..levels)
@@ -141,7 +139,7 @@
       }
       it.body
     } else {
-      set text(font-size-main, font: font-gothic)
+      set text(font-size-main, font: font-gothic, weight: "bold")
       if it.numbering != none {
         numbering(it.numbering, ..levels)
         h(1em)
@@ -178,16 +176,15 @@
       columns: (0.7cm, 1fr, 0.7cm),
       [],
       {
-        set text(font-size-abstract, font: font-latin)
-        set par(first-line-indent: 0em)
-        heading-abstract
-        h(0.5em)
-        abstract
+        set text(
+          font-size-abstract,
+          font: if abstract-language == "ja" { font-mincho }
+            else { font-latin }
+        )
+        [#heading-abstract #h(0.5em) #abstract]
         if keywords != () {
-          v(1em)
-          heading-keywords
-          h(0.5em)
-          keywords.join(", ")
+          set par(first-line-indent: 0em)
+          [#v(1em) #heading-keywords #h(0.5em) #keywords.join(", ")]
         }
       },
       []
@@ -200,8 +197,8 @@
 
   // Configure Bibliography.
   set bibliography(title: text(size: font-size-heading, heading-bibliography), style: bibliography-style)
+  show bibliography: set text(9pt, font: font-mincho, lang: "en")
   show bibliography: it => {
-    set text(9pt, font: font-mincho)
     show regex("[0-9a-zA-Z]"): set text(font: font-latin)
     it
   }
@@ -211,13 +208,13 @@
 }
 
 // Appendix
-#let appendix(body) = {
-  set heading(numbering: appendix-numbering)
+#let appendix(numbering-appendix: "A.1", body) = {
   counter(heading).update(0)
   counter(figure.where(kind: image)).update(0)
   counter(figure.where(kind: table)).update(0)
+  set heading(numbering: numbering-appendix)
   set figure(numbering: it => {
-    [#numbering(appendix-numbering, counter(heading).get().at(0)).#it]
+    [#numbering(numbering-appendix, counter(heading).get().at(0)).#it]
   })
   context{
     v(query(<heading-spacing>).first().value)

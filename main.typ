@@ -18,15 +18,43 @@
   authors-en: [\*A. First, B. Second (○○○ Univ.), and C. Third (□□□ Corp.)],
   abstract: [#lorem(80)],
   keywords: ([Typst], [conference paper writing], [manuscript format]),
+  // font family
   font-gothic: "Noto Sans CJK JP",
   font-mincho: "Noto Serif CJK JP",
   font-latin: "New Computer Modern",
-  // The following settings may warn of missing font families. Please set a font that exists in your environment as an alternative.
-  // 以下の設定では存在しないフォントファミリーが含まれていると警告が出ます。環境に存在するフォントを設定してください。
-  // font-gothic: ("BIZ UDPGothic", "MS PGothic", "Hiragino Kaku Gothic Pro", "IPAexGothic", "Noto Sans CJK JP"),
-  // font-mincho: ("BIZ UDPMincho", "MS PMincho", "Hiragino Mincho Pro", "IPAexMincho", "Noto Serif CJK JP"),
-  // font-latin: ("Times New Roman", "New Computer Modern")
-  // paper-columns: 2
+  font-math: "New Computer Modern Math",
+  // appearance
+  paper-columns: 2,  // 1: single column, 2: double column
+  page-number: none,  // e.g. "1/1"
+  margin-top: 20mm,
+  margin-bottom: 27mm,
+  margin-side: 20mm,
+  column-gutter: 4%+0pt,
+  spacing-heading: 1.2em,
+  bibliography-style: "sice.csl",
+  abstract-language: "en",  // "ja" or "en"
+  // headings
+  heading-abstract: [*Abstract--*],
+  heading-keywords: [*Key Words*: ],
+  heading-bibliography: [参　考　文　献],
+  heading-appendix: [付　録],
+  // font size
+  font-size-title-ja: 16pt,
+  font-size-title-en: 12pt,
+  font-size-authors-ja: 12pt,
+  font-size-authors-en: 12pt,
+  font-size-abstract: 10pt,
+  font-size-heading: 11pt,
+  font-size-main: 10pt,
+  font-size-bibliography: 9pt,
+  // supplement
+  supplement-image: [図],
+  supplement-table: [表],
+  supplement-separater: [: ],
+  // numbering
+  numbering-headings: "1.1",
+  numbering-equation: "(1)",
+  numbering-appendix: "A.1",  // #show: appendix.with(numbering-appendix: "A.1") の呼び出しにも同じ引数を与えてください。
 )
 
 // この文書特有の関数を定義
@@ -35,7 +63,7 @@
 // リンクを青文字にする
 #show link: set text(fill: blue)
 
-// 句読点をカンマとピリオドに変換する
+// 句読点をカンマとピリオドに変換
 #show "、": "，"
 #show "。": "．"
 
@@ -391,12 +419,12 @@ CSLファイルは著者が編集する必要はありませんが、詳細が�
 
 #bibliography("refs.yml", full: false)
 
-#show: appendix
+#show: appendix.with(numbering-appendix: "A.1")
 
 = 付録の書き方 <appendix:edit>
 参考文献の後ろに付録を付けたい場合には、
 ```typ
-  #show: appendix
+  #show: appendix.with(numbering-appendix: "A.1")
 ```
 を追加してください。
 その場所に「付録」という文字が挿入されます。

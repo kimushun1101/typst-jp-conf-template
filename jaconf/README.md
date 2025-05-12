@@ -85,13 +85,14 @@ font-math | 数式フォント | "New Computer Modern Math"
 引数名 | 意味（用途） | デフォルト値（例）
 -- | -- | --
 paper-columns | 段組み | 2
-page-number | ページ数 | none
+page-number | ページ数 | none（"1/1"などと指定可能）
 margin-top | 上部余白 | 20mm
 margin-bottom | 下部余白 | 27mm
 margin-side | 左右余白（それぞれ） | 20mm
 column-gutter | 段組みの間隔 | 4%+0pt
 spacing-heading | 段組みの間隔 | 1.2em
 bibliography-style | 参考文献のスタイル | "ieee"（"sice.csl"など通常はその学会に合わせたファイルを指定）
+abstract-language | アブストラクトの言語 | "en" （日本語で書く場合には"ja"とする）
 
 見出し
 
@@ -99,8 +100,8 @@ bibliography-style | 参考文献のスタイル | "ieee"（"sice.csl"など通�
 -- | -- | --
 heading-abstract | アブストラクトの見出し | [*Abstract--*]
 heading-keywords | キーワードの見出し | [*Key Words*: ]
-heading-bibliography | 参考文献の見出し | "参考文献"
-heading-appendix | 付録の見出し | "付録"
+heading-bibliography | 参考文献の見出し | "参　考　文　献"
+heading-appendix | 付録の見出し | "付　録"
 
 フォントサイズ
 
@@ -118,9 +119,9 @@ font-size-bibliography | 参考文献のフォントサイズ | 9pt
 
 引数名 | 意味（用途） | デフォルト値（例）
 -- | -- | --
-supplement-image | 図の補足語 | "図"
-supplement-table | 表の補足語 | "表"
-supplement-separater | 補足語の区切り | ""
+supplement-image | 図の補足語 | [図]（[Fig.]）
+supplement-table | 表の補足語 | [表]（[Table]）
+supplement-separater | 補足語の区切り | "[: ]"
 
 番号付け
 
