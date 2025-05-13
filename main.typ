@@ -118,20 +118,24 @@ winget install --id Typst.Typst
 ```
 - Macの場合\ Homebrewを使ってインストールできます。
 ```sh
-# Homebrew のインストール
+# Homebrewのインストール
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 # Typst のインストール
 brew install typst
 ```
 - Ubuntuの場合\ Snapからインストールできます。
 ```sh
+# Snapのインストール
+sudo apt update
+sudo apt install snapd
+# Typstのインストール
 sudo snap install typst
 ```
 - Rustを通じてインストール\ OSに依存せずRustのcargoを使ってインストールすることもできます。
 ```sh
-# Rust のインストール
+# Rustのインストール
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-# Typst のインストール
+# Typstのインストール
 cargo install --locked typst-cli
 ```
 
