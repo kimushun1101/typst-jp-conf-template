@@ -112,23 +112,27 @@ Typst appのページ https://typst.app/ から`Sign up`でアカウントを作
 何か不具合があるときには、こちらでのコンパイルが一番確実です。
 
 === インストール <sec:typst-install>
-- Windows の場合\ Windows PowerShell から以下のコマンドでインストールできます。
+- Windowsの場合\ Windows PowerShellから以下のコマンドでインストールできます。
 ```powershell
 winget install --id Typst.Typst
 ```
-- Mac の場合\ Homebrew を使ってインストールできます。
+- Macの場合\ Homebrewを使ってインストールできます。
 ```sh
 # Homebrew のインストール
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 # Typst のインストール
 brew install typst
 ```
-- Rustを通じてインストール\ たとえばUbuntuなど他のOSの場合は、Rustのcargoを使ってインストールする方法が簡単です。
+- Ubuntuの場合\ Snapからインストールできます。
+```sh
+sudo snap install typst
+```
+- Rustを通じてインストール\ OSに依存せずRustのcargoを使ってインストールすることもできます。
 ```sh
 # Rust のインストール
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 # Typst のインストール
-cargo install --git https://github.com/typst/typst --locked typst-cli
+cargo install --locked typst-cli
 ```
 
 === コンパイル
