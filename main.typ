@@ -2,7 +2,8 @@
 // Copyright 2024, 2025 Shunsuke Kimura
 
 // Select the Template
-#import "jaconf-mscs/lib.typ": jaconf as temp, definition, lemma, theorem, corollary, proof, appendix
+#import "jaconf/lib.typ": jaconf as temp, definition, lemma, theorem, corollary, proof, appendix
+// #import "jaconf-mscs/lib.typ": jaconf as temp, definition, lemma, theorem, corollary, proof, appendix
 #let conference-name = "制御部門マルチシンポジウム"
 
 // #import "libs/mscs/lib.typ": mscs as temp, definition, lemma, theorem, corollary, proof, appendix, conference-name
@@ -11,20 +12,52 @@
 // #import "libs/sci/lib.typ": sci as temp, definition, lemma, theorem, corollary, proof, appendix, conference-name
 
 #show: temp.with(
+  // 基本 Basic
   title-ja: [Typst を使った国内学会論文の書き方 \ - 国内学会予稿集に似せたフォーマットの作成 - ],
   title-en: [How to Write a Conference Paper in Japanese],
   authors-ja: [◯ 著者姓1 著者名1、著者姓2 著者名2(○○○大学)、著者姓3 著者名3 (□□□株式会社)],
   authors-en: [\*A. First, B. Second (○○○ Univ.), and C. Third (□□□ Corp.)],
   abstract: [#lorem(80)],
   keywords: ([Typst], [conference paper writing], [manuscript format]),
-  font-gothic: "Noto Sans CJK JP",
-  font-mincho: "Noto Serif CJK JP",
-  font-latin: "New Computer Modern"
-  // The following settings may warn of missing font families. Please set a font that exists in your environment as an alternative.
-  // 以下の設定では存在しないフォントファミリーが含まれていると警告が出ます。環境に存在するフォントを設定してください。
-  // font-gothic: ("BIZ UDPGothic", "MS PGothic", "Hiragino Kaku Gothic Pro", "IPAexGothic", "Noto Sans CJK JP"),
-  // font-mincho: ("BIZ UDPMincho", "MS PMincho", "Hiragino Mincho Pro", "IPAexMincho", "Noto Serif CJK JP"),
-  // font-latin: ("Times New Roman", "New Computer Modern")
+  // フォント名 Font family
+  // font-gothic: "Noto Sans CJK JP",  // outdated
+  // font-mincho: "Noto Serif CJK JP",  // outdated
+  font-heading: "Noto Sans CJK JP",
+  font-main-body: "Noto Serif CJK JP",
+  font-latin: "New Computer Modern",
+  font-math: "New Computer Modern Math",
+  // 外観 Appearance
+  paper-columns: 2,  // 1: single column, 2: double column
+  page-number: none,  // e.g. "1/1"
+  margin-top: 20mm,
+  margin-bottom: 27mm,
+  margin-side: 20mm,
+  column-gutter: 4%+0pt,
+  spacing-heading: 1.2em,
+  bibliography-style: "sice.csl",  // "rsj-conf.csl", "rengo.csl", "sci.csl", "ieee"
+  abstract-language: "en",  // "ja" or "en"
+  // 見出し Headings
+  heading-abstract: [*Abstract--*],
+  heading-keywords: [*Key Words*: ],
+  heading-bibliography: [参　考　文　献],
+  heading-appendix: [付　録],
+  // フォントサイズ Font size
+  font-size-title-ja: 16pt,
+  font-size-title-en: 12pt,
+  font-size-authors-ja: 12pt,
+  font-size-authors-en: 12pt,
+  font-size-abstract: 10pt,
+  font-size-heading: 11pt,
+  font-size-main: 10pt,
+  font-size-bibliography: 9pt,
+  // 補足語 Supplement
+  supplement-image: [図],
+  supplement-table: [表],
+  supplement-separater: [: ],
+  // 番号付け Numbering
+  numbering-headings: "1.1",
+  numbering-equation: "(1)",
+  numbering-appendix: "A.1",  // #show: appendix.with(numbering-appendix: "A.1") の呼び出しにも同じ引数を与えてください。
 )
 
 // この文書特有の関数を定義
@@ -32,6 +65,10 @@
 #let red-warn(it) = text(it, fill: rgb(red), weight: "bold")
 // リンクを青文字にする
 #show link: set text(fill: blue)
+
+// 句読点をカンマとピリオドに変換
+#show "、": "，"
+#show "。": "．"
 
 = はじめに <sec:info>
 これは#conference-name;のサンプルを参考に作成しています。
@@ -195,8 +232,8 @@ main.typ の文頭にある以下のコードを解説します。
   authors-en: [\*A. First, B. Second (○○○ Univ.), and C. Third (□□□ Corp.)],
   abstract: [#lorem(80)],
   keywords: ([Typst], [conference paper writing], [manuscript format]),
-  font-gothic: "Noto Sans CJK JP",
-  font-mincho: "Noto Serif CJK JP",
+  font-heading: "Noto Sans CJK JP",
+  font-main-body: "Noto Serif CJK JP",
   font-latin: "New Computer Modern"
 ```
 ここの2行目はこの原稿の体裁を設定するためのソースコードをimportしています。
@@ -338,11 +375,11 @@ table の columns の数に応じて、文字列の配列が自動的に整列�
 ```typ
 // Theorem environments
 #let thmja = thmplain.with(base: {}, separator: [#h(0.5em)], titlefmt: strong, inset: (top: 0em, left: 0em))
-#let definition = thmja("definition", context{text(font: state-font-gothic.get())[定義]})
-#let lemma = thmja("lemma", context{text(font: state-font-gothic.get())[補題]})
-#let theorem = thmja("theorem", context{text(font: state-font-gothic.get())[定理]})
-#let corollary = thmja("corollary", context{text(font: state-font-gothic.get())[系]})
-#let proof = thmproof("proof", context{text(font: state-font-gothic.get())[証明]}, separator: [#h(0.9em)], titlefmt: strong, inset: (top: 0em, left: 0em))
+#let definition = thmja("definition", context{text(font: state-font-heading.get())[定義]})
+#let lemma = thmja("lemma", context{text(font: state-font-heading.get())[補題]})
+#let theorem = thmja("theorem", context{text(font: state-font-heading.get())[定理]})
+#let corollary = thmja("corollary", context{text(font: state-font-heading.get())[系]})
+#let proof = thmproof("proof", context{text(font: state-font-heading.get())[証明]}, separator: [#h(0.9em)], titlefmt: strong, inset: (top: 0em, left: 0em))
 // Enable packages.
 #show: thmrules.with(qed-symbol: $square$)
 ```
@@ -364,7 +401,7 @@ CSLファイルは著者が編集する必要はありませんが、詳細が�
 
 == 引用
 引用は "\@label" と記述することで、数式であれば@eq:system、図であれば@fig:quadratic、表であれば@tab:fonts、セクションであれば@sec:edit、節や項があるセクションであれば@sec:typst-install、付録セクションであれば@appendix:edit、参考文献であれば@kimura2015asymptotic のように表示されます。
-参考文献は連続して引用すると@kimura2017state @kimura2021control @kimura2020facility @khalil2002control @sugie1999feedback @shimz2022visually と繋げられて表示されます。
+参考文献は連続して引用すると @kimura2023doctor @kimura2021control @kimura2020facility @khalil2002control @sugie1999feedback @caamp2025aisuitcase と表示されます。
 文法上では特に規則はありませんが、個人的にはラベルの命名規則として、数式の場合には "eq:" から、図の場合には "fig:" から、表の場合には"tab:" から、セクションの場合には "sec:" から、付録セクションであれば "appendix:" から始めるようにラベル名を設定しており、参考文献のラベルは "著者名発行年タイトルの最初の単語"で名付けております。
 
 = おわりに <sec:conclusion>
@@ -385,16 +422,20 @@ CSLファイルは著者が編集する必要はありませんが、詳細が�
 
 #bibliography("refs.yml", full: false)
 
-#show: appendix
+#show: appendix.with(numbering-appendix: "A.1")
 
 = 付録の書き方 <appendix:edit>
 参考文献の後ろに付録を付けたい場合には、
 ```typ
-  #show: appendix
+  #show: appendix.with(numbering-appendix: "A.1")
 ```
 を追加してください。
-その場所に「付録」という文字が挿入されます。
-それ以降に見出しを書くことで、章番号がアルファベット順の見出しがつきます。
+その場所に`heading-appendix`で設定した文字（デフォルトでは「付　録」）が挿入されます。
+それ以降に見出しを書くことで、章番号が`numbering-appendix`で設定した体裁で見出しがつきます。
+デフォルトである`"A.1"`ではアルファベット順につきます。
+`#show: appendix.with(numbering-appendix`の値を変更する場合には、
+`#show: temp.with(`の引数である`numbering-appendix`の値も合わせて変更してください。
+これを怠ると、@appendix:edit のようなラベルがうまく機能しません。
 
 @sec:theorem と同様に
 #red-warn[
