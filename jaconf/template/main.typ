@@ -160,7 +160,7 @@ $ u = K_P e + K_I integral_0^t e d t $ <eq:PI-controller>
 
 === 引用
 引用は "\@label" と記述することで、数式であれば@eq:system、図であれば@fig:quadratic、表であれば@tab:fonts、セクションであれば@sec:intro、節や項があるセクションであれば@sec:theorem、付録セクションであれば@appendix:edit、参考文献であれば@kimura2015asymptotic のように表示されます。
-参考文献は連続して引用すると@kimura2017state @kimura2021control @kimura2020facility @khalil2002control @sugie1999feedback @shimz2022visually と繋げられて表示されます。
+参考文献は連続して引用すると @kimura2023doctor @kimura2021control @kimura2020facility @khalil2002control @sugie1999feedback @caamp2025aisuitcase と表示されます。
 文法上では特に規則はありませんが、個人的にはラベルの命名規則として、数式の場合には "eq:" から、図の場合には "fig:" から、表の場合には"tab:" から、セクションの場合には "sec:" から、付録セクションであれば "appendix:" から始めるようにラベル名を設定しており、参考文献のラベルは "著者名発行年タイトルの最初の単語"で名付けております。
 
 = おわりに <sec:conclusion>
