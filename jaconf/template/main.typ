@@ -191,7 +191,5 @@ $ u = K_P e + K_I integral_0^t e d t $ <eq:PI-controller>
 `#show: temp.with(`の引数である`numbering-appendix`の値も合わせて変更してください。
 これを怠ると、@appendix:edit のようなラベルがうまく機能しません。
 
-#red-warn[
-  `appendix`はこのテンプレートで定義している関数です。
-  他のテンプレートを使用する場合には、#link("https://github.com/kimushun1101/typst-jp-conf-template/blob/5862f4fd21b4f00488a56657e198864625d117b8/jaconf-eng/lib.typ#L170-L181")[`lib.typ`のコード]を参考にご自身のコード内で定義してください。
-]
+また、@sec:theorem に示す定理環境と同様に、
+#red-warn[`appendix`はこのテンプレートで定義している関数です。]

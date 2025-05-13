@@ -437,11 +437,9 @@ CSLファイルは著者が編集する必要はありませんが、詳細が�
 `#show: temp.with(`の引数である`numbering-appendix`の値も合わせて変更してください。
 これを怠ると、@appendix:edit のようなラベルがうまく機能しません。
 
-@sec:theorem と同様に
-#red-warn[
-  `appendix`はこのテンプレートで定義している関数であり、`#import`しなければ使用できません。
-  他のテンプレートを使用する際には#link("https://github.com/kimushun1101/typst-jp-conf-template/blob/5862f4fd21b4f00488a56657e198864625d117b8/jaconf-eng/lib.typ#L170-L181")[`lib.typ`のコード]を参考にご自身のコード内で定義してください。
-]
+また、@sec:theorem に示す定理環境と同様に、
+#red-warn[`appendix`はこのテンプレートで定義している関数であり、`#import`しなければ使用できません。]
+
 = 付録に複数のセクションがある場合
 2つ目のセクションはBとなります。
 
