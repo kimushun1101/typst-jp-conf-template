@@ -78,8 +78,9 @@ ls typst-local
 
 ```sh
 cd ~/typst-local
-typst compile --pages 1 --ppi 100 --root . main.typ thumbnail.png
-# cp thumbnail.png
+typst compile --pages 1 --ppi 250 --root . main.typ thumbnail.png
+oxipng -o 4 --strip safe --alpha thumbnail.png
+# cp thumbnail.png repo
 ```
 
 ## 後片付け
