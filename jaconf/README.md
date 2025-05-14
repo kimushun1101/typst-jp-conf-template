@@ -1,8 +1,8 @@
 # Japananese Conference of Engineering
 
-This is a template for **Japanese academic conference paper of engineerig**.
+This is a template for **academic conference papers in Japanese**.
 
-工学系の日本語の学会論文テンプレート。
+国内学会論文の日本語テンプレートテンプレート。
 
 ## Usage
 
@@ -97,7 +97,7 @@ template, you can add a show rule like this at the top of your file:
   margin-side: 20mm,
   column-gutter: 4%+0pt,
   spacing-heading: 1.2em,
-  bibliography-style: "sice.csl",  // "rsj-conf.csl", "rengo.csl", "sci.csl", "ieee"
+  bibliography-style: "sice.csl",  // "sice.csl", "rsj.csl", "ieee", etc.
   abstract-language: "en",  // "ja" or "en"
   // 見出し Headings
   heading-abstract: [*Abstract--*],
@@ -124,5 +124,5 @@ template, you can add a show rule like this at the top of your file:
 )
 ```
 
-You may remove the lines if the default values are acceptable.
-デフォルト値で良い場合には、その行を削除していただいてもかまいません。
+You may remove the lines where arguments are set if the default values are sufficient.
+デフォルト値でよい場合には、その設定をしている行を削除していただいてもかまいません。
