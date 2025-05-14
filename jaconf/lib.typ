@@ -78,7 +78,7 @@
     numbering: page-number
   )
   set text(font-size-main, font: font-main-body, lang: "ja")
-  set par(leading: 0.5em, first-line-indent: 1em, justify: true, spacing: 0.6em)
+  set par(leading: 0.5em, justify: true, spacing: 0.6em, first-line-indent: (amount: 1em, all: true))
 
   // Configure equations.
   set math.equation(numbering: numbering-equation)

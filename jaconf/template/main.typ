@@ -3,6 +3,7 @@
 
 #import "@preview/jaconf:0.1.0": jaconf, definition, lemma, theorem, corollary, proof, appendix
 
+// デフォルト値でよい引数は省略可能
 #show: jaconf.with(
   // 基本 Basic
   title-ja: [国内学会論文の日本語Typstテンプレート \ jaconf ],

@@ -16,9 +16,9 @@ cargo install typst-cli oxipng typos-cli
 
 ```
 cd
-typst init @preview/jaconf:0.1.0 typst-universe
-typst c typst-universe/main.typ
-ls typst-universe
+typst init @preview/jaconf:0.1.0 test-typst-universe
+typst c test-typst-universe/main.typ
+ls test-typst-universe
 ```
 
 ## 修正
@@ -55,15 +55,15 @@ sed -i "s|@preview|@local|" ${pkgdir}/template/main.typ
 
 ```sh
 cd
-typst init @local/jaconf typst-local
-typst c typst-local/main.typ
-ls typst-local
+typst init @local/jaconf test-typst-local
+typst c test-typst-local/main.typ
+ls test-typst-local
 ```
 
 サムネイル画像の作成する。
 
 ```sh
-cd ~/typst-local
+cd ~/test-typst-local
 typst compile --pages 1 --ppi 250 --root . main.typ thumbnail.png
 oxipng -o 4 --strip safe --alpha thumbnail.png
 # cp thumbnail.png repo
@@ -101,5 +101,5 @@ typos
 
 ```sh
 cd
-rm -rf typst-universe typst-local
+rm -rf test-typst-universe test-typst-local
 ```
