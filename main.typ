@@ -53,7 +53,7 @@
   // 補足語 Supplement
   supplement-image: [図],
   supplement-table: [表],
-  supplement-separater: [: ],
+  supplement-separator: [: ],
   // 番号付け Numbering
   numbering-headings: "1.1",
   numbering-equation: "(1)",
@@ -415,7 +415,7 @@ CSLファイルは著者が編集する必要はありませんが、詳細が�
 = おわりに <sec:conclusion>
 まだまだTypst自体は発展途上中であり、最新の状態は日々変化しております。
 また筆者の理解や表現が誤っている箇所もあるかと思います。
-対応していただきたい内容や修正していただきたい内容などありましたら、#link("https://github.com/kimushun1101/typst-jp-conf-template")[GitHub] を通して、Issues や Pull Reqests をいただけますと幸いです。
+対応していただきたい内容や修正していただきたい内容などありましたら、#link("https://github.com/kimushun1101/typst-jp-conf-template")[GitHub] を通して、Issues や Pull Requests をいただけますと幸いです。
 このテンプレートは日本語論文のために作成しておりますため、日本語での投稿で構いません。もちろん英語での投稿でも問題ありません。
 誤字脱字や文法、表現など細かい修正でも大変ありがたいです。
 筆者は、Typstが普及するためには学会のフォーマットで配布されることが不可欠だと感じています。

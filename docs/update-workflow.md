@@ -2,6 +2,14 @@
 
 自分用メモ。
 
+## 必要コマンドの準備
+
+`typst`、`oxipng`、`typos`をインストールする。
+
+```
+cargo install typst-cli oxipng typos-cli
+```
+
 ## 現状の確認
 
 [Typst Universe](https://typst.app/universe/package/jaconf)から作成してエラーやワーニングを確認する。
@@ -52,6 +60,21 @@ typst c typst-local/main.typ
 ls typst-local
 ```
 
+サムネイル画像の作成する。
+
+```sh
+cd ~/typst-local
+typst compile --pages 1 --ppi 250 --root . main.typ thumbnail.png
+oxipng -o 4 --strip safe --alpha thumbnail.png
+# cp thumbnail.png repo
+```
+
+スペルチェックをする。
+
+```sh
+typos
+```
+
 ## Typst Universe更新
 
 1. https://github.com/kimushun1101/typst-packages にアクセスして`main`ブランチをアップデート。その後手元にgit pullする。
@@ -73,15 +96,6 @@ ls typst-local
 4. `typst-jp-conf-template`は`jaconf:*.*.*`などとコミットしておきドラフトプルリクエストにしておく。
 5. `packages`のプルリクエストがマージされたら、`typst-jp-conf-template`のドラフトプルリクエストもマージする。
     - [typst-jp-conf-template/Update jaconf-mscs:0.1.1](https://github.com/kimushun1101/typst-jp-conf-template/pull/18)
-
-## サムネイル画像の作成
-
-```sh
-cd ~/typst-local
-typst compile --pages 1 --ppi 250 --root . main.typ thumbnail.png
-oxipng -o 4 --strip safe --alpha thumbnail.png
-# cp thumbnail.png repo
-```
 
 ## 後片付け
 

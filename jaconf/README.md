@@ -60,7 +60,7 @@ This template exports the `jaconf` function with the following named arguments:
 - 補足語　Supplement
   - `supplement-image`: 図タイトルの接頭辞
   - `supplement-table`: 表タイトルの接頭辞
-  - `supplement-separater`: 接頭辞とタイトルの区切り文字
+  - `supplement-separator`: 接頭辞とタイトルの区切り文字
 - 番号付け　Numbering
   - `numbering-headings`: 本文の見出し番号の体裁
   - `numbering-equation`: 式番号の体裁
@@ -116,7 +116,7 @@ template, you can add a show rule like this at the top of your file:
   // 補足語 Supplement
   supplement-image: [図],
   supplement-table: [表],
-  supplement-separater: [: ],
+  supplement-separator: [: ],
   // 番号付け Numbering
   numbering-headings: "1.1",
   numbering-equation: "(1)",
