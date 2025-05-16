@@ -2,7 +2,7 @@
 
 This is a template for **academic conference papers in Japanese**.
 
-国内学会論文の日本語テンプレートテンプレート。
+日本語の学会論文テンプレート。
 
 ## Usage
 

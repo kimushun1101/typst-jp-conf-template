@@ -6,7 +6,7 @@
 // デフォルト値でよい引数は省略可能
 #show: jaconf.with(
   // 基本 Basic
-  title-ja: [国内学会論文の日本語Typstテンプレート \ jaconf ],
+  title-ja: [日本語の学会論文Typstテンプレート \ jaconf ],
   title-en: [How to Write a Conference Paper in Japanese],
   authors-ja: [◯ 著者姓1 著者名1、著者姓2 著者名2(○○○大学)、著者姓3 著者名3 (□□□株式会社)],
   authors-en: [\*A. First, B. Second (○○○ Univ.), and C. Third (□□□ Corp.)],

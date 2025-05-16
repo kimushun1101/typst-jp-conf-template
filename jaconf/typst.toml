@@ -9,7 +9,7 @@ authors = [
   "ささくらり <https://github.com/m-tsuru>",
 ]
 license = "MIT-0"
-description = "Template for Japanese academic conference papers. 国内学会論文の日本語テンプレート"
+description = "Template for Japanese academic conference papers. 日本語の学会論文テンプレート"
 keywords = ["Japanese", "academic", "conference", "proceedings"]
 disciplines = ["engineering", "computer-science", "mathematics"]
 categories = ["paper"]
