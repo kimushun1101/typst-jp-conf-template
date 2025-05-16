@@ -2,15 +2,23 @@
 
 自分用メモ。
 
+## 必要コマンドの準備
+
+`typst`、`oxipng`、`typos`をインストールする。
+
+```
+cargo install typst-cli oxipng typos-cli
+```
+
 ## 現状の確認
 
 [Typst Universe](https://typst.app/universe/package/jaconf)から作成してエラーやワーニングを確認する。
 
 ```
 cd
-typst init @preview/jaconf:0.1.0 typst-universe
-typst c typst-universe/main.typ
-ls typst-universe
+typst init @preview/jaconf:0.1.0 test-typst-universe
+typst c test-typst-universe/main.typ
+ls test-typst-universe
 ```
 
 ## 修正
@@ -47,9 +55,24 @@ sed -i "s|@preview|@local|" ${pkgdir}/template/main.typ
 
 ```sh
 cd
-typst init @local/jaconf typst-local
-typst c typst-local/main.typ
-ls typst-local
+typst init @local/jaconf test-typst-local
+typst c test-typst-local/main.typ
+ls test-typst-local
+```
+
+サムネイル画像の作成する。
+
+```sh
+cd ~/test-typst-local
+typst compile --pages 1 --ppi 250 --root . main.typ thumbnail.png
+oxipng -o 4 --strip safe --alpha thumbnail.png
+# cp thumbnail.png repo
+```
+
+スペルチェックをする。
+
+```sh
+typos
 ```
 
 ## Typst Universe更新
@@ -74,17 +97,9 @@ ls typst-local
 5. `packages`のプルリクエストがマージされたら、`typst-jp-conf-template`のドラフトプルリクエストもマージする。
     - [typst-jp-conf-template/Update jaconf-mscs:0.1.1](https://github.com/kimushun1101/typst-jp-conf-template/pull/18)
 
-## サムネイル画像の作成
-
-```sh
-cd ~/typst-local
-typst compile --pages 1 --ppi 100 --root . main.typ thumbnail.png
-# cp thumbnail.png
-```
-
 ## 後片付け
 
 ```sh
 cd
-rm -rf typst-universe typst-local
+rm -rf test-typst-universe test-typst-local
 ```

@@ -1,8 +1,8 @@
 # Japananese Conference of Engineering
 
-This is a template for **Japanese academic conference paper of engineerig**.
+This is a template for **academic conference papers in Japanese**.
 
-工学系の日本語の学会論文テンプレート。
+日本語の学会論文テンプレート。
 
 ## Usage
 
@@ -60,7 +60,7 @@ This template exports the `jaconf` function with the following named arguments:
 - 補足語　Supplement
   - `supplement-image`: 図タイトルの接頭辞
   - `supplement-table`: 表タイトルの接頭辞
-  - `supplement-separater`: 接頭辞とタイトルの区切り文字
+  - `supplement-separator`: 接頭辞とタイトルの区切り文字
 - 番号付け　Numbering
   - `numbering-headings`: 本文の見出し番号の体裁
   - `numbering-equation`: 式番号の体裁
@@ -97,7 +97,7 @@ template, you can add a show rule like this at the top of your file:
   margin-side: 20mm,
   column-gutter: 4%+0pt,
   spacing-heading: 1.2em,
-  bibliography-style: "sice.csl",  // "rsj-conf.csl", "rengo.csl", "sci.csl", "ieee"
+  bibliography-style: "sice.csl",  // "sice.csl", "rsj.csl", "ieee", etc.
   abstract-language: "en",  // "ja" or "en"
   // 見出し Headings
   heading-abstract: [*Abstract--*],
@@ -116,7 +116,7 @@ template, you can add a show rule like this at the top of your file:
   // 補足語 Supplement
   supplement-image: [図],
   supplement-table: [表],
-  supplement-separater: [: ],
+  supplement-separator: [: ],
   // 番号付け Numbering
   numbering-headings: "1.1",
   numbering-equation: "(1)",
@@ -124,5 +124,5 @@ template, you can add a show rule like this at the top of your file:
 )
 ```
 
-You may remove the lines if the default values are acceptable.
-デフォルト値で良い場合には、その行を削除していただいてもかまいません。
+You may remove the lines where arguments are set if the default values are sufficient.
+デフォルト値でよい場合には、その設定をしている行を削除していただいてもかまいません。

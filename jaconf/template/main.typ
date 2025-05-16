@@ -3,9 +3,10 @@
 
 #import "@preview/jaconf:0.1.0": jaconf, definition, lemma, theorem, corollary, proof, appendix
 
+// デフォルト値でよい引数は省略可能
 #show: jaconf.with(
   // 基本 Basic
-  title-ja: [国内学会論文の日本語Typstテンプレート \ jaconf ],
+  title-ja: [日本語の学会論文Typstテンプレート \ jaconf ],
   title-en: [How to Write a Conference Paper in Japanese],
   authors-ja: [◯ 著者姓1 著者名1、著者姓2 著者名2(○○○大学)、著者姓3 著者名3 (□□□株式会社)],
   authors-en: [\*A. First, B. Second (○○○ Univ.), and C. Third (□□□ Corp.)],
@@ -24,7 +25,7 @@
   margin-side: 20mm,
   column-gutter: 4%+0pt,
   spacing-heading: 1.2em,
-  bibliography-style: "sice.csl",  // "rsj-conf.csl", "rengo.csl", "sci.csl", "ieee"
+  bibliography-style: "sice.csl",  // "sice.csl", "rsj.csl", "ieee", etc.
   abstract-language: "en",  // "ja" or "en"
   // 見出し Headings
   heading-abstract: [*Abstract--*],
@@ -43,7 +44,7 @@
   // 補足語 Supplement
   supplement-image: [図],
   supplement-table: [表],
-  supplement-separater: [: ],
+  supplement-separator: [: ],
   // 番号付け Numbering
   numbering-headings: "1.1",
   numbering-equation: "(1)",
@@ -164,7 +165,7 @@ $ u = K_P e + K_I integral_0^t e d t $ <eq:PI-controller>
 文法上では特に規則はありませんが、個人的にはラベルの命名規則として、数式の場合には "eq:" から、図の場合には "fig:" から、表の場合には"tab:" から、セクションの場合には "sec:" から、付録セクションであれば "appendix:" から始めるようにラベル名を設定しており、参考文献のラベルは "著者名発行年タイトルの最初の単語"で名付けております。
 
 = おわりに <sec:conclusion>
-対応していただきたい内容や修正していただきたい内容などありましたら、#link("https://github.com/kimushun1101/typst-jp-conf-template")[GitHub] を通して、Issues や Pull Reqests をいただけますと幸いです。
+対応していただきたい内容や修正していただきたい内容などありましたら、#link("https://github.com/kimushun1101/typst-jp-conf-template")[GitHub] を通して、Issues や Pull Requests をいただけますと幸いです。
 このテンプレートは日本語論文のために作成しておりますため、日本語での投稿で構いません。もちろん英語での投稿でも問題ありません。
 誤字脱字や文法、表現など細かい修正でも大変ありがたいです。
 
@@ -191,7 +192,5 @@ $ u = K_P e + K_I integral_0^t e d t $ <eq:PI-controller>
 `#show: temp.with(`の引数である`numbering-appendix`の値も合わせて変更してください。
 これを怠ると、@appendix:edit のようなラベルがうまく機能しません。
 
-#red-warn[
-  `appendix`はこのテンプレートで定義している関数です。
-  他のテンプレートを使用する場合には、#link("https://github.com/kimushun1101/typst-jp-conf-template/blob/5862f4fd21b4f00488a56657e198864625d117b8/jaconf-eng/lib.typ#L170-L181")[`lib.typ`のコード]を参考にご自身のコード内で定義してください。
-]
+また、@sec:theorem に示す定理環境と同様に、
+#red-warn[`appendix`はこのテンプレートで定義している関数です。]

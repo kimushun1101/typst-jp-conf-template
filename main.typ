@@ -11,6 +11,7 @@
 // #import "libs/rsj-conf/lib.typ": rsj-conf as temp, definition, lemma, theorem, corollary, proof, appendix, conference-name
 // #import "libs/sci/lib.typ": sci as temp, definition, lemma, theorem, corollary, proof, appendix, conference-name
 
+// デフォルト値でよい引数は省略可能
 #show: temp.with(
   // 基本 Basic
   title-ja: [Typst を使った国内学会論文の書き方 \ - 国内学会予稿集に似せたフォーマットの作成 - ],
@@ -34,7 +35,7 @@
   margin-side: 20mm,
   column-gutter: 4%+0pt,
   spacing-heading: 1.2em,
-  bibliography-style: "sice.csl",  // "rsj-conf.csl", "rengo.csl", "sci.csl", "ieee"
+  bibliography-style: "sice.csl",  // "sice.csl", "rsj.csl", "ieee", etc.
   abstract-language: "en",  // "ja" or "en"
   // 見出し Headings
   heading-abstract: [*Abstract--*],
@@ -53,7 +54,7 @@
   // 補足語 Supplement
   supplement-image: [図],
   supplement-table: [表],
-  supplement-separater: [: ],
+  supplement-separator: [: ],
   // 番号付け Numbering
   numbering-headings: "1.1",
   numbering-equation: "(1)",
@@ -112,23 +113,31 @@ Typst appのページ https://typst.app/ から`Sign up`でアカウントを作
 何か不具合があるときには、こちらでのコンパイルが一番確実です。
 
 === インストール <sec:typst-install>
-- Windows の場合\ Windows PowerShell から以下のコマンドでインストールできます。
+- Windowsの場合\ Windows PowerShellから以下のコマンドでインストールできます。
 ```powershell
 winget install --id Typst.Typst
 ```
-- Mac の場合\ Homebrew を使ってインストールできます。
+- Macの場合\ Homebrewを使ってインストールできます。
 ```sh
-# Homebrew のインストール
+# Homebrewのインストール
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 # Typst のインストール
 brew install typst
 ```
-- Rustを通じてインストール\ たとえばUbuntuなど他のOSの場合は、Rustのcargoを使ってインストールする方法が簡単です。
+- Ubuntuの場合\ Snapからインストールできます。
 ```sh
-# Rust のインストール
+# Snapのインストール
+sudo apt update
+sudo apt install snapd
+# Typstのインストール
+sudo snap install typst
+```
+- Rustを通じてインストール\ OSに依存せずRustのcargoを使ってインストールすることもできます。
+```sh
+# Rustのインストール
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-# Typst のインストール
-cargo install --git https://github.com/typst/typst --locked typst-cli
+# Typstのインストール
+cargo install --locked typst-cli
 ```
 
 === コンパイル
@@ -407,7 +416,7 @@ CSLファイルは著者が編集する必要はありませんが、詳細が�
 = おわりに <sec:conclusion>
 まだまだTypst自体は発展途上中であり、最新の状態は日々変化しております。
 また筆者の理解や表現が誤っている箇所もあるかと思います。
-対応していただきたい内容や修正していただきたい内容などありましたら、#link("https://github.com/kimushun1101/typst-jp-conf-template")[GitHub] を通して、Issues や Pull Reqests をいただけますと幸いです。
+対応していただきたい内容や修正していただきたい内容などありましたら、#link("https://github.com/kimushun1101/typst-jp-conf-template")[GitHub] を通して、Issues や Pull Requests をいただけますと幸いです。
 このテンプレートは日本語論文のために作成しておりますため、日本語での投稿で構いません。もちろん英語での投稿でも問題ありません。
 誤字脱字や文法、表現など細かい修正でも大変ありがたいです。
 筆者は、Typstが普及するためには学会のフォーマットで配布されることが不可欠だと感じています。
@@ -437,11 +446,9 @@ CSLファイルは著者が編集する必要はありませんが、詳細が�
 `#show: temp.with(`の引数である`numbering-appendix`の値も合わせて変更してください。
 これを怠ると、@appendix:edit のようなラベルがうまく機能しません。
 
-@sec:theorem と同様に
-#red-warn[
-  `appendix`はこのテンプレートで定義している関数であり、`#import`しなければ使用できません。
-  他のテンプレートを使用する際には#link("https://github.com/kimushun1101/typst-jp-conf-template/blob/5862f4fd21b4f00488a56657e198864625d117b8/jaconf-eng/lib.typ#L170-L181")[`lib.typ`のコード]を参考にご自身のコード内で定義してください。
-]
+また、@sec:theorem に示す定理環境と同様に、
+#red-warn[`appendix`はこのテンプレートで定義している関数であり、`#import`しなければ使用できません。]
+
 = 付録に複数のセクションがある場合
 2つ目のセクションはBとなります。
 

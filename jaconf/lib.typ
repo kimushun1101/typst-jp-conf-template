@@ -50,7 +50,7 @@
   // 補足語 Supplement
   supplement-image: [図],
   supplement-table: [表],
-  supplement-separater: [: ],
+  supplement-separator: [: ],
   // 番号付け Numbering
   numbering-headings: "1.1",
   numbering-equation: "(1)",
@@ -78,7 +78,7 @@
     numbering: page-number
   )
   set text(font-size-main, font: font-main-body, lang: "ja")
-  set par(leading: 0.5em, first-line-indent: 1em, justify: true, spacing: 0.6em)
+  set par(leading: 0.5em, justify: true, spacing: 0.6em, first-line-indent: (amount: 1em, all: true))
 
   // Configure equations.
   set math.equation(numbering: numbering-equation)
@@ -150,9 +150,9 @@
 
   // Configure figures.
   show figure.where(kind: table): set figure(placement: top, supplement: supplement-table)
-  show figure.where(kind: table): set figure.caption(position: top, separator: supplement-separater)
+  show figure.where(kind: table): set figure.caption(position: top, separator: supplement-separator)
   show figure.where(kind: image): set figure(placement: top, supplement: supplement-image)
-  show figure.where(kind: image): set figure.caption(position: bottom, separator: supplement-separater)
+  show figure.where(kind: image): set figure.caption(position: bottom, separator: supplement-separator)
 
   // Display the paper's title.
   align(center, text(font-size-title-ja, title-ja, weight: "bold", font: font-heading))
