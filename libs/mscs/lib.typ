@@ -26,7 +26,7 @@
     keywords: keywords,
     // フォント名 Font family
     font-heading: font-gothic,
-    font-main-body: font-mincho,
+    font-main: font-mincho,
     font-latin: font-latin,
     // 見出し Headings
     heading-abstract: [*Abstract--* #h(0.5em)],

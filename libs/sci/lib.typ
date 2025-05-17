@@ -26,7 +26,7 @@
     keywords: keywords,
     // フォント名 Font family
     font-heading: font-gothic,
-    font-main-body: font-mincho,
+    font-main: font-mincho,
     font-latin: font-latin,
     // 外観 Appearance
     bibliography-style: bytes(read("sci.csl")),

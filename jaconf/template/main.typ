@@ -14,7 +14,7 @@
   keywords: ([Typst], [conference paper writing], [manuscript format]),
   // フォント名 Font family
   font-heading: "Noto Sans CJK JP",  // サンセリフ体、ゴシック体などの指定を推奨
-  font-main-body: "Noto Serif CJK JP",  // セリフ体、明朝体などの指定を推奨
+  font-main: "Noto Serif CJK JP",  // セリフ体、明朝体などの指定を推奨
   font-latin: "New Computer Modern",
   font-math: "New Computer Modern Math",
   // 外観 Appearance
