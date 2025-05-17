@@ -35,7 +35,7 @@
   abstract-language: "en",  // "ja" or "en"
   // 見出し Headings
   heading-abstract: [*Abstract--*],
-  heading-keywords: [*Key Words*: ],
+  heading-keywords: [*Keywords*: ],
   heading-bibliography: [参　考　文　献],
   heading-appendix: [付　録],
   // フォントサイズ Font size
