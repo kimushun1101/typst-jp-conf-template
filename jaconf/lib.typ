@@ -181,9 +181,9 @@
           font: if abstract-language == "ja" { font-main-body }
             else { font-latin }
         )
+        set par(first-line-indent: 0em)
         [#heading-abstract #h(0.5em) #abstract]
         if keywords != () {
-          set par(first-line-indent: 0em)
           [#v(1em) #heading-keywords #h(0.5em) #keywords.join(", ")]
         }
       },
