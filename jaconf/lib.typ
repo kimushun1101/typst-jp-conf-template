@@ -20,7 +20,7 @@
   keywords: (),
   // フォント名 Font family
   font-heading: "Noto Sans CJK JP",  // サンセリフ体、ゴシック体などの指定を推奨
-  font-main-body: "Noto Serif CJK JP",  // セリフ体、明朝体などの指定を推奨
+  font-main: "Noto Serif CJK JP",  // セリフ体、明朝体などの指定を推奨
   font-latin: "New Computer Modern",
   font-math: "New Computer Modern Math",
   // 外観 Appearance
@@ -77,7 +77,7 @@
     margin: (top: margin-top, bottom: margin-bottom, x: margin-side),
     numbering: page-number
   )
-  set text(font-size-main, font: font-main-body, lang: "ja")
+  set text(font-size-main, font: font-main, lang: "ja")
   set par(leading: 0.5em, justify: true, spacing: 0.6em, first-line-indent: (amount: 1em, all: true))
 
   // Configure equations.
@@ -159,7 +159,7 @@
   v(18pt, weak: true)
 
   // Display the authors list.
-  align(center, text(font-size-authors-ja, authors-ja, font: font-main-body))
+  align(center, text(font-size-authors-ja, authors-ja, font: font-main))
   v(1.5em, weak: true)
 
   // Display the paper's title in English.
@@ -178,12 +178,12 @@
       {
         set text(
           font-size-abstract,
-          font: if abstract-language == "ja" { font-main-body }
+          font: if abstract-language == "ja" { font-main }
             else { font-latin }
         )
+        set par(first-line-indent: 0em)
         [#heading-abstract #h(0.5em) #abstract]
         if keywords != () {
-          set par(first-line-indent: 0em)
           [#v(1em) #heading-keywords #h(0.5em) #keywords.join(", ")]
         }
       },
@@ -197,7 +197,7 @@
 
   // Configure Bibliography.
   set bibliography(title: text(size: font-size-heading, heading-bibliography), style: bibliography-style)
-  show bibliography: set text(9pt, font: font-main-body, lang: "en")
+  show bibliography: set text(9pt, font: font-main, lang: "en")
   show bibliography: it => {
     show regex("[0-9a-zA-Z]"): set text(font: font-latin)
     it

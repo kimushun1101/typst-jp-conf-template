@@ -1,7 +1,7 @@
 // MIT No Attribution
 // Copyright 2024, 2025 Shunsuke Kimura
 
-#import "@preview/jaconf:0.1.0": jaconf, definition, lemma, theorem, corollary, proof, appendix
+#import "@preview/jaconf:0.2.0": jaconf, definition, lemma, theorem, corollary, proof, appendix
 
 // デフォルト値でよい引数は省略可能
 #show: jaconf.with(
@@ -14,7 +14,7 @@
   keywords: ([Typst], [conference paper writing], [manuscript format]),
   // フォント名 Font family
   font-heading: "Noto Sans CJK JP",  // サンセリフ体、ゴシック体などの指定を推奨
-  font-main-body: "Noto Serif CJK JP",  // セリフ体、明朝体などの指定を推奨
+  font-main: "Noto Serif CJK JP",  // セリフ体、明朝体などの指定を推奨
   font-latin: "New Computer Modern",
   font-math: "New Computer Modern Math",
   // 外観 Appearance

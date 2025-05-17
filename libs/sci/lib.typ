@@ -2,7 +2,7 @@
 // Copyright 2024, 2025 Shunsuke Kimura
 
 #let conference-name = "システム制御情報学会 研究発表講演会"
-#import "@preview/jaconf:0.1.0": jaconf, definition, lemma, theorem, corollary, proof, appendix
+#import "@preview/jaconf:0.2.0": jaconf, definition, lemma, theorem, corollary, proof, appendix
 
 #let sci(
   title-ja: [日本語タイトル],
@@ -26,7 +26,7 @@
     keywords: keywords,
     // フォント名 Font family
     font-heading: font-gothic,
-    font-main-body: font-mincho,
+    font-main: font-mincho,
     font-latin: font-latin,
     // 外観 Appearance
     bibliography-style: bytes(read("sci.csl")),

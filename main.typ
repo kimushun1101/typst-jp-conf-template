@@ -1,15 +1,8 @@
 // MIT No Attribution
 // Copyright 2024, 2025 Shunsuke Kimura
 
-// Select the Template
 #import "jaconf/lib.typ": jaconf as temp, definition, lemma, theorem, corollary, proof, appendix
-// #import "jaconf-mscs/lib.typ": jaconf as temp, definition, lemma, theorem, corollary, proof, appendix
 #let conference-name = "制御部門マルチシンポジウム"
-
-// #import "libs/mscs/lib.typ": mscs as temp, definition, lemma, theorem, corollary, proof, appendix, conference-name
-// #import "libs/rengo/lib.typ": rengo as temp, definition, lemma, theorem, corollary, proof, appendix, conference-name
-// #import "libs/rsj-conf/lib.typ": rsj-conf as temp, definition, lemma, theorem, corollary, proof, appendix, conference-name
-// #import "libs/sci/lib.typ": sci as temp, definition, lemma, theorem, corollary, proof, appendix, conference-name
 
 // デフォルト値でよい引数は省略可能
 #show: temp.with(
@@ -24,7 +17,7 @@
   // font-gothic: "Noto Sans CJK JP",  // outdated
   // font-mincho: "Noto Serif CJK JP",  // outdated
   font-heading: "Noto Sans CJK JP",
-  font-main-body: "Noto Serif CJK JP",
+  font-main: "Noto Serif CJK JP",
   font-latin: "New Computer Modern",
   font-math: "New Computer Modern Math",
   // 外観 Appearance
@@ -242,7 +235,7 @@ main.typ の文頭にある以下のコードを解説します。
   abstract: [#lorem(80)],
   keywords: ([Typst], [conference paper writing], [manuscript format]),
   font-heading: "Noto Sans CJK JP",
-  font-main-body: "Noto Serif CJK JP",
+  font-main: "Noto Serif CJK JP",
   font-latin: "New Computer Modern"
 ```
 ここの2行目はこの原稿の体裁を設定するためのソースコードをimportしています。

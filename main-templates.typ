@@ -203,7 +203,7 @@ main.typ の文頭にある以下のコードを解説します。
   abstract: [#lorem(80)],
   keywords: ([Typst], [conference paper writing], [manuscript format]),
   font-heading: "Noto Sans CJK JP",
-  font-main-body: "Noto Serif CJK JP",
+  font-main: "Noto Serif CJK JP",
   font-latin: "New Computer Modern"
 ```
 ここの2行目はこの原稿の体裁を設定するためのソースコードをimportしています。

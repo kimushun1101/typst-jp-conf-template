@@ -26,11 +26,11 @@ Typstの概要について知りたい方は、[スライド資料](https://gith
 
 ## 使い方
 
-本ソースコードは[jaconf-mscs](https://typst.app/universe/package/jaconf-mscs)という名前でTypst Universeに登録しました。
+本ソースコードは[jaconf](https://typst.app/universe/package/jaconf)という名前でTypst Universeに登録しました。
 Typstをインストール済みであれば以下のCLIでお試しいただけます。
 
 ```
-typst init @preview/jaconf-mscs:0.1.1
+typst init @preview/jaconf
 ```
 
 VS Codeを用いたGUI操作については、[Typstテンプレートを使用する](https://zenn.dev/kimushun1101/articles/typst-template)という記事で紹介しております。
