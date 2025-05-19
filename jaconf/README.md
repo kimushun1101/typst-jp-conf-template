@@ -30,7 +30,7 @@ This template exports the `jaconf` function with the following named arguments:
   - `keywords`: キーワード。Array of index terms to display after the abstract.
 - フォント名　Font family
   - `font-heading`: 見出しに使うフォント。サンセリフ体、ゴシック体などの指定を推奨。Heading font. A sans-serif style (e.g., Gothic) is recommended.
-  - `font-main-body`: 本文に使うフォント。セリフ体、明朝体などの指定を推奨。Main body font. A serif style (e.g., Mincho) is recommended.
+  - `font-main`: 本文に使うフォント。セリフ体、明朝体などの指定を推奨。Main body font. A serif style (e.g., Mincho) is recommended.
   - `font-latin`: 英文に使うフォント。The Latin font used for description in English.
   - `font-math`: 数式に使うフォント。The math font used for equations.
 - 外観　Appearance
@@ -74,19 +74,18 @@ function in a show rule. If you want to change an existing project to use this
 template, you can add a show rule like this at the top of your file:
 
 ```typ
-#import "@preview/jaconf:0.1.0": jaconf, definition, lemma, theorem, corollary, proof, appendix
-
+// デフォルト値でよい引数は省略可能
 #show: jaconf.with(
   // 基本 Basic
-  title-ja: [Typst を使った国内学会論文の書き方 \ - 国内学会予稿集に似せたフォーマットの作成 - ],
+  title-ja: [日本語の学会論文Typstテンプレート \ jaconf ],
   title-en: [How to Write a Conference Paper in Japanese],
   authors-ja: [◯ 著者姓1 著者名1、著者姓2 著者名2(○○○大学)、著者姓3 著者名3 (□□□株式会社)],
   authors-en: [\*A. First, B. Second (○○○ Univ.), and C. Third (□□□ Corp.)],
   abstract: [#lorem(80)],
   keywords: ([Typst], [conference paper writing], [manuscript format]),
   // フォント名 Font family
-  font-heading: "Noto Sans CJK JP",
-  font-main-body: "Noto Serif CJK JP",
+  font-heading: "Noto Sans CJK JP",  // サンセリフ体、ゴシック体などの指定を推奨
+  font-main: "Noto Serif CJK JP",  // セリフ体、明朝体などの指定を推奨
   font-latin: "New Computer Modern",
   font-math: "New Computer Modern Math",
   // 外観 Appearance
@@ -123,6 +122,3 @@ template, you can add a show rule like this at the top of your file:
   numbering-appendix: "A.1",  // #show: appendix.with(numbering-appendix: "A.1") の呼び出しにも同じ引数を与えてください。
 )
 ```
-
-You may remove the lines where arguments are set if the default values are sufficient.
-デフォルト値でよい場合には、その設定をしている行を削除していただいてもかまいません。
