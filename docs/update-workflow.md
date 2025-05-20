@@ -4,10 +4,10 @@
 
 ## 必要コマンドの準備
 
-`typst`、`oxipng`、`typos`をインストールする。
+`typst`、`typst-upgrade`、`oxipng`、`typos`をインストールする。
 
 ```
-cargo install typst-cli oxipng typos-cli
+cargo install typst-cli typst-upgrade oxipng typos-cli
 ```
 
 ## 現状の確認
@@ -60,7 +60,13 @@ typst c test-typst-local/main.typ
 ls test-typst-local
 ```
 
-サムネイル画像の作成する。
+外部パッケージのバージョン確認
+
+```sh
+typst-upgrade jaconf/lib.typ
+```
+
+サムネイル画像の作成
 
 ```sh
 cd ~/test-typst-local
@@ -69,7 +75,7 @@ oxipng -o 4 --strip safe --alpha thumbnail.png
 # cp thumbnail.png repo
 ```
 
-スペルチェックをする。
+スペルチェック
 
 ```sh
 typos
@@ -93,6 +99,8 @@ typos
 3. プルリクエストを出す。
     - [packages/jaconf-mscs:0.1.0](https://github.com/typst/packages/pull/1559)
     - [packages/jaconf-mscs:0.1.1](https://github.com/typst/packages/pull/2287)
+    - [packages/jaconf:0.1.0](https://github.com/typst/packages/pull/2382)
+    - [packages/jaconf:0.2.0](https://github.com/typst/packages/pull/2402)
 4. `typst-jp-conf-template`は`jaconf:*.*.*`などとコミットしておきドラフトプルリクエストにしておく。
 5. `packages`のプルリクエストがマージされたら、`typst-jp-conf-template`のドラフトプルリクエストもマージする。
     - [typst-jp-conf-template/Update jaconf-mscs:0.1.1](https://github.com/kimushun1101/typst-jp-conf-template/pull/18)

@@ -6,6 +6,8 @@ This is a template for **academic conference papers in Japanese**.
 
 ## Usage
 
+日本語の記事は[こちら](https://zenn.dev/kimushun1101/articles/typst-template)をご覧ください。
+
 You can use this template in the Typst web app by clicking "Start from template"
 on the dashboard and searching for `jaconf`.
 
@@ -74,6 +76,8 @@ function in a show rule. If you want to change an existing project to use this
 template, you can add a show rule like this at the top of your file:
 
 ```typ
+#import "@preview/jaconf:0.2.0": jaconf, definition, lemma, theorem, corollary, proof, appendix
+
 // デフォルト値でよい引数は省略可能
 #show: jaconf.with(
   // 基本 Basic
