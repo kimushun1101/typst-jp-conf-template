@@ -60,8 +60,6 @@
 ) = {
   // Set metadata.
   [#metadata(font-heading) <heading-font>]
-  [#metadata(font-size-heading) <heading-font-size>]
-  [#metadata(spacing-heading) <heading-spacing>]
   [#metadata(heading-appendix) <appendix-heading>]
 
   // Enable packages.
