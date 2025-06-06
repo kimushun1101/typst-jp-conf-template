@@ -4,11 +4,11 @@
 
 // Theorem environments
 #let thmja = thmplain.with(base: {}, separator: [#h(0.5em)], titlefmt: strong, inset: (top: 0em, left: 0em))
-#let definition = thmja("definition", context{text(font: query(<gothic-font>).first().value)[定義]})
-#let lemma = thmja("lemma", context{text(font: query(<gothic-font>).first().value)[補題]})
-#let theorem = thmja("theorem", context{text(font: query(<gothic-font>).first().value)[定理]})
-#let corollary = thmja("corollary", context{text(font: query(<gothic-font>).first().value)[系]})
-#let proof = thmproof("proof", context{text(font: query(<gothic-font>).first().value)[証明]}, separator: [#h(0.9em)], titlefmt: strong, inset: (top: 0em, left: 0em))
+#let definition = thmja("definition", context{text(font: query(<heading-font>).first().value)[定義]})
+#let lemma = thmja("lemma", context{text(font: query(<heading-font>).first().value)[補題]})
+#let theorem = thmja("theorem", context{text(font: query(<heading-font>).first().value)[定理]})
+#let corollary = thmja("corollary", context{text(font: query(<heading-font>).first().value)[系]})
+#let proof = thmproof("proof", context{text(font: query(<heading-font>).first().value)[証明]}, separator: [#h(0.9em)], titlefmt: strong, inset: (top: 0em, left: 0em))
 
 #let jaconf(
   // 基本 Basic
@@ -59,9 +59,7 @@
   body
 ) = {
   // Set metadata.
-  [#metadata(font-heading) <gothic-font>]
-  [#metadata(font-size-heading) <heading-font-size>]
-  [#metadata(spacing-heading) <heading-spacing>]
+  [#metadata(font-heading) <heading-font>]
   [#metadata(heading-appendix) <appendix-heading>]
 
   // Enable packages.
@@ -127,26 +125,10 @@
 
   // Configure headings.
   set heading(numbering: numbering-headings)
-  show heading: it => {
-    set par(first-line-indent: 0em, spacing: spacing-heading)
-    let levels = counter(heading).get()
-    if it.level == 1 {
-      set text(font-size-heading, font: font-heading, weight: "bold")
-      // Acknowledgment sections are not numbered.
-      if it.numbering != none and not it.body in ([謝辞], [Acknowledgment], [Acknowledgement]) {
-        numbering(it.numbering, ..levels)
-        h(1em)
-      }
-      it.body
-    } else {
-      set text(font-size-main, font: font-heading, weight: "bold")
-      if it.numbering != none {
-        numbering(it.numbering, ..levels)
-        h(1em)
-      }
-      it.body
-    }
-  }
+  show heading: set block(spacing: spacing-heading)
+  show heading.where(level: 1): set text( size: font-size-heading, font: font-heading, weight: "bold", spacing: 100%)
+  show heading.where(level: 2): set text( size: font-size-main, font: font-heading, weight: "bold")
+  show heading.where(level: 3): set text( size: font-size-main, font: font-heading, weight: "bold")
 
   // Configure figures.
   show figure.where(kind: table): set figure(placement: top, supplement: supplement-table)
@@ -217,11 +199,8 @@
     [#numbering(numbering-appendix, counter(heading).get().at(0)).#it]
   })
   context{
-    v(query(<heading-spacing>).first().value)
-    text(
-      size: query(<heading-font-size>).first().value,
-      font: query(<gothic-font>).first().value,
-      weight: "bold",
+    heading(
+      numbering: none,
       query(<appendix-heading>).first().value
     )
   }
