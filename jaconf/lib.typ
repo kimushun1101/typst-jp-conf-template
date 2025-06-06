@@ -4,11 +4,11 @@
 
 // Theorem environments
 #let thmja = thmplain.with(base: {}, separator: [#h(0.5em)], titlefmt: strong, inset: (top: 0em, left: 0em))
-#let definition = thmja("definition", context{text(font: query(<gothic-font>).first().value)[定義]})
-#let lemma = thmja("lemma", context{text(font: query(<gothic-font>).first().value)[補題]})
-#let theorem = thmja("theorem", context{text(font: query(<gothic-font>).first().value)[定理]})
-#let corollary = thmja("corollary", context{text(font: query(<gothic-font>).first().value)[系]})
-#let proof = thmproof("proof", context{text(font: query(<gothic-font>).first().value)[証明]}, separator: [#h(0.9em)], titlefmt: strong, inset: (top: 0em, left: 0em))
+#let definition = thmja("definition", context{text(font: query(<heading-font>).first().value)[定義]})
+#let lemma = thmja("lemma", context{text(font: query(<heading-font>).first().value)[補題]})
+#let theorem = thmja("theorem", context{text(font: query(<heading-font>).first().value)[定理]})
+#let corollary = thmja("corollary", context{text(font: query(<heading-font>).first().value)[系]})
+#let proof = thmproof("proof", context{text(font: query(<heading-font>).first().value)[証明]}, separator: [#h(0.9em)], titlefmt: strong, inset: (top: 0em, left: 0em))
 
 #let jaconf(
   // 基本 Basic
@@ -59,7 +59,7 @@
   body
 ) = {
   // Set metadata.
-  [#metadata(font-heading) <gothic-font>]
+  [#metadata(font-heading) <heading-font>]
   [#metadata(font-size-heading) <heading-font-size>]
   [#metadata(spacing-heading) <heading-spacing>]
   [#metadata(heading-appendix) <appendix-heading>]
