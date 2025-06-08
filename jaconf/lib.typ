@@ -194,6 +194,8 @@
   counter(heading).update(0)
   counter(figure.where(kind: image)).update(0)
   counter(figure.where(kind: table)).update(0)
+  // numbering expects string or function, not accepts content.
+  // For this reason, numbering-appendix is set as an argument.
   set heading(numbering: numbering-appendix)
   set figure(numbering: it => {
     [#numbering(numbering-appendix, counter(heading).get().at(0)).#it]
