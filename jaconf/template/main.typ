@@ -1,7 +1,7 @@
 // MIT No Attribution
 // Copyright 2024, 2025 Shunsuke Kimura
 
-#import "@preview/jaconf:0.2.0": jaconf, definition, lemma, theorem, corollary, proof, appendix
+#import "@preview/jaconf:0.3.0": jaconf, definition, lemma, theorem, corollary, proof, appendix
 
 // デフォルト値でよい引数は省略可能
 #show: jaconf.with(
