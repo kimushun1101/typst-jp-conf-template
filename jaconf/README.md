@@ -1,33 +1,30 @@
-# Japananese Conference of Engineering
+# jaconf
 
 This is a template for **academic conference papers in Japanese**.
 
 日本語の学会論文テンプレート。
 
-## Usage
+## 使い方
 
-日本語の記事は[こちら](https://zenn.dev/kimushun1101/articles/typst-template)をご覧ください。
+- Typst CLIを使用する方法：Typstをインストールして以下のコマンドを実行。
 
-You can use this template in the Typst web app by clicking "Start from template"
-on the dashboard and searching for `jaconf`.
+   ```
+   typst init @preview/jaconf
+   ```
 
-Alternatively, you can use the CLI to kick this project off using the command
+- Typst Appを使用する方法：Typst Appでアカウントを作成してログイン。`Start from template`からテンプレート名を検索して`Project Title`を記入して`Create`をクリック。
 
-```
-typst init @preview/jaconf
-```
+日本語でより詳細な情報をお求めの方は[Zennの記事](https://zenn.dev/kimushun1101/articles/typst-template)をご覧ください。
 
-Typst will create a new directory with all the files needed to get you started.
+## 関数
 
-## Configuration
-
-This template exports the `jaconf` function with the following named arguments:
+このテンプレートが提供する `jaconf` 関数は、以下の名前付き引数を持ちます。
 
 - 基本　Basic
-  - `title-ja`: 日本語タイトル。The paper's title in Japanese.
-  - `title-en`: 英語タイトル。The paper's title in English.
-  - `authors-ja`: 日本語著者名。The Authors' name and affiliations in Japanese.
-  - `authors-ja`: 英語著者名。The Authors' name and affiliations in English.
+  - `title-ja`: 日本語タイトル。
+  - `title-en`: 英語タイトル。
+  - `authors-ja`: 日本語著者名とその所属。
+  - `authors-ja`: 英語著者名とその所属。
   - `abstract`: 概要。The content of a brief summary or `none`.
   - `keywords`: キーワード。Array of index terms to display after the abstract.
 - フォント名　Font family
@@ -68,15 +65,10 @@ This template exports the `jaconf` function with the following named arguments:
   - `numbering-equation`: 式番号の体裁
   - `numbering-appendix`: 付録の見出し番号の体裁。`#show: appendix.with(numbering-appendix:` の呼び出しにも同じ引数を与えてください。
 
-The function also accepts a single, positional argument for the body of the
-paper.
-
-The template will initialize your package with a sample call to the `jaconf`
-function in a show rule. If you want to change an existing project to use this
-template, you can add a show rule like this at the top of your file:
+文書ファイルの先頭で `jaconf` テンプレートを`import`して、引数付きのshowルールで呼び出してください。
 
 ```typ
-#import "@preview/jaconf:0.2.0": jaconf, definition, lemma, theorem, corollary, proof, appendix
+#import "@preview/jaconf:0.3.0": jaconf, definition, lemma, theorem, corollary, proof, appendix
 
 // デフォルト値でよい引数は省略可能
 #show: jaconf.with(
@@ -125,4 +117,50 @@ template, you can add a show rule like this at the top of your file:
   numbering-equation: "(1)",
   numbering-appendix: "A.1",  // #show: appendix.with(numbering-appendix: "A.1") の呼び出しにも同じ引数を与えてください。
 )
+
+= はじめに
+本文を記載していく。
+```
+
+## 定理環境
+
+定理環境を使用するために、以下の関数も提供します。
+
+- `definition`: 定義
+- `lemma`: 補題
+- `theorem`: 定理
+- `corollary`: 系
+- `proof`: 証明
+
+以下のように使用できます。
+
+```typ
+#definition("用語 A")[
+  用語 A の定義を書きます。
+]<def:definition1>
+#lemma[
+  補題を書きます。タイトルは省略することもできます。
+]<lem:lemma1>
+#lemma("補題 C")[
+  補題を書きます。番号は定義や補題ごとに 1 からカウントします。
+]<lem:lemma2>
+#theorem("定理 D")[
+  ここに定理を書きます。
+]<thm:theorem1>
+#corollary[
+  系を書きます。@def:definition1 のように、ラベルで参照することもできます。
+]
+#proof([@thm:theorem1 の証明])[
+  証明を書きます。証明終了として□印をつけています。
+]
+```
+
+## 付録
+
+付録を追記するために、`appendix`関数も提供します。
+参考文献の後ろに付録を付けたい場合には、引数として`jaconf`に設定したものと同様の`numbering-appendix`を与えて、showルールで呼び出してください。
+この関数の呼び出し以降の見出し番号と図表番号が、設定した番号へと変化します。
+
+```typ
+#show: appendix.with(numbering-appendix: "A.1")
 ```

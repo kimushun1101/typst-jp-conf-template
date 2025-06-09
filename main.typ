@@ -441,7 +441,7 @@ CSLファイルは著者が編集する必要はありませんが、詳細が�
 デフォルトである`"A.1"`ではアルファベット順につきます。
 `#show: appendix.with(numbering-appendix`の値を変更する場合には、
 `#show: temp.with(`の引数である`numbering-appendix`の値も合わせて変更してください。
-これを怠ると、@appendix:edit のようなラベルがうまく機能しません。
+見出し番号をデフォルトから変更した際にこれを怠ると、付録の見出し番号と@appendix:edit のようなラベルの番号の表記が一致しなくなります。
 
 また、@sec:theorem に示す定理環境と同様に、
 #red-warn[`appendix`はこのテンプレートで定義している関数であり、`#import`しなければ使用できません。]

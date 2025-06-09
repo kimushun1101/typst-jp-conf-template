@@ -16,7 +16,7 @@ cargo install typst-cli typst-upgrade oxipng typos-cli
 
 ```
 cd
-typst init @preview/jaconf:0.2.0 test-typst-universe
+typst init @preview/jaconf:0.3.0 test-typst-universe
 typst c test-typst-universe/main.typ
 ls test-typst-universe
 ```
@@ -26,7 +26,18 @@ ls test-typst-universe
 - `jaconf/lib.typ`のエラーやワーニングを修正
 - バージョンを上げる
   - `jaconf/typst.toml`の`version`と`compiler`を更新
-  - `@preview/jaconf:0.2.0`で検索して現在のバージョンに置換
+  - `@preview/jaconf:0.3.0`で検索して現在のバージョンに置換
+- 外部パッケージのバージョン確認
+
+    ```sh
+    typst-upgrade -dv jaconf/lib.typ
+    ```
+
+- スペルチェック
+
+    ```sh
+    typos
+    ```
 
 ## ローカルパッケージで確認
 
@@ -46,6 +57,7 @@ pkgname=jaconf
 pkgver=$(grep -E 'version *= *".*"' ${pkgname}/typst.toml | grep -Eo '".*"' | tr -d '"')
 pkgdir=~/.local/share/typst/packages/local/${pkgname}/${pkgver}
 mkdir -p ${pkgdir}
+rm -f ${pkgname}/lib.pdf ${pkgname}/template/main.pdf
 cp -r ${pkgname}/* ${pkgdir}
 sed -i "s|@preview|@local|" ${pkgdir}/template/main.typ
 ```
@@ -54,16 +66,11 @@ sed -i "s|@preview|@local|" ${pkgdir}/template/main.typ
 エラーやワーニングが起らず、`main.pdf`ができていればOK。
 
 ```sh
-cd
-typst init @local/jaconf test-typst-local
-typst c test-typst-local/main.typ
-ls test-typst-local
-```
-
-外部パッケージのバージョン確認
-
-```sh
-typst-upgrade jaconf/lib.typ
+rm -rf ~/test-typst-local
+typst init @local/jaconf ~/test-typst-local
+typst c ~/test-typst-local/main.typ
+ls ~/test-typst-local
+xdg-open ~/test-typst-local/main.pdf
 ```
 
 サムネイル画像の作成
@@ -73,12 +80,6 @@ cd ~/test-typst-local
 typst compile --pages 1 --ppi 250 --root . main.typ thumbnail.png
 oxipng -o 4 --strip safe --alpha thumbnail.png
 # cp thumbnail.png repo
-```
-
-スペルチェック
-
-```sh
-typos
 ```
 
 ## Typst Universe更新
@@ -93,6 +94,7 @@ typos
     pkgver=$(grep -E 'version *= *".*"' ${pkgname}/typst.toml | grep -Eo '".*"' | tr -d '"')
     pkgdir=${typstpkgs}/packages/preview/${pkgname}/${pkgver}
     mkdir -p ${pkgdir}
+    rm -f ${pkgname}/lib.pdf ${pkgname}/template/main.pdf
     cp -r ${pkgname}/* ${pkgdir}
     ```
 

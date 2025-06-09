@@ -1,7 +1,7 @@
 // MIT No Attribution
 // Copyright 2024, 2025 Shunsuke Kimura
 
-#import "@preview/jaconf:0.2.0": jaconf, definition, lemma, theorem, corollary, proof, appendix
+#import "@preview/jaconf:0.3.0": jaconf, definition, lemma, theorem, corollary, proof, appendix
 
 // デフォルト値でよい引数は省略可能
 #show: jaconf.with(
@@ -123,8 +123,8 @@ $ u = K_P e + K_I integral_0^t e d t $ <eq:PI-controller>
 以下はtheorem環境の使用例です。
 定理などのタイトルフォントを`font-heading`（見出しのフォント）にしています。
 #red-warn[`definition`, `lemma`, `theorem`, `corollary`, `proof`はこのテンプレートで定義している関数です。]
-```
-#import "@local:0.1.0": jaconf, definition, lemma, theorem, corollary, proof, appendix
+```typ
+#import "@preview/jaconf:0.3.0": jaconf, definition, lemma, theorem, corollary, proof, appendix
 ```
 #red-warn[他のテンプレートを使用する際には#link("https://github.com/kimushun1101/typst-jp-conf-template/blob/5862f4fd21b4f00488a56657e198864625d117b8/jaconf-eng/lib.typ#L9-L35")[`lib.typ`のコード]を参考に、以下のようにご自身のコード内で定義および有効化をしてください。]
 
@@ -166,13 +166,16 @@ $ u = K_P e + K_I integral_0^t e d t $ <eq:PI-controller>
 
 = おわりに <sec:conclusion>
 対応していただきたい内容や修正していただきたい内容などありましたら、#link("https://github.com/kimushun1101/typst-jp-conf-template")[GitHub] を通して、Issues や Pull Requests をいただけますと幸いです。
-このテンプレートは日本語論文のために作成しておりますため、日本語での投稿で構いません。もちろん英語での投稿でも問題ありません。
+このテンプレートは日本語論文のために作成しておりますため、日本語での投稿で構いません。
 誤字脱字や文法、表現など細かい修正でも大変ありがたいです。
 
-= 謝辞
-謝辞には章番号が振られないように設定しております。
-「この研究は☆☆☆の助成を受けて行われました。」や「〇〇〇大学との共同研究です。」
-みたいな文章が書かれることを想定しています。
+#heading(numbering: none)[謝辞]
+謝辞のように章番号が振られたくない見出しは以下のように設定します。
+```typst
+#heading(numbering: none)[謝辞]
+```
+謝辞のセクションでは、「この研究は☆☆☆の助成を受けて行われました。」や「〇〇〇大学との共同研究です。」
+などの文章が書かれることを想定しています。
 最後までお読みいただき誠にありがとうございました。
 
 #bibliography("refs.yml", full: false)
@@ -186,11 +189,19 @@ $ u = K_P e + K_I integral_0^t e d t $ <eq:PI-controller>
 ```
 を追加してください。
 その場所に`heading-appendix`で設定した文字（デフォルトでは「付　録」）が挿入されます。
-それ以降に見出しを書くことで、章番号が`numbering-appendix`で設定した体裁で見出しがつきます。
+それ以降の章番号と図表番号が`numbering-appendix`で設定した体裁で見出しがつきます。
 デフォルトである`"A.1"`ではアルファベット順につきます。
+
+#figure(
+  placement: bottom,
+  box(stroke: 1pt, height:5cm, width: 90%),
+  // image("figs/sqrt.svg", width: 90%),
+  caption: [$sqrt(x)$ のグラフ],
+) <fig:appendix>
+
 `#show: appendix.with(numbering-appendix`の値を変更する場合には、
 `#show: temp.with(`の引数である`numbering-appendix`の値も合わせて変更してください。
-これを怠ると、@appendix:edit のようなラベルがうまく機能しません。
+見出し番号をデフォルトから変更した際にこれを怠ると、付録の番号と@appendix:edit のようなラベルの番号の表記が一致しなくなります。
 
 また、@sec:theorem に示す定理環境と同様に、
 #red-warn[`appendix`はこのテンプレートで定義している関数です。]
