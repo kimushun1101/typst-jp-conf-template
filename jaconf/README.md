@@ -25,23 +25,23 @@ This is a template for **academic conference papers in Japanese**.
   - `title-en`: 英語タイトル。
   - `authors-ja`: 日本語著者名とその所属。
   - `authors-ja`: 英語著者名とその所属。
-  - `abstract`: 概要。The content of a brief summary or `none`.
-  - `keywords`: キーワード。Array of index terms to display after the abstract.
-- フォント名　Font family
-  - `font-heading`: 見出しに使うフォント。サンセリフ体、ゴシック体などの指定を推奨。Heading font. A sans-serif style (e.g., Gothic) is recommended.
-  - `font-main`: 本文に使うフォント。セリフ体、明朝体などの指定を推奨。Main body font. A serif style (e.g., Mincho) is recommended.
-  - `font-latin`: 英文に使うフォント。The Latin font used for description in English.
-  - `font-math`: 数式に使うフォント。The math font used for equations.
+  - `abstract`: 概要。
+  - `keywords`: キーワード。配列で渡してください。
+- フォント名
+  - `font-heading`: 見出しに使うフォント。サンセリフ体、ゴシック体などの指定を推奨。
+  - `font-main`: 本文に使うフォント。セリフ体、明朝体などの指定を推奨。
+  - `font-latin`: 英文に使うフォント。
+  - `font-math`: 数式に使うフォント。
 - 外観　Appearance
-  - `paper-columns`: 段組みの数。Number of columns.
-  - `page-number`: ページ番号の体裁。Page numbering style.
+  - `paper-columns`: 段組みの数。
+  - `page-number`: ページ番号の体裁。
   - `margin-top`: 上部余白
   - `margin-bottom`: 下部余白
   - `margin-side`: 両端余白
   - `column-gutter`: 左右余白（それぞれ）
-  - `spacing-heading`: 見出しと本文の空き。Spacing between headings and main texts.
+  - `spacing-heading`: 見出しと本文の空き。
   - `bibliography-style`: 参考文献リストの体裁。
-  - `abstract-language`: アブストラクトの言語。これによってアブストラクトのフォントが決まります。The language of the abstract determines the fonts used for Japanese and English.
+  - `abstract-language`: アブストラクトの言語。これによってアブストラクトのフォントが決まります。
 - 見出し　Headings
   - `heading-abstract`: アブストラクトの見出し
   - `heading-keywords`: キーワードの見出し
