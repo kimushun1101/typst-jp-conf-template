@@ -66,10 +66,11 @@ sed -i "s|@preview|@local|" ${pkgdir}/template/main.typ
 エラーやワーニングが起らず、`main.pdf`ができていればOK。
 
 ```sh
-cd
-typst init @local/jaconf test-typst-local
-typst c test-typst-local/main.typ
-ls test-typst-local
+rm -rf ~/test-typst-local
+typst init @local/jaconf ~/test-typst-local
+typst c ~/test-typst-local/main.typ
+ls ~/test-typst-local
+xdg-open ~/test-typst-local/main.pdf
 ```
 
 サムネイル画像の作成
