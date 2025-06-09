@@ -103,6 +103,7 @@ oxipng -o 4 --strip safe --alpha thumbnail.png
     - [packages/jaconf-mscs:0.1.1](https://github.com/typst/packages/pull/2287)
     - [packages/jaconf:0.1.0](https://github.com/typst/packages/pull/2382)
     - [packages/jaconf:0.2.0](https://github.com/typst/packages/pull/2402)
+    - [packages/jaconf:0.3.0](https://github.com/typst/packages/pull/2517)
 4. `typst-jp-conf-template`は`jaconf:*.*.*`などとコミットしておきドラフトプルリクエストにしておく。
 5. `packages`のプルリクエストがマージされたら、`typst-jp-conf-template`のドラフトプルリクエストもマージする。
     - [typst-jp-conf-template/Update jaconf-mscs:0.1.1](https://github.com/kimushun1101/typst-jp-conf-template/pull/18)
