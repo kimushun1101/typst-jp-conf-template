@@ -33,11 +33,9 @@ This is a template for **academic conference papers in Japanese**.
   - `font-latin`: 英文に使うフォント。
   - `font-math`: 数式に使うフォント。
 - 外観　Appearance
+  - `paper-margin`: 余白
   - `paper-columns`: 段組みの数。
   - `page-number`: ページ番号の体裁。
-  - `margin-top`: 上部余白
-  - `margin-bottom`: 下部余白
-  - `margin-side`: 両端余白
   - `column-gutter`: 左右余白（それぞれ）
   - `spacing-heading`: 見出しと本文の空き。
   - `bibliography-style`: 参考文献リストの体裁。
@@ -85,11 +83,9 @@ This is a template for **academic conference papers in Japanese**.
   font-latin: "New Computer Modern",
   font-math: "New Computer Modern Math",
   // 外観 Appearance
+  paper-margin: (top: 20mm, bottom: 27mm, left: 20mm, right: 20mm),
   paper-columns: 2,  // 1: single column, 2: double column
   page-number: none,  // e.g. "1/1"
-  margin-top: 20mm,
-  margin-bottom: 27mm,
-  margin-side: 20mm,
   column-gutter: 4%+0pt,
   spacing-heading: 1.2em,
   bibliography-style: "sice.csl",  // "sice.csl", "rsj.csl", "ieee", etc.

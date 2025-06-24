@@ -26,9 +26,7 @@
   // 外観 Appearance
   paper-columns: 2,  // 1: single column, 2: double column
   page-number: none,  // e.g. "1/1"
-  margin-top: 20mm,
-  margin-bottom: 27mm,
-  margin-side: 20mm,
+  paper-margin: (top: 20mm, bottom: 27mm, left: 20mm, right: 20mm),
   column-gutter: 4%+0pt,
   spacing-heading: 1.2em,
   bibliography-style: "sice.csl",  // "rsj-conf.csl", "rengo.csl", "sci.csl", "ieee"
@@ -72,7 +70,7 @@
   // Configure the page.
   set page(
     paper: "a4",
-    margin: (top: margin-top, bottom: margin-bottom, x: margin-side),
+    margin: paper-margin,
     numbering: page-number
   )
   set text(font-size-main, font: font-main, lang: "ja")
