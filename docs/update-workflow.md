@@ -52,13 +52,13 @@ ls test-typst-universe
 たとえばLinuxの場合には、以上の操作を以下のコマンドで行えます。
 
 ```sh
-# cd "path to typst-jp-conf-template"
-pkgname=jaconf
-pkgver=$(grep -E 'version *= *".*"' ${pkgname}/typst.toml | grep -Eo '".*"' | tr -d '"')
+# cd "path to typst-jp-conf-template/jaconf"
+pkgname=$(grep -E 'name *= *".*"' typst.toml | grep -Eo '".*"' | tr -d '"')
+pkgver=$(grep -E 'version *= *".*"' typst.toml | grep -Eo '".*"' | tr -d '"')
 pkgdir=~/.local/share/typst/packages/local/${pkgname}/${pkgver}
 mkdir -p ${pkgdir}
-rm -f ${pkgname}/lib.pdf ${pkgname}/template/main.pdf
-cp -r ${pkgname}/* ${pkgdir}
+rm -f lib.pdf template/main.pdf
+cp -r * ${pkgdir}
 sed -i "s|@preview|@local|" ${pkgdir}/template/main.typ
 ```
 
@@ -66,8 +66,9 @@ sed -i "s|@preview|@local|" ${pkgdir}/template/main.typ
 エラーやワーニングが起らず、`main.pdf`ができていればOK。
 
 ```sh
+pkgname=$(grep -E 'name *= *".*"' typst.toml | grep -Eo '".*"' | tr -d '"')
 rm -rf ~/test-typst-local
-typst init @local/jaconf ~/test-typst-local
+typst init @local/${pkgname} ~/test-typst-local
 typst c ~/test-typst-local/main.typ
 ls ~/test-typst-local
 xdg-open ~/test-typst-local/main.pdf
@@ -88,14 +89,14 @@ oxipng -o 4 --strip safe --alpha thumbnail.png
 2. 以下のコマンドでコピーする。`typstpkgs=~/typst_ws/typst-packages`が異なれば変更する。
 
     ```sh
-    # cd "path to typst-jp-conf-template"
+    # cd "path to typst-jp-conf-template/jaconf"
     typstpkgs=~/typst_ws/typst-packages
-    pkgname=jaconf
-    pkgver=$(grep -E 'version *= *".*"' ${pkgname}/typst.toml | grep -Eo '".*"' | tr -d '"')
+    pkgname=$(grep -E 'name *= *".*"' typst.toml | grep -Eo '".*"' | tr -d '"')
+    pkgver=$(grep -E 'version *= *".*"' typst.toml | grep -Eo '".*"' | tr -d '"')
     pkgdir=${typstpkgs}/packages/preview/${pkgname}/${pkgver}
     mkdir -p ${pkgdir}
-    rm -f ${pkgname}/lib.pdf ${pkgname}/template/main.pdf
-    cp -r ${pkgname}/* ${pkgdir}
+    rm -f lib.pdf template/main.pdf
+    cp -r * ${pkgdir}
     ```
 
 3. プルリクエストを出す。
