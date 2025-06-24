@@ -2,7 +2,7 @@
 // Copyright 2024, 2025 Shunsuke Kimura
 
 #let conference-name = "日本ロボット学会学術講演会"
-#import "@preview/jaconf:0.3.0": jaconf, definition, lemma, theorem, corollary, proof, appendix as jaconf-appendix
+#import "@preview/jaconf:0.4.0": jaconf, definition, lemma, theorem, corollary, proof, appendix as jaconf-appendix
 
 #let rsj-conf(
   title-ja: [日本語タイトル],
