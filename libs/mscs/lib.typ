@@ -2,7 +2,7 @@
 // Copyright 2024, 2025 Shunsuke Kimura
 
 #let conference-name = "制御部門マルチシンポジウム"
-#import "@preview/jaconf:0.4.0": jaconf, definition, lemma, theorem, corollary, proof, appendix
+#import "@preview/jaconf:0.4.1": jaconf, definition, lemma, theorem, corollary, proof, appendix
 
 #let mscs(
   title-ja: [日本語タイトル],
