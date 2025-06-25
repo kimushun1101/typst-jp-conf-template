@@ -1,6 +1,7 @@
 // import third-party packages
 #import "@preview/codly:1.3.0": codly-init
 #import "@preview/ctheorems:1.1.3": thmplain, thmproof, thmrules
+#import "@preview/cjk-unbreak:0.1.1": remove-cjk-break-space
 
 // Theorem environments
 #let thmja = thmplain.with(base: {}, separator: [#h(0.5em)], titlefmt: strong, inset: (top: 0em, left: 0em))
@@ -162,7 +163,10 @@
             else { font-latin }
         )
         set par(first-line-indent: 0em)
-        [#heading-abstract #h(0.5em) #abstract]
+        [
+          #show: remove-cjk-break-space
+          #heading-abstract #h(0.5em) #abstract
+        ]
         if keywords != () {
           [#v(1em) #heading-keywords #h(0.5em) #keywords.join(", ")]
         }
@@ -184,6 +188,7 @@
   }
 
   // Display the paper's contents.
+  show: remove-cjk-break-space
   body
 }
 
