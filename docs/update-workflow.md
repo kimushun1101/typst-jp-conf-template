@@ -90,7 +90,7 @@ oxipng -o 4 --strip safe --alpha thumbnail.png
 
     ```sh
     # cd "path to typst-jp-conf-template/jaconf"
-    typstpkgs=~/typst_ws/typst-packages
+    typstpkgs=~/typst_ws/packages
     pkgname=$(grep -E 'name *= *".*"' typst.toml | grep -Eo '".*"' | tr -d '"')
     pkgver=$(grep -E 'version *= *".*"' typst.toml | grep -Eo '".*"' | tr -d '"')
     pkgdir=${typstpkgs}/packages/preview/${pkgname}/${pkgver}
