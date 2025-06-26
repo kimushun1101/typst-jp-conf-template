@@ -16,7 +16,7 @@ cargo install typst-cli typst-upgrade oxipng typos-cli
 
 ```
 cd
-typst init @preview/jaconf:0.4.0 test-typst-universe
+typst init @preview/jaconf:0.4.1 test-typst-universe
 typst c test-typst-universe/main.typ
 ls test-typst-universe
 ```
@@ -26,7 +26,7 @@ ls test-typst-universe
 - `jaconf/lib.typ`のエラーやワーニングを修正
 - バージョンを上げる
   - `jaconf/typst.toml`の`version`と`compiler`を更新
-  - `@preview/jaconf:0.4.0`で検索して現在のバージョンに置換
+  - `@preview/jaconf:0.4.1`で検索して現在のバージョンに置換
 - 外部パッケージのバージョン確認
 
     ```sh
@@ -90,7 +90,7 @@ oxipng -o 4 --strip safe --alpha thumbnail.png
 
     ```sh
     # cd "path to typst-jp-conf-template/jaconf"
-    typstpkgs=~/typst_ws/typst-packages
+    typstpkgs=~/typst_ws/packages
     pkgname=$(grep -E 'name *= *".*"' typst.toml | grep -Eo '".*"' | tr -d '"')
     pkgver=$(grep -E 'version *= *".*"' typst.toml | grep -Eo '".*"' | tr -d '"')
     pkgdir=${typstpkgs}/packages/preview/${pkgname}/${pkgver}
