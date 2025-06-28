@@ -32,6 +32,8 @@
   spacing-heading: 1.2em,
   bibliography-style: "sice.csl",  // "rsj-conf.csl", "rengo.csl", "sci.csl", "ieee"
   abstract-language: "en",  // "ja" or "en"
+  front-matter-spacing: 1.5em,
+  front-matter-margin: 2.0em,
   // 見出し Headings
   heading-abstract: [*Abstract--*],
   heading-keywords: [*Keywords*: ],
@@ -136,19 +138,19 @@
 
   // Display the paper's title.
   align(center, text(font-size-title, title, weight: "bold", font: font-heading))
-  v(18pt, weak: true)
+  v(front-matter-spacing, weak: true)
 
   // Display the authors list.
   align(center, text(font-size-authors, authors, font: font-main))
-  v(1.5em, weak: true)
+  v(front-matter-spacing, weak: true)
 
   // Display the paper's title in English.
   align(center, text(font-size-title-en, title-en, weight: "bold", font: font-latin))
-  v(1.5em, weak: true)
+  v(front-matter-spacing, weak: true)
 
   // Display the authors list in English.
   align(center, text(font-size-authors-en, authors-en, font: font-latin))
-  v(1.5em, weak: true)
+  v(front-matter-spacing, weak: true)
 
   // Display abstract and index terms.
   if abstract != none {
@@ -171,8 +173,8 @@
       },
       []
     )
-    v(1em, weak: false)
   }
+  v(front-matter-margin)
 
   // Start two column mode and configure paragraph properties.
   show: columns.with(paper-columns, gutter: column-gutter)

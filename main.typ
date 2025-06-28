@@ -14,8 +14,6 @@
   abstract: [#lorem(80)],
   keywords: ([Typst], [conference paper writing], [manuscript format]),
   // フォント名 Font family
-  // font-gothic: "Noto Sans CJK JP",  // outdated
-  // font-mincho: "Noto Serif CJK JP",  // outdated
   font-heading: "Noto Sans CJK JP",
   font-main: "Noto Serif CJK JP",
   font-latin: "New Computer Modern",
@@ -28,6 +26,8 @@
   spacing-heading: 1.2em,
   bibliography-style: "sice.csl",  // "sice.csl", "rsj.csl", "ieee", etc.
   abstract-language: "en",  // "ja" or "en"
+  front-matter-spacing: 1.5em,
+  front-matter-margin: 2.0em,
   // 見出し Headings
   heading-abstract: [*Abstract--*],
   heading-keywords: [*Key Words*: ],
@@ -39,7 +39,7 @@
   font-size-authors: 12pt,
   font-size-authors-en: 12pt,
   font-size-abstract: 10pt,
-  font-size-heading: 11pt,
+  font-size-heading: 12pt,
   font-size-main: 10pt,
   font-size-bibliography: 9pt,
   // 補足語 Supplement
