@@ -13,9 +13,9 @@
 
 #let jaconf(
   // 基本 Basic
-  title-ja: [日本語タイトル],
+  title: [日本語タイトル],
   title-en: [],
-  authors-ja: [著者],
+  authors: [著者],
   authors-en: [],
   abstract: none,
   keywords: (),
@@ -38,12 +38,12 @@
   heading-bibliography: [参　考　文　献],
   heading-appendix: [付　録],
   // フォントサイズ Font size
-  font-size-title-ja: 16pt,
+  font-size-title: 16pt,
   font-size-title-en: 12pt,
-  font-size-authors-ja: 12pt,
+  font-size-authors: 12pt,
   font-size-authors-en: 12pt,
   font-size-abstract: 10pt,
-  font-size-heading: 11pt,
+  font-size-heading: 12pt,
   font-size-main: 10pt,
   font-size-bibliography: 9pt,
   // 補足語 Supplement
@@ -66,7 +66,7 @@
   show: codly-init.with()
 
   // Set document metadata.
-  set document(title: title-ja)
+  set document(title: title)
 
   // Configure the page.
   set page(
@@ -136,11 +136,11 @@
   show figure.where(kind: image): set figure.caption(position: bottom, separator: supplement-separator)
 
   // Display the paper's title.
-  align(center, text(font-size-title-ja, title-ja, weight: "bold", font: font-heading))
+  align(center, text(font-size-title, title, weight: "bold", font: font-heading))
   v(18pt, weak: true)
 
   // Display the authors list.
-  align(center, text(font-size-authors-ja, authors-ja, font: font-main))
+  align(center, text(font-size-authors, authors, font: font-main))
   v(1.5em, weak: true)
 
   // Display the paper's title in English.

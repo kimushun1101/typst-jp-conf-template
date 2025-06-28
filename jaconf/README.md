@@ -21,10 +21,10 @@ This is a template for **academic conference papers in Japanese**.
 このテンプレートが提供する `jaconf` 関数は、以下の名前付き引数を持ちます。
 
 - 基本　Basic
-  - `title-ja`: 日本語タイトル。
+  - `tilte`: 日本語タイトル。
   - `title-en`: 英語タイトル。
-  - `authors-ja`: 日本語著者名とその所属。
-  - `authors-ja`: 英語著者名とその所属。
+  - `authors`: 日本語著者名とその所属。
+  - `authors`: 英語著者名とその所属。
   - `abstract`: 概要。
   - `keywords`: キーワード。配列で渡してください。
 - フォント名
@@ -46,9 +46,9 @@ This is a template for **academic conference papers in Japanese**.
   - `heading-bibliography`: 参考文献の見出し
   - `heading-appendix`: 付録の見出し
 - フォントサイズ　Font size
-  - `font-size-title-ja`: 日本語タイトルのフォントサイズ
+  - `font-size-tilte`: 日本語タイトルのフォントサイズ
   - `font-size-title-en`: 英語タイトルのフォントサイズ
-  - `font-size-authors-ja`: 日本語著者名のフォントサイズ
+  - `font-size-authors`: 日本語著者名のフォントサイズ
   - `font-size-authors-en`: 英語著者名のフォントサイズ
   - `font-size-abstract`: 概要のフォントサイズ
   - `font-size-heading`: 見出しのフォントサイズ
@@ -71,9 +71,9 @@ This is a template for **academic conference papers in Japanese**.
 // デフォルト値でよい引数は省略可能
 #show: jaconf.with(
   // 基本 Basic
-  title-ja: [日本語の学会論文Typstテンプレート \ jaconf ],
+  tilte: [日本語の学会論文Typstテンプレート \ jaconf ],
   title-en: [How to Write a Conference Paper in Japanese],
-  authors-ja: [◯ 著者姓1 著者名1、著者姓2 著者名2(○○○大学)、著者姓3 著者名3 (□□□株式会社)],
+  authors: [◯ 著者姓1 著者名1、著者姓2 著者名2(○○○大学)、著者姓3 著者名3 (□□□株式会社)],
   authors-en: [\*A. First, B. Second (○○○ Univ.), and C. Third (□□□ Corp.)],
   abstract: [#lorem(80)],
   keywords: ([Typst], [conference paper writing], [manuscript format]),
@@ -96,9 +96,9 @@ This is a template for **academic conference papers in Japanese**.
   heading-bibliography: [参　考　文　献],
   heading-appendix: [付　録],
   // フォントサイズ Font size
-  font-size-title-ja: 16pt,
+  font-size-tilte: 16pt,
   font-size-title-en: 12pt,
-  font-size-authors-ja: 12pt,
+  font-size-authors: 12pt,
   font-size-authors-en: 12pt,
   font-size-abstract: 10pt,
   font-size-heading: 11pt,

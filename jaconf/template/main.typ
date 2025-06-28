@@ -6,9 +6,9 @@
 // デフォルト値でよい引数は省略可能
 #show: jaconf.with(
   // 基本 Basic
-  title-ja: [日本語の学会論文Typstテンプレート \ jaconf ],
+  tilte: [日本語の学会論文Typstテンプレート \ jaconf ],
   title-en: [How to Write a Conference Paper in Japanese],
-  authors-ja: [◯ 著者姓1 著者名1、著者姓2 著者名2(○○○大学)、著者姓3 著者名3 (□□□株式会社)],
+  authors: [◯ 著者姓1 著者名1、著者姓2 著者名2(○○○大学)、著者姓3 著者名3 (□□□株式会社)],
   authors-en: [\*A. First, B. Second (○○○ Univ.), and C. Third (□□□ Corp.)],
   abstract: [#lorem(80)],
   keywords: ([Typst], [conference paper writing], [manuscript format]),
@@ -31,9 +31,9 @@
   heading-bibliography: [参　考　文　献],
   heading-appendix: [付　録],
   // フォントサイズ Font size
-  font-size-title-ja: 16pt,
+  font-size-tilte: 16pt,
   font-size-title-en: 12pt,
-  font-size-authors-ja: 12pt,
+  font-size-authors: 12pt,
   font-size-authors-en: 12pt,
   font-size-abstract: 10pt,
   font-size-heading: 11pt,
