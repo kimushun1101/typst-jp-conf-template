@@ -179,7 +179,7 @@
 
   // Configure Bibliography.
   set bibliography(title: text(size: font-size-heading, heading-bibliography), style: bibliography-style)
-  show bibliography: set text(9pt, font: font-main, lang: "en")
+  show bibliography: set text(font-size-bibliography, lang: "en")
   show bibliography: it => {
     show regex("[0-9a-zA-Z]"): set text(font: font-latin)
     it
