@@ -125,8 +125,8 @@
   // Configure headings.
   set heading(numbering: numbering-headings)
   show heading: set block(spacing: spacing-heading)
-  show heading: set text( size: font-size-main, font: font-heading, weight: "bold")
-  show heading.where(level: 1): set text( size: font-size-heading, spacing: 100%)
+  show heading: set text(size: font-size-main, font: font-heading, weight: "bold")
+  show heading.where(level: 1): set text(size: font-size-heading)
 
   // Configure figures.
   show figure.where(kind: table): set figure(placement: top, supplement: supplement-table)
