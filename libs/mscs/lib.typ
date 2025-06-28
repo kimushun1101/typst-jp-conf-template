@@ -5,9 +5,9 @@
 #import "@preview/jaconf:0.4.1": jaconf, definition, lemma, theorem, corollary, proof, appendix
 
 #let mscs(
-  title-ja: [日本語タイトル],
+  tilte: [日本語タイトル],
   title-en: [],
-  authors-ja: [著者],
+  authors: [著者],
   authors-en: [],
   abstract: none,
   keywords: (),
@@ -18,9 +18,9 @@
 ) = {
   show: jaconf.with(
     // 基本 Basic
-    title-ja: title-ja,
+    tilte: tilte,
     title-en: title-en,
-    authors-ja: authors-ja,
+    authors: authors,
     authors-en: authors-en,
     abstract: abstract,
     keywords: keywords,
@@ -34,7 +34,7 @@
     heading-bibliography: [#h(1em)参考文献],
     heading-appendix: [#h(1em)付録],
     // フォントサイズ Font size
-    font-size-title-ja: 18pt,
+    font-size-tilte: 18pt,
     // 補足語 Supplement
     supplement-image: [Fig.],
     supplement-table: [Table],

@@ -7,9 +7,9 @@
 // デフォルト値でよい引数は省略可能
 #show: temp.with(
   // 基本 Basic
-  title-ja: [Typst を使った国内学会論文の書き方 \ - 国内学会予稿集に似せたフォーマットの作成 - ],
+  title: [Typst を使った国内学会論文の書き方 \ - 国内学会予稿集に似せたフォーマットの作成 - ],
   title-en: [How to Write a Conference Paper in Japanese],
-  authors-ja: [◯ 著者姓1 著者名1、著者姓2 著者名2(○○○大学)、著者姓3 著者名3 (□□□株式会社)],
+  authors: [◯ 著者姓1 著者名1、著者姓2 著者名2(○○○大学)、著者姓3 著者名3 (□□□株式会社)],
   authors-en: [\*A. First, B. Second (○○○ Univ.), and C. Third (□□□ Corp.)],
   abstract: [#lorem(80)],
   keywords: ([Typst], [conference paper writing], [manuscript format]),
@@ -34,9 +34,9 @@
   heading-bibliography: [参　考　文　献],
   heading-appendix: [付　録],
   // フォントサイズ Font size
-  font-size-title-ja: 16pt,
+  font-size-title: 16pt,
   font-size-title-en: 12pt,
-  font-size-authors-ja: 12pt,
+  font-size-authors: 12pt,
   font-size-authors-en: 12pt,
   font-size-abstract: 10pt,
   font-size-heading: 11pt,
@@ -226,9 +226,9 @@ main.typ の文頭にある以下のコードを解説します。
 // #import "libs/rsj-conf/lib.typ": rsj-conf as temp, definition, lemma, theorem, corollary, proof, appendix
 
 #show: temp.with(
-  title-ja: [Typst を使った国内学会論文の書き方 \ - 国内学会予稿集に似せたフォーマットの作成 - ],
+  tilte: [Typst を使った国内学会論文の書き方 \ - 国内学会予稿集に似せたフォーマットの作成 - ],
   title-en: [How to Write a Conference Paper in Japanese],
-  authors-ja: [◯ 著者姓1 著者名1、著者姓2 著者名2(○○○大学)、著者姓3 著者名3 (□□□株式会社)],
+  authors: [◯ 著者姓1 著者名1、著者姓2 著者名2(○○○大学)、著者姓3 著者名3 (□□□株式会社)],
   authors-en: [\*A. First, B. Second (○○○ Univ.), and C. Third (□□□ Corp.)],
   abstract: [#lorem(80)],
   keywords: ([Typst], [conference paper writing], [manuscript format]),

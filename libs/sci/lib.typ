@@ -5,9 +5,9 @@
 #import "@preview/jaconf:0.4.1": jaconf, definition, lemma, theorem, corollary, proof, appendix
 
 #let sci(
-  title-ja: [日本語タイトル],
+  tilte: [日本語タイトル],
   title-en: [],
-  authors-ja: [著者],
+  authors: [著者],
   authors-en: [],
   abstract: none,
   keywords: (),
@@ -18,9 +18,9 @@
 ) = {
   show: jaconf.with(
     // 基本 Basic
-    title-ja: title-ja,
+    tilte: tilte,
     title-en: title-en,
-    authors-ja: authors-ja,
+    authors: authors,
     authors-en: authors-en,
     abstract: abstract,
     keywords: keywords,
