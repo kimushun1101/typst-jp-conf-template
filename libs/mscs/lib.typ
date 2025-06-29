@@ -2,10 +2,10 @@
 // Copyright 2024, 2025 Shunsuke Kimura
 
 #let conference-name = "制御部門マルチシンポジウム"
-#import "@preview/jaconf:0.4.1": jaconf, definition, lemma, theorem, corollary, proof, appendix
+#import "@preview/jaconf:0.5.0": jaconf, definition, lemma, theorem, corollary, proof, appendix
 
 #let mscs(
-  tilte: [日本語タイトル],
+  title: [日本語タイトル],
   title-en: [],
   authors: [著者],
   authors-en: [],
@@ -18,7 +18,7 @@
 ) = {
   show: jaconf.with(
     // 基本 Basic
-    tilte: tilte,
+    title: title,
     title-en: title-en,
     authors: authors,
     authors-en: authors-en,
@@ -34,7 +34,7 @@
     heading-bibliography: [#h(1em)参考文献],
     heading-appendix: [#h(1em)付録],
     // フォントサイズ Font size
-    font-size-tilte: 18pt,
+    font-size-title: 18pt,
     // 補足語 Supplement
     supplement-image: [Fig.],
     supplement-table: [Table],

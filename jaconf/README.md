@@ -21,7 +21,7 @@ This is a template for **academic conference papers in Japanese**.
 このテンプレートが提供する `jaconf` 関数は、以下の名前付き引数を持ちます。
 
 - 基本　Basic
-  - `tilte`: 日本語タイトル。
+  - `title`: 日本語タイトル。
   - `title-en`: 英語タイトル。
   - `authors`: 日本語著者名とその所属。
   - `authors`: 英語著者名とその所属。
@@ -49,7 +49,7 @@ This is a template for **academic conference papers in Japanese**.
   - `heading-bibliography`: 参考文献の見出し
   - `heading-appendix`: 付録の見出し
 - フォントサイズ　Font size
-  - `font-size-tilte`: 日本語タイトルのフォントサイズ
+  - `font-size-title`: 日本語タイトルのフォントサイズ
   - `font-size-title-en`: 英語タイトルのフォントサイズ
   - `font-size-authors`: 日本語著者名のフォントサイズ
   - `font-size-authors-en`: 英語著者名のフォントサイズ
@@ -69,12 +69,12 @@ This is a template for **academic conference papers in Japanese**.
 文書ファイルの先頭で `jaconf` テンプレートを`import`して、引数付きのshowルールで呼び出してください。
 
 ```typ
-#import "@preview/jaconf:0.4.1": jaconf, definition, lemma, theorem, corollary, proof, appendix
+#import "@preview/jaconf:0.5.0": jaconf, definition, lemma, theorem, corollary, proof, appendix
 
 // デフォルト値でよい引数は省略可能
 #show: jaconf.with(
   // 基本 Basic
-  tilte: [日本語の学会論文Typstテンプレート \ jaconf ],
+  title: [日本語の学会論文Typstテンプレート \ jaconf ],
   title-en: [How to Write a Conference Paper in Japanese],
   authors: [◯ 著者姓1 著者名1、著者姓2 著者名2(○○○大学)、著者姓3 著者名3 (□□□株式会社)],
   authors-en: [\*A. First, B. Second (○○○ Univ.), and C. Third (□□□ Corp.)],
