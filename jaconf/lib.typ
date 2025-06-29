@@ -25,12 +25,12 @@
   font-latin: "New Computer Modern",
   font-math: "New Computer Modern Math",
   // 外観 Appearance
+  paper-margin: (top: 20mm, bottom: 27mm, left: 20mm, right: 20mm),
   paper-columns: 2,  // 1: single column, 2: double column
   page-number: none,  // e.g. "1/1"
-  paper-margin: (top: 20mm, bottom: 27mm, left: 20mm, right: 20mm),
   column-gutter: 4%+0pt,
   spacing-heading: 1.2em,
-  bibliography-style: "sice.csl",  // "rsj-conf.csl", "rengo.csl", "sci.csl", "ieee"
+  bibliography-style: "sice.csl",  // "sice.csl", "rsj.csl", "ieee", etc.
   abstract-language: "en",  // "ja" or "en"
   keywords-language: "en",  // "ja" or "en"
   front-matter-spacing: 1.5em,
@@ -57,7 +57,7 @@
   numbering-headings: "1.1",
   numbering-equation: "(1)",
   numbering-appendix: "A.1",  // #show: appendix.with(numbering-appendix: "A.1") の呼び出しにも同じ引数を与えてください。
-  // main text
+  // 本文
   body
 ) = {
   // Set metadata.
