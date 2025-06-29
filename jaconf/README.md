@@ -40,6 +40,7 @@ This is a template for **academic conference papers in Japanese**.
   - `spacing-heading`: 見出しと本文の空き。
   - `bibliography-style`: 参考文献リストの体裁。
   - `abstract-language`: アブストラクトの言語。これによってアブストラクトのフォントが決まります。
+  - `keywords-language`: キーワードリストの言語。これによってキーワードのフォントが決まります。
   - `front-matter-spacing`: 前付けのスペース
   - `front-matter-margin`: 前付けと本文とのマージン
 - 見出し　Headings
