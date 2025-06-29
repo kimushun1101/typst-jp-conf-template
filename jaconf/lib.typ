@@ -13,10 +13,10 @@
 
 #let jaconf(
   // 基本 Basic
-  title: [日本語タイトル],
-  title-en: [],
+  title: [タイトル],
+  title-en: [Title in English],
   authors: [著者],
-  authors-en: [],
+  authors-en: [Authors in English],
   abstract: none,
   keywords: (),
   // フォント名 Font family
@@ -32,6 +32,7 @@
   spacing-heading: 1.2em,
   bibliography-style: "sice.csl",  // "rsj-conf.csl", "rengo.csl", "sci.csl", "ieee"
   abstract-language: "en",  // "ja" or "en"
+  keywords-language: "en",  // "ja" or "en"
   front-matter-spacing: 1.5em,
   front-matter-margin: 2.0em,
   // 見出し Headings
@@ -153,27 +154,32 @@
   v(front-matter-spacing, weak: true)
 
   // Display abstract and index terms.
-  if abstract != none {
-    grid(
-      columns: (0.7cm, 1fr, 0.7cm),
-      [],
-      {
+  grid(
+    columns: (0.7cm, 1fr, 0.7cm),
+    [],
+    {
+      set par(first-line-indent: 0em)
+      if abstract != none {
         set text(
           font-size-abstract,
           font: if abstract-language == "ja" { font-main }
             else { font-latin }
         )
-        set par(first-line-indent: 0em)
-        [
-          #heading-abstract #h(0.5em) #remove-cjk-break-space(abstract)
-        ]
-        if keywords != () {
-          [#v(1em) #heading-keywords #h(0.5em) #keywords.join(", ")]
-        }
-      },
-      []
-    )
-  }
+        [#heading-abstract #h(0.5em) #remove-cjk-break-space(abstract)]
+      }
+      v(1em, weak: true)
+      if keywords != () {
+        set text(
+          font-size-abstract,
+          font: if keywords-language == "ja" { font-main }
+            else { font-latin }
+        )
+        [#heading-keywords #h(0.5em) #keywords.join(", ")]
+      }
+    },
+    []
+  )
+
   v(front-matter-margin)
 
   // Start two column mode and configure paragraph properties.
