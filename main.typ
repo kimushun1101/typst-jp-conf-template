@@ -14,23 +14,24 @@
   abstract: [#lorem(80)],
   keywords: ([Typst], [conference paper writing], [manuscript format]),
   // フォント名 Font family
-  // font-gothic: "Noto Sans CJK JP",  // outdated
-  // font-mincho: "Noto Serif CJK JP",  // outdated
-  font-heading: "Noto Sans CJK JP",
-  font-main: "Noto Serif CJK JP",
+  font-heading: "Noto Sans CJK JP",  // サンセリフ体、ゴシック体などの指定を推奨
+  font-main: "Noto Serif CJK JP",  // セリフ体、明朝体などの指定を推奨
   font-latin: "New Computer Modern",
   font-math: "New Computer Modern Math",
   // 外観 Appearance
+  paper-margin: (top: 20mm, bottom: 27mm, left: 20mm, right: 20mm),
   paper-columns: 2,  // 1: single column, 2: double column
   page-number: none,  // e.g. "1/1"
-  paper-margin: (top: 20mm, bottom: 27mm, left: 20mm, right: 20mm),
   column-gutter: 4%+0pt,
   spacing-heading: 1.2em,
   bibliography-style: "sice.csl",  // "sice.csl", "rsj.csl", "ieee", etc.
   abstract-language: "en",  // "ja" or "en"
+  keywords-language: "en",  // "ja" or "en"
+  front-matter-spacing: 1.5em,
+  front-matter-margin: 2.0em,
   // 見出し Headings
   heading-abstract: [*Abstract--*],
-  heading-keywords: [*Key Words*: ],
+  heading-keywords: [*Keywords*: ],
   heading-bibliography: [参　考　文　献],
   heading-appendix: [付　録],
   // フォントサイズ Font size
@@ -39,7 +40,7 @@
   font-size-authors: 12pt,
   font-size-authors-en: 12pt,
   font-size-abstract: 10pt,
-  font-size-heading: 11pt,
+  font-size-heading: 12pt,
   font-size-main: 10pt,
   font-size-bibliography: 9pt,
   // 補足語 Supplement

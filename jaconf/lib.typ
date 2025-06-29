@@ -13,10 +13,10 @@
 
 #let jaconf(
   // 基本 Basic
-  title: [日本語タイトル],
-  title-en: [],
+  title: [タイトル],
+  title-en: [Title in English],
   authors: [著者],
-  authors-en: [],
+  authors-en: [Authors in English],
   abstract: none,
   keywords: (),
   // フォント名 Font family
@@ -25,13 +25,16 @@
   font-latin: "New Computer Modern",
   font-math: "New Computer Modern Math",
   // 外観 Appearance
+  paper-margin: (top: 20mm, bottom: 27mm, left: 20mm, right: 20mm),
   paper-columns: 2,  // 1: single column, 2: double column
   page-number: none,  // e.g. "1/1"
-  paper-margin: (top: 20mm, bottom: 27mm, left: 20mm, right: 20mm),
   column-gutter: 4%+0pt,
   spacing-heading: 1.2em,
-  bibliography-style: "sice.csl",  // "rsj-conf.csl", "rengo.csl", "sci.csl", "ieee"
+  bibliography-style: "sice.csl",  // "sice.csl", "rsj.csl", "ieee", etc.
   abstract-language: "en",  // "ja" or "en"
+  keywords-language: "en",  // "ja" or "en"
+  front-matter-spacing: 1.5em,
+  front-matter-margin: 2.0em,
   // 見出し Headings
   heading-abstract: [*Abstract--*],
   heading-keywords: [*Keywords*: ],
@@ -54,7 +57,7 @@
   numbering-headings: "1.1",
   numbering-equation: "(1)",
   numbering-appendix: "A.1",  // #show: appendix.with(numbering-appendix: "A.1") の呼び出しにも同じ引数を与えてください。
-  // main text
+  // 本文
   body
 ) = {
   // Set metadata.
@@ -125,9 +128,8 @@
   // Configure headings.
   set heading(numbering: numbering-headings)
   show heading: set block(spacing: spacing-heading)
-  show heading.where(level: 1): set text( size: font-size-heading, font: font-heading, weight: "bold", spacing: 100%)
-  show heading.where(level: 2): set text( size: font-size-main, font: font-heading, weight: "bold")
-  show heading.where(level: 3): set text( size: font-size-main, font: font-heading, weight: "bold")
+  show heading: set text(size: font-size-main, font: font-heading, weight: "bold")
+  show heading.where(level: 1): set text(size: font-size-heading)
 
   // Configure figures.
   show figure.where(kind: table): set figure(placement: top, supplement: supplement-table)
@@ -137,43 +139,48 @@
 
   // Display the paper's title.
   align(center, text(font-size-title, title, weight: "bold", font: font-heading))
-  v(18pt, weak: true)
+  v(front-matter-spacing, weak: true)
 
   // Display the authors list.
   align(center, text(font-size-authors, authors, font: font-main))
-  v(1.5em, weak: true)
+  v(front-matter-spacing, weak: true)
 
   // Display the paper's title in English.
   align(center, text(font-size-title-en, title-en, weight: "bold", font: font-latin))
-  v(1.5em, weak: true)
+  v(front-matter-spacing, weak: true)
 
   // Display the authors list in English.
   align(center, text(font-size-authors-en, authors-en, font: font-latin))
-  v(1.5em, weak: true)
+  v(front-matter-spacing, weak: true)
 
   // Display abstract and index terms.
-  if abstract != none {
-    grid(
-      columns: (0.7cm, 1fr, 0.7cm),
-      [],
-      {
+  grid(
+    columns: (0.7cm, 1fr, 0.7cm),
+    [],
+    {
+      set par(first-line-indent: 0em)
+      if abstract != none {
         set text(
           font-size-abstract,
           font: if abstract-language == "ja" { font-main }
             else { font-latin }
         )
-        set par(first-line-indent: 0em)
-        [
-          #heading-abstract #h(0.5em) #remove-cjk-break-space(abstract)
-        ]
-        if keywords != () {
-          [#v(1em) #heading-keywords #h(0.5em) #keywords.join(", ")]
-        }
-      },
-      []
-    )
-    v(1em, weak: false)
-  }
+        [#heading-abstract #h(0.5em) #remove-cjk-break-space(abstract)]
+      }
+      v(1em, weak: true)
+      if keywords != () {
+        set text(
+          font-size-abstract,
+          font: if keywords-language == "ja" { font-main }
+            else { font-latin }
+        )
+        [#heading-keywords #h(0.5em) #keywords.join(", ")]
+      }
+    },
+    []
+  )
+
+  v(front-matter-margin)
 
   // Start two column mode and configure paragraph properties.
   show: columns.with(paper-columns, gutter: column-gutter)

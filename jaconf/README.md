@@ -40,6 +40,9 @@ This is a template for **academic conference papers in Japanese**.
   - `spacing-heading`: 見出しと本文の空き。
   - `bibliography-style`: 参考文献リストの体裁。
   - `abstract-language`: アブストラクトの言語。これによってアブストラクトのフォントが決まります。
+  - `keywords-language`: キーワードリストの言語。これによってキーワードのフォントが決まります。
+  - `front-matter-spacing`: 前付けのスペース
+  - `front-matter-margin`: 前付けと本文とのマージン
 - 見出し　Headings
   - `heading-abstract`: アブストラクトの見出し
   - `heading-keywords`: キーワードの見出し
@@ -90,18 +93,21 @@ This is a template for **academic conference papers in Japanese**.
   spacing-heading: 1.2em,
   bibliography-style: "sice.csl",  // "sice.csl", "rsj.csl", "ieee", etc.
   abstract-language: "en",  // "ja" or "en"
+  keywords-language: "en",  // "ja" or "en"
+  front-matter-spacing: 1.5em,
+  front-matter-margin: 2.0em,
   // 見出し Headings
   heading-abstract: [*Abstract--*],
-  heading-keywords: [*Key Words*: ],
+  heading-keywords: [*Keywords*: ],
   heading-bibliography: [参　考　文　献],
   heading-appendix: [付　録],
   // フォントサイズ Font size
-  font-size-tilte: 16pt,
+  font-size-title: 16pt,
   font-size-title-en: 12pt,
   font-size-authors: 12pt,
   font-size-authors-en: 12pt,
   font-size-abstract: 10pt,
-  font-size-heading: 11pt,
+  font-size-heading: 12pt,
   font-size-main: 10pt,
   font-size-bibliography: 9pt,
   // 補足語 Supplement
