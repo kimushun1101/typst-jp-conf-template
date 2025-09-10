@@ -52,6 +52,7 @@
   // 補足語 Supplement
   supplement-image: [図],
   supplement-table: [表],
+  supplement-equation: [式],
   supplement-separator: [: ],
   // 番号付け Numbering
   numbering-headings: "1.1",
@@ -94,10 +95,8 @@
     let eq = math.equation
     let el = it.element
     if el != none and el.func() == eq {
-      link(el.location(), numbering(
-        el.numbering,
-        ..counter(eq).at(el.location())
-      ))
+      let num = numbering(el.numbering, ..counter(eq).at(el.location()))
+      link(el.location(), [#supplement-equation #num])
     }
     // Sections -> n章m節l項.
     // Appendix -> 付録A.
