@@ -30,11 +30,12 @@
   page-number: none,  // e.g. "1/1"
   column-gutter: 4%+0pt,
   spacing-heading: 1.2em,
-  bibliography-style: "sice.csl",  // "sice.csl", "rsj.csl", "ieee", etc.
-  abstract-language: "en",  // "ja" or "en"
-  keywords-language: "en",  // "ja" or "en"
+  front-matter-order: ("title", "authors", "title-en", "authors-en", "abstract", "keywords"),  // 独自コンテンツの追加も可能
   front-matter-spacing: 1.5em,
   front-matter-margin: 2.0em,
+  abstract-language: "en",  // "ja" or "en"
+  keywords-language: "en",  // "ja" or "en"
+  bibliography-style: "sice.csl",  // "sice.csl", "rsj.csl", "ieee", etc.
   // 見出し Headings
   heading-abstract: [*Abstract--*],
   heading-keywords: [*Keywords*: ],
@@ -137,50 +138,68 @@
   show figure.where(kind: image): set figure(placement: top, supplement: supplement-image)
   show figure.where(kind: image): set figure.caption(position: bottom, separator: supplement-separator)
 
-  // Display the paper's title.
-  align(center, text(font-size-title, title, weight: "bold", font: font-heading))
-  v(front-matter-spacing, weak: true)
+  // Title and Authors
+  for item in front-matter-order {
+    if item == "title" and title != [] {
+      // Display the paper's title.
+      align(center, text(font-size-title, title, weight: "bold", font: font-heading))
+      v(front-matter-spacing, weak: true)
+    } else if item == "authors" and authors != [] {
+      // Display the authors list.
+      align(center, text(font-size-authors, authors, font: font-main))
+      v(front-matter-spacing, weak: true)
+    } else if item == "title-en" and title-en != [] {
+      // Display the paper's title in English.
+      align(center, text(font-size-title-en, title-en, weight: "bold", font: font-latin))
+      v(front-matter-spacing, weak: true)
+    } else if item == "authors-en" and authors-en != [] {
+      // Display the authors list in English.
+      align(center, text(font-size-authors-en, authors-en, font: font-latin))
+      v(front-matter-spacing, weak: true)
+    } else if item == "abstract" and abstract != none {
+      // Display abstract and index terms.
+      grid(
+        columns: (0.7cm, 1fr, 0.7cm),
+        [],
+        {
+          set par(first-line-indent: 0em)
+          if abstract != none {
+            set text(
+              font-size-abstract,
+              font: if abstract-language == "ja" { font-main }
+                else { font-latin }
+            )
+            [#heading-abstract #h(0.5em) #remove-cjk-break-space(abstract)]
+          }
+        },
+        []
+      )
+      v(front-matter-spacing, weak: true)
+    } else if item == "keywords" and keywords != () {
+      // Display abstract and index terms.
+      grid(
+        columns: (0.7cm, 1fr, 0.7cm),
+        [],
+        {
+          set par(first-line-indent: 0em)
+          if keywords != () {
+            set text(
+              font-size-abstract,
+              font: if keywords-language == "ja" { font-main }
+                else { font-latin }
+            )
+            [#heading-keywords #h(0.5em) #keywords.join(", ")]
+          }
+        },
+        []
+      )
+      v(front-matter-spacing, weak: true)
+    } else {
+      item
+    }
+  }
 
-  // Display the authors list.
-  align(center, text(font-size-authors, authors, font: font-main))
-  v(front-matter-spacing, weak: true)
-
-  // Display the paper's title in English.
-  align(center, text(font-size-title-en, title-en, weight: "bold", font: font-latin))
-  v(front-matter-spacing, weak: true)
-
-  // Display the authors list in English.
-  align(center, text(font-size-authors-en, authors-en, font: font-latin))
-  v(front-matter-spacing, weak: true)
-
-  // Display abstract and index terms.
-  grid(
-    columns: (0.7cm, 1fr, 0.7cm),
-    [],
-    {
-      set par(first-line-indent: 0em)
-      if abstract != none {
-        set text(
-          font-size-abstract,
-          font: if abstract-language == "ja" { font-main }
-            else { font-latin }
-        )
-        [#heading-abstract #h(0.5em) #remove-cjk-break-space(abstract)]
-      }
-      v(1em, weak: true)
-      if keywords != () {
-        set text(
-          font-size-abstract,
-          font: if keywords-language == "ja" { font-main }
-            else { font-latin }
-        )
-        [#heading-keywords #h(0.5em) #keywords.join(", ")]
-      }
-    },
-    []
-  )
-
-  v(front-matter-margin)
+  v(front-matter-margin, weak: true)
 
   // Start two column mode and configure paragraph properties.
   show: columns.with(paper-columns, gutter: column-gutter)
