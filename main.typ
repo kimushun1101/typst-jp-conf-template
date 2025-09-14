@@ -27,6 +27,7 @@
   bibliography-style: "sice.csl",  // "sice.csl", "rsj.csl", "ieee", etc.
   abstract-language: "en",  // "ja" or "en"
   keywords-language: "en",  // "ja" or "en"
+  front-matter-order: ("title", "authors", "title-en", "authors-en", "abstract", "keywords"),  // 独自コンテンツの追加も可能
   front-matter-spacing: 1.5em,
   front-matter-margin: 2.0em,
   // 見出し Headings

@@ -21,28 +21,29 @@ This is a template for **academic conference papers in Japanese**.
 このテンプレートが提供する `jaconf` 関数は、以下の名前付き引数を持ちます。
 
 - 基本　Basic
-  - `title`: 日本語タイトル。
-  - `title-en`: 英語タイトル。
-  - `authors`: 日本語著者名とその所属。
-  - `authors`: 英語著者名とその所属。
-  - `abstract`: 概要。
-  - `keywords`: キーワード。配列で渡してください。
+  - `title`: 日本語タイトル
+  - `title-en`: 英語タイトル
+  - `authors`: 日本語著者名とその所属
+  - `authors`: 英語著者名とその所属
+  - `abstract`: 概要
+  - `keywords`: キーワード。配列で渡してください
 - フォント名
   - `font-heading`: 見出しに使うフォント。サンセリフ体、ゴシック体などの指定を推奨。
   - `font-main`: 本文に使うフォント。セリフ体、明朝体などの指定を推奨。
-  - `font-latin`: 英文に使うフォント。
-  - `font-math`: 数式に使うフォント。
+  - `font-latin`: 英文に使うフォント
+  - `font-math`: 数式に使うフォント
 - 外観　Appearance
   - `paper-margin`: 余白
-  - `paper-columns`: 段組みの数。
-  - `page-number`: ページ番号の体裁。
+  - `paper-columns`: 段組みの数
+  - `page-number`: ページ番号の体裁
   - `column-gutter`: 左右余白（それぞれ）
-  - `spacing-heading`: 見出しと本文の空き。
-  - `bibliography-style`: 参考文献リストの体裁。
+  - `spacing-heading`: 見出しと本文の空き
+  - `front-matter-order`: 前付けのコンテンツの表示順番。カスタムコンテンツの追加も利用可能。
+  - `front-matter-spacing`: 前付けの各コンテンツ間のスペース
+  - `front-matter-margin`: 前付けと本文とのマージン
   - `abstract-language`: アブストラクトの言語。これによってアブストラクトのフォントが決まります。
   - `keywords-language`: キーワードリストの言語。これによってキーワードのフォントが決まります。
-  - `front-matter-spacing`: 前付けのスペース
-  - `front-matter-margin`: 前付けと本文とのマージン
+  - `bibliography-style`: 参考文献リストの体裁
 - 見出し　Headings
   - `heading-abstract`: アブストラクトの見出し
   - `heading-keywords`: キーワードの見出し
@@ -91,11 +92,12 @@ This is a template for **academic conference papers in Japanese**.
   page-number: none,  // e.g. "1/1"
   column-gutter: 4%+0pt,
   spacing-heading: 1.2em,
-  bibliography-style: "sice.csl",  // "sice.csl", "rsj.csl", "ieee", etc.
-  abstract-language: "en",  // "ja" or "en"
-  keywords-language: "en",  // "ja" or "en"
+  front-matter-order: ("title", "authors", "title-en", "authors-en", "abstract", "keywords"),  // 独自コンテンツの追加も可能
   front-matter-spacing: 1.5em,
   front-matter-margin: 2.0em,
+  abstract-language: "en",  // "ja" or "en"
+  keywords-language: "en",  // "ja" or "en"
+  bibliography-style: "sice.csl",  // "sice.csl", "rsj.csl", "ieee", etc.
   // 見出し Headings
   heading-abstract: [*Abstract--*],
   heading-keywords: [*Keywords*: ],
