@@ -2,7 +2,7 @@
 // Copyright 2024, 2025 Shunsuke Kimura
 
 #let conference-name = "システム制御情報学会 研究発表講演会"
-#import "@preview/jaconf:0.5.0": jaconf, definition, lemma, theorem, corollary, proof, appendix
+#import "@preview/jaconf:0.5.1": jaconf, definition, lemma, theorem, corollary, proof, appendix
 
 #let sci(
   title: [日本語タイトル],
