@@ -96,7 +96,7 @@
     let el = it.element
     if el != none and el.func() == eq {
       let num = numbering(el.numbering, ..counter(eq).at(el.location()))
-      link(el.location(), [#supplement-equation #num])
+      link(el.location(), [#supplement-ref-equation #num])
     }
     // Sections -> n章m節l項.
     // Appendix -> 付録A.
