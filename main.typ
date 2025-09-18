@@ -426,7 +426,10 @@ CSLファイルは著者が編集する必要はありませんが、詳細が�
 
 最後までお読みいただき誠にありがとうございました。
 
-#bibliography("refs.yml", full: false)
+#block[
+  #set text(lang: "en")
+  #bibliography("refs.yml", full: false)
+]
 
 #show: appendix.with(numbering-appendix: "A.1")
 
