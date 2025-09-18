@@ -117,6 +117,7 @@ This is a template for **academic conference papers in Japanese**.
   supplement-image: [図],
   supplement-table: [表],
   supplement-separator: [: ],
+  supplement-equation-ref: [],  // 式、Eq. など
   // 番号付け Numbering
   numbering-headings: "1.1",
   numbering-equation: "(1)",
