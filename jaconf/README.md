@@ -62,7 +62,7 @@ This is a template for **academic conference papers in Japanese**.
   - `supplement-image`: 図タイトルの接頭辞
   - `supplement-table`: 表タイトルの接頭辞
   - `supplement-separator`: 図表の接頭辞とタイトルの区切り文字
-  - `supplement-ref-equation`: 本文中で引用する際に、数式番号につける接頭辞
+  - `supplement-equation-ref`: 本文中で引用する際に、数式番号につける接頭辞
 - 番号付け　Numbering
   - `numbering-headings`: 本文の見出し番号の体裁
   - `numbering-equation`: 式番号の体裁
